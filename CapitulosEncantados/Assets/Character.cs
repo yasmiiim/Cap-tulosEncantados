@@ -7,17 +7,29 @@ public class Character : MonoBehaviour
 {
     public float Speed;
     public float Jumpforce;
-    public int maxJumpCount = 2; // Número máximo de saltos (double jump é 2 saltos)
+    public int maxJumpCount = 2; 
 
-    public int jumpCount; // Contador de saltos restantes
-    public bool isGrounded; // Verifica se o personagem está no chão
+    public int jumpCount; 
+    public bool isGrounded; 
 
     private Rigidbody2D rig;
+
+    private AudioSource soundFx;
+
+
+
 
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
         jumpCount = maxJumpCount; // Inicializa o número de saltos
+    }
+
+
+    void Awake()
+    {
+        soundFx = GetComponent<AudioSource>();
+        
     }
 
     void Update()
@@ -47,6 +59,7 @@ public class Character : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") && jumpCount > 0)
         {
+            //soundFx.Play();
             rig.AddForce(new Vector2(0f, Jumpforce), ForceMode2D.Impulse);
             jumpCount--; // Decrementa o contador de saltos
         }
