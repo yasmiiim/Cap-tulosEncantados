@@ -20,23 +20,17 @@ public class Character : MonoBehaviour
     public bool isGrounded;
 
     private Rigidbody2D rig;
-
     private AudioSource soundFx;
-
-
-
 
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
-        jumpCount = maxJumpCount; // Inicializa o número de saltos
+        jumpCount = maxJumpCount;
     }
-
 
     void Awake()
     {
         soundFx = GetComponent<AudioSource>();
-
     }
 
     void Update()
@@ -44,7 +38,7 @@ public class Character : MonoBehaviour
         Move();
         Jump();
 
-        tiro = Input.GetButtonDown("Fire1");
+        tiro = Input.GetKeyDown(KeyCode.Z);
 
         Atirar();
     }
@@ -59,12 +53,10 @@ public class Character : MonoBehaviour
         if (flipX == true && inputAxis > 0)
         {
             Flip();
-            //transform.eulerAngles = new Vector2(0f, 0f);
         }
         else if (flipX == false && inputAxis < 0)
         {
             Flip();
-            //transform.eulerAngles = new Vector2(0f, 180f);
         }
     }
 
@@ -72,15 +64,14 @@ public class Character : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") && jumpCount > 0)
         {
-            //soundFx.Play();
             rig.AddForce(new Vector2(0f, Jumpforce), ForceMode2D.Impulse);
-            jumpCount--; // Decrementa o contador de saltos
+            jumpCount--;
         }
     }
 
     private void Atirar()
     {
-        if (tiro == true)
+        if (tiro)
         {
             GameObject temp = Instantiate(balaprojetil);
             temp.transform.position = arma.position;
@@ -97,5 +88,5 @@ public class Character : MonoBehaviour
         transform.localScale = new Vector3(x, transform.localScale.y, transform.localScale.z);
         forcaDoTiro *= -1;
     }
-
 }
+
