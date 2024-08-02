@@ -24,8 +24,17 @@ public class VidaPlayer : MonoBehaviour
 
         if (vidaAtual <= 0)
         {
-            Debug.Log("Game Over");
+            Destroy(this.gameObject);
         }
         
     }
+
+    private void OnCollisionEnter2D(Collision2D coli)
+    {
+        if (coli.collider.CompareTag("enemy"))
+        {
+            ReceberDano();
+        }
+    }
+
 }

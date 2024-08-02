@@ -52,7 +52,7 @@ public class inimigo : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col != null && !col.collider.CompareTag("Player") && !col.collider.CompareTag("Ground"))
+        if (col != null && !col.collider.CompareTag("Player"))
         {
             faceFlip = !faceFlip;
             FlipEnemy();

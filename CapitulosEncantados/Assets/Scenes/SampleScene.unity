@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 83015999}
   m_Layer: 8
   m_Name: chao
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1281,7 +1281,7 @@ GameObject:
   - component: {fileID: 1328355698}
   m_Layer: 8
   m_Name: obstaculo
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1614,7 +1614,7 @@ Transform:
   m_GameObject: {fileID: 1543052718}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.8469, y: -2.6113, z: 0}
+  m_LocalPosition: {x: 6.58, y: -2.61, z: 0}
   m_LocalScale: {x: 0.2571, y: 0.2571, z: 0.2571}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1645,9 +1645,10 @@ GameObject:
   - component: {fileID: 1573433651}
   - component: {fileID: 1573433650}
   - component: {fileID: 1573433655}
+  - component: {fileID: 1573433656}
   m_Layer: 0
   m_Name: inimigo
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1808,6 +1809,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.15432857, y: 0.11915466}
   m_EdgeRadius: 0
+--- !u!114 &1573433656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573433649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbfa23f1999cc0d4ea5feacddc6ec6d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1622699516
 GameObject:
   m_ObjectHideFlags: 0
@@ -1886,7 +1899,7 @@ Transform:
   m_GameObject: {fileID: 1622699516}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.19, y: -2.6113, z: 0}
+  m_LocalPosition: {x: 6.95, y: -2.6, z: 0}
   m_LocalScale: {x: 0.2571, y: 0.2571, z: 0.2571}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1906,7 +1919,7 @@ GameObject:
   - component: {fileID: 1628411600}
   m_Layer: 8
   m_Name: obstaculo (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2113,7 +2126,7 @@ Transform:
   m_GameObject: {fileID: 1898572972}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.56, y: -2.6, z: 0}
+  m_LocalPosition: {x: 7.26, y: -2.61, z: 0}
   m_LocalScale: {x: 0.2571, y: 0.2571, z: 0.2571}
   m_ConstrainProportionsScale: 0
   m_Children: []

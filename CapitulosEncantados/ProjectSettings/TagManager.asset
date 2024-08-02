@@ -6,6 +6,7 @@ TagManager:
   tags:
   - bala
   - enemy
+  - Ground
   layers:
   - Default
   - TransparentFX
