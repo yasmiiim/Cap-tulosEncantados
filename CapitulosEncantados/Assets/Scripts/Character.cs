@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -27,6 +28,16 @@ public class Character : MonoBehaviour
         rig = GetComponent<Rigidbody2D>();
         jumpCount = maxJumpCount;
     }
+//FAZER ESSE DEPOIS
+    //private void OnCollisionEnter(Collision2D collision)
+    //{
+        //if (collision.gameObject.layer == 6)
+        //{
+           // playerAnim.SetBool("Jump", false);
+           // isGrounded = true;
+           // doubleJump = false;
+      //  }
+   // }
 
     void Awake()
     {
