@@ -8,6 +8,7 @@ TagManager:
   - enemy
   - Ground
   - Plataforma
+  - Pedra
   layers:
   - Default
   - TransparentFX

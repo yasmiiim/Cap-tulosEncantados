@@ -22,6 +22,8 @@ public class Character : MonoBehaviour
 
     private Rigidbody2D rig;
     private AudioSource soundFx;
+    
+    public int pedras;
 
     void Start()
     {
@@ -98,6 +100,15 @@ public class Character : MonoBehaviour
         x *= -1;
         transform.localScale = new Vector3(x, transform.localScale.y, transform.localScale.z);
         forcaDoTiro *= -1;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Pedra")
+        {
+            Destroy(collision.gameObject);
+            pedras++;
+        }
     }
 }
 
