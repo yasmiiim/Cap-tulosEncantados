@@ -79,6 +79,7 @@ public class Character : MonoBehaviour
         {
             rig.AddForce(new Vector2(0f, Jumpforce), ForceMode2D.Impulse);
             jumpCount--;
+            AudioObserver.OnPlaySfxEvent("pulo");
         }
     }
 
