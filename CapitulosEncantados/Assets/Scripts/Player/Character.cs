@@ -58,6 +58,9 @@ public class Character : MonoBehaviour
 
     void Move()
     {
+        
+        AudioObserver.OnPlaySfxEvent("walking");
+        
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
         transform.position += movement * Time.deltaTime * Speed;
 
@@ -87,6 +90,7 @@ public class Character : MonoBehaviour
     {
         if (tiro)
         {
+            AudioObserver.OnPlaySfxEvent("attack");
             GameObject temp = Instantiate(balaprojetil);
             temp.transform.position = arma.position;
             temp.GetComponent<Rigidbody2D>().velocity = new Vector2(forcaDoTiro, 0);
@@ -107,6 +111,7 @@ public class Character : MonoBehaviour
     {
         if (collision.gameObject.tag == "Pedra")
         {
+            AudioObserver.OnPlaySfxEvent("coletar");
             Destroy(collision.gameObject);
             pedras++;
         }

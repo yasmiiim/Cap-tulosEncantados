@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource musicSource, sfxSource;
 
-    public AudioClip clipPulo, clipColetar;
+    public AudioClip clipPulo, clipColetar, clipAttack, clipWalk;
     private void Awake()
     {
         if (instance == null)
@@ -47,6 +47,12 @@ public class AudioManager : MonoBehaviour
                 break;
             case "coletar":
                 sfxSource.PlayOneShot(clipColetar);
+                break;
+            case "attack":
+                sfxSource.PlayOneShot(clipAttack);
+                break;
+            case "walking":
+                sfxSource.PlayOneShot(clipWalk);
                 break;
             default:
                 Debug.LogError($"efeito sonoro {nomeDoClip} n encontrado");
