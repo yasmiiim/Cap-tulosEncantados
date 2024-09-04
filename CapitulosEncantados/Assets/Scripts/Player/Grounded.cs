@@ -14,20 +14,19 @@ public class Grounded : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collider)
     {
-        // Verifica se o personagem está colidindo com o chão (camada 8)
         if (collider.gameObject.layer == 8) 
         {
-            player.isGrounded = true; // O personagem está no chão
-            player.jumpCount = player.maxJumpCount; // Restaura o número de saltos
+            player.isGrounded = true; 
+            player.jumpCount = player.maxJumpCount; 
         }
     }
 
     void OnCollisionExit2D(Collision2D collider)
     {
-        // Verifica se o personagem saiu do chão (camada 8)
+        
         if (collider.gameObject.layer == 8) 
         {
-            player.isGrounded = false; // O personagem saiu do chão
+            player.isGrounded = false; 
         }
     }
 }
