@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Plataforma
   - Pedra
+  - obstaculo
   layers:
   - Default
   - TransparentFX
