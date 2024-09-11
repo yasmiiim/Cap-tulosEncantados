@@ -10,15 +10,15 @@ public class DeathMenuManager : MonoBehaviour
 
     private void Awake()
     {
-        // Verifica se a instância já existe
+       
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Opcional: se quiser manter o objeto ao trocar de cena
+            DontDestroyOnLoad(gameObject); 
         }
         else
         {
-            Destroy(gameObject); // Remove o objeto se já existir uma instância
+            Destroy(gameObject); 
         }
     }
 
@@ -26,7 +26,7 @@ public class DeathMenuManager : MonoBehaviour
     {
         if (deathMenuUI != null)
         {
-            deathMenuUI.SetActive(true); // Exibe o menu de morte
+            deathMenuUI.SetActive(true); 
         }
     }
 
@@ -34,7 +34,7 @@ public class DeathMenuManager : MonoBehaviour
     {
         if (deathMenuUI != null)
         {
-            deathMenuUI.SetActive(false); // Oculta o menu de morte
+            deathMenuUI.SetActive(false); 
         }
     }
 }
