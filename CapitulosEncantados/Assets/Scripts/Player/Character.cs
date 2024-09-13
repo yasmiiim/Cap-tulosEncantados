@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class Character : MonoBehaviour
@@ -24,9 +25,13 @@ public class Character : MonoBehaviour
     private AudioSource soundFx;
     
     public int pedras;
+    public Text ScoreTxt;
+    private int score;
+    
 
     void Start()
     {
+        score = 0;
         rig = GetComponent<Rigidbody2D>();
         jumpCount = maxJumpCount;
     }
@@ -48,6 +53,7 @@ public class Character : MonoBehaviour
 
     void Update()
     {
+        ScoreTxt.text = score.ToString();
         Move();
         Jump();
 
@@ -113,7 +119,7 @@ public class Character : MonoBehaviour
         {
             AudioObserver.OnPlaySfxEvent("coletar");
             Destroy(collision.gameObject);
-            pedras++;
+            score = score + 1;
         }
     }
 }
