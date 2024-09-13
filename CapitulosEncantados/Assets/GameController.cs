@@ -7,12 +7,12 @@ public class GameController : MonoBehaviour
 {
     private void OnEnable()
     {
-        VidaPlayer.OnPlayerDeath += ShowDeathMenu; // Inscreve-se no evento
+        VidaPlayer.OnPlayerDeath += ShowDeathMenu; 
     }
 
     private void OnDisable()
     {
-        VidaPlayer.OnPlayerDeath -= ShowDeathMenu; // Desinscreve-se do evento
+        VidaPlayer.OnPlayerDeath -= ShowDeathMenu; 
     }
 
     private void ShowDeathMenu()
@@ -20,27 +20,18 @@ public class GameController : MonoBehaviour
         if (DeathMenuManager.Instance != null)
         {
             DeathMenuManager.Instance.ShowDeathMenu();
-            Time.timeScale = 0; // Pausa o jogo
+            Time.timeScale = 0; 
         }
     }
 
     public void RestartGame()
     {
-        Time.timeScale = 1; // Despausa o jogo
+        Time.timeScale = 1; 
         if (DeathMenuManager.Instance != null)
         {
             DeathMenuManager.Instance.HideDeathMenu();
         }
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // Recarrega a cena atual
-    }
-
-    public void QuitGame()
-    {
-        Time.timeScale = 1; // Despausa o jogo
-        if (DeathMenuManager.Instance != null)
-        {
-            DeathMenuManager.Instance.HideDeathMenu();
-        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
     }
 }
