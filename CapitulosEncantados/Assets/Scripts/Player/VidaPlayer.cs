@@ -28,7 +28,6 @@ public class VidaPlayer : MonoBehaviour
     private void Die()
     {
         Destroy(this.gameObject);
-        Debug.Log("Player has died. Triggering death event.");
         OnPlayerDeath?.Invoke(); // Aciona o evento de morte
     }
 
