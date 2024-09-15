@@ -25,7 +25,7 @@ public class VidaPlayer : MonoBehaviour
         }
     }
 
-    private void Die()
+    public void Die()
     {
         Destroy(this.gameObject);
         OnPlayerDeath?.Invoke(); // Aciona o evento de morte
