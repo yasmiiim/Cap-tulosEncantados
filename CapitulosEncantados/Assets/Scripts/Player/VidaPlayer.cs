@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class VidaPlayer : MonoBehaviour
 {
-    public int vidaMaxima;
     public int vidaAtual;
+    public int vidaMaxima;
+    
+    public Image[] coracao;
+    public Sprite cheio;
+    public Sprite vazio;
 
     public static event Action OnPlayerDeath; // Evento que será chamado ao morrer
 
@@ -42,6 +47,38 @@ public class VidaPlayer : MonoBehaviour
         else if (coli.collider.CompareTag("obstaculo"))
         {
             ReceberDano();
+        }
+    }
+    void Update()
+    {
+        HealthLogic();
+    }
+
+    void HealthLogic()
+    {
+        if (vidaAtual > vidaMaxima)
+        {
+            vidaAtual = vidaMaxima;
+        }
+        for (int i = 0; i < coracao.Length; i++)
+        {
+            if (i < vidaAtual)
+            {
+                coracao[i].sprite = cheio;
+            }
+            else
+            {
+                coracao[i].sprite = vazio;
+            }
+            
+            if (i < vidaMaxima)
+            {
+                coracao[i].enabled = true;
+            }
+            else
+            {
+                coracao[i].enabled = false;
+            }
         }
     }
     

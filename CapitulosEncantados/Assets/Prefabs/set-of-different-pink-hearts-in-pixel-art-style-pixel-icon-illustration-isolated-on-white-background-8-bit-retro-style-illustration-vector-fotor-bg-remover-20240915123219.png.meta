@@ -1,0 +1,303 @@
+fileFormatVersion: 2
+guid: 206685efca7edff4a8fbdb9b602f0b86
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: set-of-different-pink-hearts-in-pixel-art-style-pixel-icon-illustration-isolated-on-white-background-8-bit-retro-style-illustration-vector-fotor-bg-remover-20240915123219_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 153
+        width: 94
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74af63af60681ff42b6d2a11605bef68
+      internalID: 999744841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-different-pink-hearts-in-pixel-art-style-pixel-icon-illustration-isolated-on-white-background-8-bit-retro-style-illustration-vector-fotor-bg-remover-20240915123219_1
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 154
+        width: 94
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c10357a92fe2e0d4da851bd81896e8b9
+      internalID: 96962222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-different-pink-hearts-in-pixel-art-style-pixel-icon-illustration-isolated-on-white-background-8-bit-retro-style-illustration-vector-fotor-bg-remover-20240915123219_2
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 154
+        width: 93
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 274f5116f092b8b46be8f69d498ca693
+      internalID: -1882193441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-different-pink-hearts-in-pixel-art-style-pixel-icon-illustration-isolated-on-white-background-8-bit-retro-style-illustration-vector-fotor-bg-remover-20240915123219_3
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 154
+        width: 92
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33db56e28bdee68449a906cb21497607
+      internalID: -555592423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-different-pink-hearts-in-pixel-art-style-pixel-icon-illustration-isolated-on-white-background-8-bit-retro-style-illustration-vector-fotor-bg-remover-20240915123219_4
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 37
+        width: 94
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 013c6f8dac0dbc0499b4b6bcde6514c5
+      internalID: 1469492258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-different-pink-hearts-in-pixel-art-style-pixel-icon-illustration-isolated-on-white-background-8-bit-retro-style-illustration-vector-fotor-bg-remover-20240915123219_5
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 37
+        width: 94
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e40fae4720ec8da41b5d6f2cf3544b81
+      internalID: 733898350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-different-pink-hearts-in-pixel-art-style-pixel-icon-illustration-isolated-on-white-background-8-bit-retro-style-illustration-vector-fotor-bg-remover-20240915123219_6
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 37
+        width: 93
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1a50228ad6a9204a981403c19e259dd
+      internalID: 1234824078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-different-pink-hearts-in-pixel-art-style-pixel-icon-illustration-isolated-on-white-background-8-bit-retro-style-illustration-vector-fotor-bg-remover-20240915123219_7
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 37
+        width: 92
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd5eb9ea79f71094e8f1283e345f150a
+      internalID: 313282942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      set-of-different-pink-hearts-in-pixel-art-style-pixel-icon-illustration-isolated-on-white-background-8-bit-retro-style-illustration-vector-fotor-bg-remover-20240915123219_0: 999744841
+      set-of-different-pink-hearts-in-pixel-art-style-pixel-icon-illustration-isolated-on-white-background-8-bit-retro-style-illustration-vector-fotor-bg-remover-20240915123219_1: 96962222
+      set-of-different-pink-hearts-in-pixel-art-style-pixel-icon-illustration-isolated-on-white-background-8-bit-retro-style-illustration-vector-fotor-bg-remover-20240915123219_2: -1882193441
+      set-of-different-pink-hearts-in-pixel-art-style-pixel-icon-illustration-isolated-on-white-background-8-bit-retro-style-illustration-vector-fotor-bg-remover-20240915123219_3: -555592423
+      set-of-different-pink-hearts-in-pixel-art-style-pixel-icon-illustration-isolated-on-white-background-8-bit-retro-style-illustration-vector-fotor-bg-remover-20240915123219_4: 1469492258
+      set-of-different-pink-hearts-in-pixel-art-style-pixel-icon-illustration-isolated-on-white-background-8-bit-retro-style-illustration-vector-fotor-bg-remover-20240915123219_5: 733898350
+      set-of-different-pink-hearts-in-pixel-art-style-pixel-icon-illustration-isolated-on-white-background-8-bit-retro-style-illustration-vector-fotor-bg-remover-20240915123219_6: 1234824078
+      set-of-different-pink-hearts-in-pixel-art-style-pixel-icon-illustration-isolated-on-white-background-8-bit-retro-style-illustration-vector-fotor-bg-remover-20240915123219_7: 313282942
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
