@@ -103,7 +103,6 @@ GameObject:
   - component: {fileID: 855555466451088628}
   - component: {fileID: 7016966428774448953}
   - component: {fileID: 7818382739938402973}
-  - component: {fileID: 5167508666176002808}
   - component: {fileID: 4219341653614466855}
   - component: {fileID: 8329797271668727149}
   m_Layer: 0
@@ -275,18 +274,7 @@ MonoBehaviour:
   jumpCount: 0
   isGrounded: 0
   pedras: 0
---- !u!114 &5167508666176002808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2349262143069076435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f636b69bba7631e418055e5f644cd2fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  ScoreTxt: {fileID: 0}
 --- !u!114 &4219341653614466855
 MonoBehaviour:
   m_ObjectHideFlags: 0

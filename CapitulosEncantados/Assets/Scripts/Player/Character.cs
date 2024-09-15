@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
-    public GameObject balaprojetil;
+   public GameObject balaprojetil;
     public Transform arma;
     private bool tiro;
     public float forcaDoTiro;
@@ -23,28 +23,17 @@ public class Character : MonoBehaviour
 
     private Rigidbody2D rig;
     private AudioSource soundFx;
-    
+
     public int pedras;
-    public Text ScoreTxt;
-    private int score;
-    
+    public score scoreManager;
+
+    private HashSet<Collider2D> collectedColliders = new HashSet<Collider2D>();
 
     void Start()
     {
-        score = 0;
         rig = GetComponent<Rigidbody2D>();
         jumpCount = maxJumpCount;
     }
-//FAZER ESSE DEPOIS
-    //private void OnCollisionEnter(Collision2D collision)
-    //{
-        //if (collision.gameObject.layer == 6)
-        //{
-           // playerAnim.SetBool("Jump", false);
-           // isGrounded = true;
-           // doubleJump = false;
-      //  }
-   // }
 
     void Awake()
     {
@@ -53,20 +42,17 @@ public class Character : MonoBehaviour
 
     void Update()
     {
-        ScoreTxt.text = score.ToString();
         Move();
         Jump();
 
         tiro = Input.GetKeyDown(KeyCode.Z);
-
         Atirar();
     }
 
     void Move()
     {
-        
         AudioObserver.OnPlaySfxEvent("walking");
-        
+
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
         transform.position += movement * Time.deltaTime * Speed;
 
@@ -115,11 +101,27 @@ public class Character : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Pedra")
+       
+        if (collision.gameObject.tag == "Pedra" && !collectedColliders.Contains(collision))
         {
             AudioObserver.OnPlaySfxEvent("coletar");
             Destroy(collision.gameObject);
-            score = score + 1;
+
+            if (scoreManager != null)
+            {
+                scoreManager.AddScore(1); 
+            }
+
+            collectedColliders.Add(collision);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+       
+        if (collision.gameObject.tag == "Pedra")
+        {
+            collectedColliders.Remove(collision);
         }
     }
 }

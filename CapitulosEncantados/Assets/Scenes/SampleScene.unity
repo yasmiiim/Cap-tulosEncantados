@@ -1128,6 +1128,24 @@ Transform:
   - {fileID: 1877562734}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1406671624 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2991327852388161355, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
+  m_PrefabInstance: {fileID: 4249980727020320351}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1406671629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406671624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6384e262bb35214bbe2ab7256cb709b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScoreTxt: {fileID: 1526354154}
 --- !u!1 &1526354153
 GameObject:
   m_ObjectHideFlags: 0
@@ -2067,7 +2085,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1946440924212121723, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1526354156}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2991327852388161355, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1406671629}
   m_SourcePrefab: {fileID: 100100000, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
 --- !u!1001 &8215431851773870444
 PrefabInstance:
@@ -2117,6 +2138,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1078163521141034196, guid: 6a68c4bdd55371745bb32ba336f92c45, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2349262143069076435, guid: 6a68c4bdd55371745bb32ba336f92c45, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2125,6 +2150,10 @@ PrefabInstance:
       propertyPath: ScoreTxt
       value: 
       objectReference: {fileID: 1526354154}
+    - target: {fileID: 7818382739938402973, guid: 6a68c4bdd55371745bb32ba336f92c45, type: 3}
+      propertyPath: scoreManager
+      value: 
+      objectReference: {fileID: 1406671629}
     m_RemovedComponents:
     - {fileID: 5167508666176002808, guid: 6a68c4bdd55371745bb32ba336f92c45, type: 3}
     m_RemovedGameObjects: []
