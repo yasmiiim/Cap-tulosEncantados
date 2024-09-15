@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class cogumelo : MonoBehaviour
 {
-    private float bounce = 20f;
+    private float bounce = 10f;
 
     private void OnCollisionEnter2D(Collision2D other)
     {
