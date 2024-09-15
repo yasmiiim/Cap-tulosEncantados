@@ -9,8 +9,30 @@ public class abelha : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    
+    public int vida = 3;
+    
+    private SpriteRenderer spriteRenderer;
+    private Color originalColor;
+    public Color damageColor = Color.red;
+    public float colorChangeDuration = 0.2f;
+    
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("bala"))
+        {
+            ApplyDamage(1);
+            Destroy(col.gameObject);
+        }
+    }
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            originalColor = spriteRenderer.color;
+        }
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero; // As abelhas começam paradas
     }
@@ -34,5 +56,41 @@ public class abelha : MonoBehaviour
     private void OnBecameInvisible()
     {
         Destroy(gameObject); // Destrói a abelha
+    }
+    
+
+    private void ApplyDamage(int damageAmount)
+    {
+        vida -= damageAmount;
+        if (vida <= 0)
+        {
+            Die();
+        }
+        else
+        {
+            ChangeColor();
+        }
+    }
+
+    private void ChangeColor()
+    {
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = damageColor;
+            Invoke("ResetColor", colorChangeDuration);
+        }
+    }
+
+    private void ResetColor()
+    {
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = originalColor;
+        }
+    }
+
+    private void Die()
+    {
+        Destroy(this.gameObject);
     }
 }

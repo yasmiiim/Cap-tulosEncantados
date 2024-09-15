@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class inimigo : MonoBehaviour
 {
-    public Heart heart;
     public float speed = 5.0f;
     public Rigidbody2D enemyRbp;
     public int vida = 3;

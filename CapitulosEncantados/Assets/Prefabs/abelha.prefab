@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 4289427353678323948}
   - component: {fileID: 1854738969735964544}
   - component: {fileID: 8510906418312354075}
+  - component: {fileID: 1853159003032426735}
   m_Layer: 0
   m_Name: abelha
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,4 +172,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef47bb8e045296c4992a099eaa205bb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beeSpeed: 2
+  beeSpeed: 3
+  vida: 3
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
+  colorChangeDuration: 0.2
+--- !u!114 &1853159003032426735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4166075123547320085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbfa23f1999cc0d4ea5feacddc6ec6d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

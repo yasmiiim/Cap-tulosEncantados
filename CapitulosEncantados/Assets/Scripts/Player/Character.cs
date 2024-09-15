@@ -86,7 +86,7 @@ public class Character : MonoBehaviour
             GameObject temp = Instantiate(balaprojetil);
             temp.transform.position = arma.position;
             temp.GetComponent<Rigidbody2D>().velocity = new Vector2(forcaDoTiro, 0);
-            Destroy(temp.gameObject, 5f);
+            Destroy(temp.gameObject, 0.5f);
         }
     }
 
