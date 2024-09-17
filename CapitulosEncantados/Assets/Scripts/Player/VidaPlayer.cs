@@ -12,12 +12,23 @@ public class VidaPlayer : MonoBehaviour
     public Image[] coracao;
     public Sprite cheio;
     public Sprite vazio;
+    
+    private SpriteRenderer spriteRenderer;
+    private Color originalColor;
+    public Color damageColor = Color.red;
+    public float colorChangeDuration = 0.2f;
+    
 
     public static event Action OnPlayerDeath; // Evento que será chamado ao morrer
 
     void Start()
     {
         vidaAtual = vidaMaxima;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            originalColor = spriteRenderer.color;
+        }
     }
 
     public void ReceberDano()
@@ -27,6 +38,27 @@ public class VidaPlayer : MonoBehaviour
         if (vidaAtual <= 0)
         {
             Die();
+        }
+        else
+        {
+            ChangeColor();
+        }
+    }
+    
+    private void ChangeColor()
+    {
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = damageColor;
+            Invoke("ResetColor", colorChangeDuration);
+        }
+    }
+    
+    private void ResetColor()
+    {
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = originalColor;
         }
     }
 
