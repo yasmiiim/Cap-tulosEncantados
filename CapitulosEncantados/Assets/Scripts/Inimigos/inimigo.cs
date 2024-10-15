@@ -15,6 +15,8 @@ public class inimigo : MonoBehaviour
     public Color damageColor = Color.red;
     public float colorChangeDuration = 0.2f;
 
+    public float changeDirectionInterval = 2.0f; // Tempo em segundos para mudar de direção
+
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -22,24 +24,27 @@ public class inimigo : MonoBehaviour
         {
             originalColor = spriteRenderer.color;
         }
-    }
 
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.gameObject.CompareTag("bala"))
-        {
-            ApplyDamage(1);
-            Destroy(col.gameObject);
-        }
+        // Inicia a repetição da troca de direção a cada intervalo de tempo definido
+        InvokeRepeating("ChangeDirection", changeDirectionInterval, changeDirectionInterval);
     }
 
     private void Update()
     {
+        // Faz o inimigo se mover continuamente para a esquerda ou direita
         transform.Translate(Vector2.left * speed * Time.deltaTime);
+    }
+
+    // Função que será chamada repetidamente para mudar a direção
+    private void ChangeDirection()
+    {
+        faceFlip = !faceFlip;
+        FlipEnemy();
     }
 
     private void FlipEnemy()
     {
+        // Se o inimigo estiver de frente, vira de costas, e vice-versa
         if (faceFlip)
         {
             gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -50,12 +55,12 @@ public class inimigo : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col != null && !col.collider.CompareTag("Player"))
+        if (col.gameObject.CompareTag("bala"))
         {
-            faceFlip = !faceFlip;
-            FlipEnemy();
+            ApplyDamage(1);
+            Destroy(col.gameObject);
         }
     }
 
