@@ -133,6 +133,7 @@ MonoBehaviour:
   vida: 3
   damageColor: {r: 0.9528302, g: 0.15730685, b: 0.1978919, a: 1}
   colorChangeDuration: 0.2
+  changeDirectionInterval: 1
 --- !u!61 &4628950677721818394
 BoxCollider2D:
   m_ObjectHideFlags: 0
