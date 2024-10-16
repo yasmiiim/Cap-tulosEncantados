@@ -8,6 +8,10 @@ using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
+   
+    
+    
+    
    public GameObject balaprojetil;
     public Transform arma;
     private bool tiro;
@@ -33,6 +37,7 @@ public class Character : MonoBehaviour
     {
         rig = GetComponent<Rigidbody2D>();
         jumpCount = maxJumpCount;
+       
     }
 
     void Awake()

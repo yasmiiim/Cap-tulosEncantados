@@ -310,7 +310,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3311277003160707212}
   - component: {fileID: 4991861332795465411}
-  - component: {fileID: 2924759845522867211}
   - component: {fileID: 3258966817584021615}
   - component: {fileID: 7663275010295221717}
   m_Layer: 0
@@ -350,19 +349,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 179440835576808778}
---- !u!114 &2924759845522867211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2991327852388161355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2976781fa3c0ef4399a753db31869af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathMenuUI: {fileID: 4875688000323307780}
 --- !u!114 &3258966817584021615
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class VidaPlayer : MonoBehaviour
 {
+    private Vector3 respawnPoint;
+    
     public int vidaAtual;
     public int vidaMaxima;
     
@@ -29,6 +31,7 @@ public class VidaPlayer : MonoBehaviour
         {
             originalColor = spriteRenderer.color;
         }
+        respawnPoint = transform.position;
     }
 
     public void ReceberDano()
@@ -64,8 +67,16 @@ public class VidaPlayer : MonoBehaviour
 
     public void Die()
     {
-        Destroy(this.gameObject);
-        OnPlayerDeath?.Invoke(); // Aciona o evento de morte
+        transform.position = respawnPoint;
+        // OnPlayerDeath?.Invoke(); // Aciona o evento de morte
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Checkpoint")
+        {
+            respawnPoint = transform.position;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D coli)
