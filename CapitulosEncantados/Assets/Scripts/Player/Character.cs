@@ -40,6 +40,9 @@ public class Character : MonoBehaviour
 
     private float originalSpeed;        // Para armazenar a velocidade original
 
+    // Novas variáveis para super velocidade e dois tiros
+    private bool doubleShot = false; // Indica se o jogador tem dois tiros
+
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
@@ -100,6 +103,7 @@ public class Character : MonoBehaviour
         }
     }
 
+    // Método para atirar com dois tiros
     private void Atirar()
     {
         if (tiro)
@@ -109,6 +113,15 @@ public class Character : MonoBehaviour
             temp.transform.position = arma.position;
             temp.GetComponent<Rigidbody2D>().velocity = new Vector2(forcaDoTiro, 0);
             Destroy(temp.gameObject, 0.5f);
+
+            // Se o jogador tiver dois tiros, disparar um segundo projétil
+            if (doubleShot)
+            {
+                GameObject temp2 = Instantiate(balaprojetil);
+                temp2.transform.position = arma.position + new Vector3(0, 0.5f, 0); // Ajuste a posição vertical do segundo tiro
+                temp2.GetComponent<Rigidbody2D>().velocity = new Vector2(forcaDoTiro, 0);
+                Destroy(temp2.gameObject, 0.5f);
+            }
         }
     }
 
@@ -164,17 +177,22 @@ public class Character : MonoBehaviour
         // Verificar se o objeto coletado é uma poção
         if (collision.gameObject.tag == "Pocao")
         {
-            // Ativar o superpoder de velocidade
-            StartCoroutine(ActivateSuperSpeed());
+            // Ativar o superpoder de velocidade e dois tiros
+            StartCoroutine(ActivateSuperSpeedAndDoubleShot());
             Destroy(collision.gameObject);
         }
     }
 
-    private IEnumerator ActivateSuperSpeed()
+    // Método para ativar super velocidade e dois tiros temporariamente
+    private IEnumerator ActivateSuperSpeedAndDoubleShot()
     {
-        Speed *= 2; // Multiplica a velocidade pela metade
+        Speed *= 2; // Multiplica a velocidade
+        doubleShot = true; // Ativa o modo de dois tiros
+
         yield return new WaitForSeconds(3f); // Aguarda 3 segundos
+
         Speed /= 2; // Retorna à velocidade original
+        doubleShot = false; // Desativa o modo de dois tiros
     }
 }
 
