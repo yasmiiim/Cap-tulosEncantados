@@ -10,7 +10,7 @@ public class Character : MonoBehaviour
 {
    
     
-      public GameObject balaprojetil;
+       public GameObject balaprojetil;
     public Transform arma;
     private bool tiro;
     public float forcaDoTiro;
@@ -31,12 +31,14 @@ public class Character : MonoBehaviour
 
     private HashSet<Collider2D> collectedColliders = new HashSet<Collider2D>();
 
-    // Variáveis para superpoder
-    public float superSpeedMultiplier = 2f; // Multiplicador de velocidade quando o superpoder é ativado
-    public float superPowerDuration = 3f;   // Duração do superpoder em segundos
-    private bool isSuperPowerActive = false; // Flag para indicar se o superpoder está ativo
+    // Dash variables
+    public float dashSpeed = 15f;       // Velocidade do dash
+    public float dashDuration = 0.2f;   // Duração do dash em segundos
+    public float dashCooldown = 1f;     // Tempo de recarga do dash
+    private bool isDashing = false;     // Se o player está atualmente dando dash
+    private bool canDash = true;        // Se o player pode dar dash no momento
 
-    private float originalSpeed; // Armazena a velocidade original
+    private float originalSpeed;        // Para armazenar a velocidade original
 
     void Start()
     {
@@ -52,8 +54,18 @@ public class Character : MonoBehaviour
 
     void Update()
     {
-        Move();
-        Jump();
+        // Mover e pular somente se o player não está dando dash
+        if (!isDashing)
+        {
+            Move();
+            Jump();
+        }
+
+        // Ativar dash
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        {
+            StartCoroutine(Dash());
+        }
 
         tiro = Input.GetKeyDown(KeyCode.Z);
         Atirar();
@@ -109,6 +121,30 @@ public class Character : MonoBehaviour
         forcaDoTiro *= -1;
     }
 
+    // Função do Dash
+    private IEnumerator Dash()
+    {
+        canDash = false;   // O player não pode dar dash enquanto estiver recarregando
+        isDashing = true;  // O player está atualmente dando dash
+
+        float dashDirection = Input.GetAxisRaw("Horizontal"); // Pegando a direção do movimento
+        if (dashDirection == 0) dashDirection = flipX ? -1 : 1; // Se não houver movimento, usar a direção do flip
+
+        Vector2 dashVelocity = new Vector2(dashDirection * dashSpeed, rig.velocity.y); // Velocidade do dash
+        rig.velocity = dashVelocity; // Aplicar a velocidade de dash
+
+        yield return new WaitForSeconds(dashDuration); // Aguardar a duração do dash
+
+        // Parar o movimento horizontal após o dash
+        rig.velocity = new Vector2(0, rig.velocity.y);
+
+        isDashing = false; // Finalizar o dash
+
+        yield return new WaitForSeconds(dashCooldown); // Aguardar o tempo de recarga
+
+        canDash = true; // Permitir que o player possa dar dash novamente
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Verificar se o objeto coletado é uma pedra
@@ -134,30 +170,11 @@ public class Character : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Pedra")
-        {
-            collectedColliders.Remove(collision);
-        }
-    }
-
-    // Função para ativar o superpoder de velocidade
     private IEnumerator ActivateSuperSpeed()
     {
-        // Se o superpoder não está ativo, ativa
-        if (!isSuperPowerActive)
-        {
-            isSuperPowerActive = true;
-            Speed *= superSpeedMultiplier; // Multiplica a velocidade pela variável de superpoder
-
-            // Aguarda o tempo de duração do superpoder
-            yield return new WaitForSeconds(superPowerDuration);
-
-            // Restaura a velocidade original após a duração
-            Speed = originalSpeed;
-            isSuperPowerActive = false;
-        }
+        Speed *= 2; // Multiplica a velocidade pela metade
+        yield return new WaitForSeconds(3f); // Aguarda 3 segundos
+        Speed /= 2; // Retorna à velocidade original
     }
 }
 
