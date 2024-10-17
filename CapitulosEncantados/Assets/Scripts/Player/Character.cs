@@ -10,9 +10,7 @@ public class Character : MonoBehaviour
 {
    
     
-    
-    
-   public GameObject balaprojetil;
+      public GameObject balaprojetil;
     public Transform arma;
     private bool tiro;
     public float forcaDoTiro;
@@ -33,11 +31,18 @@ public class Character : MonoBehaviour
 
     private HashSet<Collider2D> collectedColliders = new HashSet<Collider2D>();
 
+    // Variáveis para superpoder
+    public float superSpeedMultiplier = 2f; // Multiplicador de velocidade quando o superpoder é ativado
+    public float superPowerDuration = 3f;   // Duração do superpoder em segundos
+    private bool isSuperPowerActive = false; // Flag para indicar se o superpoder está ativo
+
+    private float originalSpeed; // Armazena a velocidade original
+
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
         jumpCount = maxJumpCount;
-       
+        originalSpeed = Speed; // Armazena a velocidade original no início do jogo
     }
 
     void Awake()
@@ -106,7 +111,7 @@ public class Character : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       
+        // Verificar se o objeto coletado é uma pedra
         if (collision.gameObject.tag == "Pedra" && !collectedColliders.Contains(collision))
         {
             AudioObserver.OnPlaySfxEvent("coletar");
@@ -114,19 +119,44 @@ public class Character : MonoBehaviour
 
             if (scoreManager != null)
             {
-                scoreManager.AddScore(1); 
+                scoreManager.AddScore(1);
             }
 
             collectedColliders.Add(collision);
+        }
+
+        // Verificar se o objeto coletado é uma poção
+        if (collision.gameObject.tag == "Pocao")
+        {
+            // Ativar o superpoder de velocidade
+            StartCoroutine(ActivateSuperSpeed());
+            Destroy(collision.gameObject);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-       
         if (collision.gameObject.tag == "Pedra")
         {
             collectedColliders.Remove(collision);
+        }
+    }
+
+    // Função para ativar o superpoder de velocidade
+    private IEnumerator ActivateSuperSpeed()
+    {
+        // Se o superpoder não está ativo, ativa
+        if (!isSuperPowerActive)
+        {
+            isSuperPowerActive = true;
+            Speed *= superSpeedMultiplier; // Multiplica a velocidade pela variável de superpoder
+
+            // Aguarda o tempo de duração do superpoder
+            yield return new WaitForSeconds(superPowerDuration);
+
+            // Restaura a velocidade original após a duração
+            Speed = originalSpeed;
+            isSuperPowerActive = false;
         }
     }
 }

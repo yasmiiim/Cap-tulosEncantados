@@ -11,6 +11,7 @@ TagManager:
   - Pedra
   - obstaculo
   - Checkpoint
+  - Pocao
   layers:
   - Default
   - TransparentFX
