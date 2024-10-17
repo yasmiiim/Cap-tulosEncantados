@@ -6,20 +6,19 @@ using UnityEngine.UI;
 
 public class VidaPlayer : MonoBehaviour
 {
-    private Vector3 respawnPoint;
-    
+      private Vector3 respawnPoint;
+
     public int vidaAtual;
     public int vidaMaxima;
-    
+
     public Image[] coracao;
     public Sprite cheio;
     public Sprite vazio;
-    
+
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
     public Color damageColor = Color.red;
     public float colorChangeDuration = 0.2f;
-    
 
     public static event Action OnPlayerDeath; // Evento que será chamado ao morrer
 
@@ -47,7 +46,7 @@ public class VidaPlayer : MonoBehaviour
             ChangeColor();
         }
     }
-    
+
     private void ChangeColor()
     {
         if (spriteRenderer != null)
@@ -56,7 +55,7 @@ public class VidaPlayer : MonoBehaviour
             Invoke("ResetColor", colorChangeDuration);
         }
     }
-    
+
     private void ResetColor()
     {
         if (spriteRenderer != null)
@@ -67,8 +66,10 @@ public class VidaPlayer : MonoBehaviour
 
     public void Die()
     {
-        transform.position = respawnPoint;
-        // OnPlayerDeath?.Invoke(); // Aciona o evento de morte
+        transform.position = respawnPoint;  // Reposiciona o jogador no ponto de respawn
+        vidaAtual = vidaMaxima;            // Restaura a vida ao máximo
+        HealthLogic();                     // Atualiza a interface de vida (corações)
+        // OnPlayerDeath?.Invoke(); // Aciona o evento de morte (caso seja necessário)
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -92,6 +93,7 @@ public class VidaPlayer : MonoBehaviour
             ReceberDano();
         }
     }
+
     void Update()
     {
         HealthLogic();
@@ -113,7 +115,7 @@ public class VidaPlayer : MonoBehaviour
             {
                 coracao[i].sprite = vazio;
             }
-            
+
             if (i < vidaMaxima)
             {
                 coracao[i].enabled = true;
