@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class VidaPlayer : MonoBehaviour
 {
-   private Vector3 respawnPoint;
+  private Vector3 respawnPoint;
 
     public int vidaAtual;
     public int vidaMaxima;
@@ -18,9 +18,9 @@ public class VidaPlayer : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
     public Color damageColor = Color.red;
-    public float colorChangeDuration = 1.5f;  // Temporizador que foi alterado para corresponder ao tempo de dano
 
     public float invulnerabilityDuration = 1.5f; // Tempo de invulnerabilidade após sofrer dano
+    public float blinkInterval = 0.1f; // Intervalo entre piscadas
     private bool isInvulnerable = false; // Para verificar se o player está invulnerável
 
     public static event Action OnPlayerDeath; // Evento que será chamado ao morrer
@@ -49,24 +49,6 @@ public class VidaPlayer : MonoBehaviour
         else
         {
             StartCoroutine(InvulnerabilityPeriod()); // Ativa a invulnerabilidade por um tempo
-            ChangeColor(); // Muda a cor para indicar dano
-        }
-    }
-
-    private void ChangeColor()
-    {
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = damageColor;  // Muda a cor para vermelho (dano)
-            Invoke("ResetColor", invulnerabilityDuration);  // Reseta a cor ao final do tempo de invulnerabilidade
-        }
-    }
-
-    private void ResetColor()
-    {
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = originalColor;  // Reseta para a cor original
         }
     }
 
@@ -76,8 +58,8 @@ public class VidaPlayer : MonoBehaviour
         vidaAtual = vidaMaxima;            // Restaura a vida ao máximo
         HealthLogic();                     // Atualiza a interface de vida (corações)
         isInvulnerable = false;            // Garante que o jogador não fique invulnerável após morrer
+        StopAllCoroutines();               // Garante que todas as corrotinas parem
         ResetColor();                      // Garante que a cor seja resetada ao renascer
-        // OnPlayerDeath?.Invoke(); // Aciona o evento de morte (caso seja necessário)
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -135,13 +117,31 @@ public class VidaPlayer : MonoBehaviour
         }
     }
 
-    // Corrotina para o tempo de invulnerabilidade
+    // Corrotina para o tempo de invulnerabilidade com efeito de piscar
     private IEnumerator InvulnerabilityPeriod()
     {
         isInvulnerable = true; // Define que o jogador está invulnerável
-        yield return new WaitForSeconds(invulnerabilityDuration); // Aguarda o tempo definido
+
+        // Apenas pisca duas vezes
+        for (int i = 0; i < 2; i++)
+        {
+            // Alterna entre a cor original e a cor de dano (pisca)
+            spriteRenderer.color = damageColor;  // Cor de dano
+            yield return new WaitForSeconds(blinkInterval); // Espera o intervalo
+            spriteRenderer.color = originalColor;  // Cor original
+            yield return new WaitForSeconds(blinkInterval); // Espera o intervalo
+        }
+
         isInvulnerable = false; // Remove a invulnerabilidade
-        ResetColor(); // Volta à cor original após o tempo de invulnerabilidade acabar
+        ResetColor(); // Garante que a cor seja restaurada ao final do tempo de invulnerabilidade
+    }
+
+    private void ResetColor()
+    {
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = originalColor;  // Reseta para a cor original
+        }
     }
 
 }
