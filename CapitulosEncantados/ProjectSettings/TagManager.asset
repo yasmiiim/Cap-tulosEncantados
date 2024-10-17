@@ -12,6 +12,7 @@ TagManager:
   - obstaculo
   - Checkpoint
   - Pocao
+  - Coracao
   layers:
   - Default
   - TransparentFX

@@ -68,6 +68,11 @@ public class VidaPlayer : MonoBehaviour
         {
             respawnPoint = transform.position;
         }
+        else if (collision.tag == "Coracao") // Verifica se o objeto colidido é um coração
+        {
+            ColetarCoracao(); // Chama o método para coletar coração
+            Destroy(collision.gameObject); // Destroi o objeto coração
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D coli)
@@ -117,6 +122,19 @@ public class VidaPlayer : MonoBehaviour
         }
     }
 
+    private void ColetarCoracao()
+    {
+        if (vidaAtual < vidaMaxima) // Verifica se o jogador não está com vida máxima
+        {
+            vidaAtual += 1; // Aumenta a vida atual
+            if (vidaAtual > vidaMaxima)
+            {
+                vidaAtual = vidaMaxima; // Garante que a vida não ultrapasse o máximo
+            }
+            HealthLogic(); // Atualiza a interface
+        }
+    }
+
     // Corrotina para o tempo de invulnerabilidade com efeito de piscar
     private IEnumerator InvulnerabilityPeriod()
     {
@@ -143,5 +161,4 @@ public class VidaPlayer : MonoBehaviour
             spriteRenderer.color = originalColor;  // Reseta para a cor original
         }
     }
-
 }
