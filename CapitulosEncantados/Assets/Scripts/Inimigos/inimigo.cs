@@ -27,6 +27,9 @@ public class inimigo : MonoBehaviour
 
         // Inicia a repetição da troca de direção a cada intervalo de tempo definido
         InvokeRepeating("ChangeDirection", changeDirectionInterval, changeDirectionInterval);
+
+        // Certifica-se de que o Rigidbody2D do inimigo está como Kinematic
+        enemyRbp.bodyType = RigidbodyType2D.Kinematic;
     }
 
     private void Update()
@@ -61,6 +64,13 @@ public class inimigo : MonoBehaviour
         {
             ApplyDamage(1);
             Destroy(col.gameObject);
+        }
+
+        // Verifica se o inimigo colidiu com o jogador
+        if (col.gameObject.CompareTag("Player"))
+        {
+            // Aqui você pode adicionar a lógica de causar dano ao jogador
+            // Exemplo: col.GetComponent<VidaPlayer>().ReceberDano(dano);
         }
     }
 
