@@ -186,7 +186,7 @@ public class Character : MonoBehaviour
     // Método para ativar super velocidade e dois tiros temporariamente
     private IEnumerator ActivateSuperSpeedAndDoubleShot()
     {
-        Speed *= 2; // Multiplica a velocidade
+        Speed *= 1.4f; // Multiplica a velocidade
         doubleShot = true; // Ativa o modo de dois tiros
 
         yield return new WaitForSeconds(3f); // Aguarda 3 segundos
