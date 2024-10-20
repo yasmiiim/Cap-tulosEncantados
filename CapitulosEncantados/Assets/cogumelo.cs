@@ -11,7 +11,15 @@ public class cogumelo : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * bounce, ForceMode2D.Impulse );
+            // Verifica se o contato é na parte de cima do cogumelo
+            foreach (ContactPoint2D contact in other.contacts)
+            {
+                if (contact.normal.y < 0) // A colisão deve ocorrer de cima para baixo
+                {
+                    other.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * bounce, ForceMode2D.Impulse);
+                    break; // Sai do loop após aplicar a força
+                }
+            }
         }
     }
 }
