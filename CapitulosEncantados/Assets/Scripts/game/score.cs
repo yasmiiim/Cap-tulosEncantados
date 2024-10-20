@@ -5,13 +5,16 @@ using UnityEngine.UI;
 
 public class score : MonoBehaviour
 {
-    private int _score;
+    private static int _score; // Variável estática para manter a pontuação entre as cenas
     public Text ScoreTxt;
 
     void Start()
     {
-        // Carrega a pontuação do PlayerPrefs
-        _score = PlayerPrefs.GetInt("Score", 0);
+        // Verifica se estamos na cena inicial
+        if (IsInitialScene())
+        {
+            ResetScore(); // Reseta a pontuação se estivermos na cena inicial
+        }
         UpdateScoreText();
     }
 
@@ -19,12 +22,25 @@ public class score : MonoBehaviour
     {
         _score += value;
         UpdateScoreText();
-        // Salva a nova pontuação no PlayerPrefs
+        // Salva a nova pontuação no PlayerPrefs, se desejado
         PlayerPrefs.SetInt("Score", _score);
+    }
+
+    private void ResetScore()
+    {
+        // Reseta a pontuação para 0
+        _score = 0;
+        PlayerPrefs.SetInt("Score", _score); // Salva a pontuação zerada
     }
 
     private void UpdateScoreText()
     {
         ScoreTxt.text = _score.ToString();
+    }
+
+    private bool IsInitialScene()
+    {
+        // Aqui você pode verificar se está na cena inicial, substitua "NomeDaCenaInicial" pelo nome correto
+        return UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "NomeDaCenaInicial";
     }
 }
