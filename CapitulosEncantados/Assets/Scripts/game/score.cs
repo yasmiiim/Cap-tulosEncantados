@@ -10,7 +10,8 @@ public class score : MonoBehaviour
 
     void Start()
     {
-        _score = 0;
+        // Carrega a pontuação do PlayerPrefs
+        _score = PlayerPrefs.GetInt("Score", 0);
         UpdateScoreText();
     }
 
@@ -18,6 +19,8 @@ public class score : MonoBehaviour
     {
         _score += value;
         UpdateScoreText();
+        // Salva a nova pontuação no PlayerPrefs
+        PlayerPrefs.SetInt("Score", _score);
     }
 
     private void UpdateScoreText()
