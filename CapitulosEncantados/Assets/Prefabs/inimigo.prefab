@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 9171087105558240195}
   - component: {fileID: 7290270118306439106}
   - component: {fileID: 4628950677721818394}
-  - component: {fileID: 4049071164007074510}
   - component: {fileID: 8812545498079316054}
   m_Layer: 0
   m_Name: inimigo
@@ -128,12 +127,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae955e527f01904cb116870f1f2bb44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 1
   enemyRbp: {fileID: 9171087105558240195}
   vida: 3
   damageColor: {r: 0.9528302, g: 0.15730685, b: 0.1978919, a: 1}
   colorChangeDuration: 0.2
-  changeDirectionInterval: 1
+  changeDirectionInterval: 0.8
 --- !u!61 &4628950677721818394
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -179,18 +178,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.12848765, y: 0.1162082}
   m_EdgeRadius: 0
---- !u!114 &4049071164007074510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 431477124250679277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbfa23f1999cc0d4ea5feacddc6ec6d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &8812545498079316054
 Animator:
   serializedVersion: 5

@@ -85,7 +85,7 @@ public class VidaPlayer : MonoBehaviour
         // Verifica se o objeto colidido tem a tag "obstaculo" e aplica dano
         else if (coli.collider.CompareTag("obstaculo"))
         {
-            ReceberDano();
+            Die();
         }
     }
 
