@@ -18,7 +18,7 @@ public class Plataforma : MonoBehaviour
             {
                 moveRight = false;
             }
-            else if(transform.position.x < -8)
+            else if (transform.position.x < -8)
             {
                 moveRight = true;
             }
@@ -29,17 +29,17 @@ public class Plataforma : MonoBehaviour
             }
             else
             {
-                transform.Translate(Vector2.right * -moveSpeed * Time.deltaTime);
+                transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
             }
         }
-        
+
         if (platform2)
         {
             if (transform.position.y > 3)
             {
                 moveUp = false;
             }
-            else if(transform.position.y < -1.64f)
+            else if (transform.position.y < -1.64f)
             {
                 moveUp = true;
             }
@@ -50,9 +50,27 @@ public class Plataforma : MonoBehaviour
             }
             else
             {
-                transform.Translate(Vector2.up * -moveSpeed * Time.deltaTime);
+                transform.Translate(Vector2.down * moveSpeed * Time.deltaTime);
             }
         }
-        
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Verifica se o objeto colidido é o jogador
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            // Fixar o jogador na plataforma durante a colisão
+            collision.transform.SetParent(transform);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        // Remove o jogador da plataforma quando sair
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.transform.SetParent(null);
+        }
     }
 }
