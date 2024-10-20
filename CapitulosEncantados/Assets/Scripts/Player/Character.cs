@@ -101,16 +101,17 @@ public class Character : MonoBehaviour
     {
         AudioObserver.OnPlaySfxEvent("walking");
 
-        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
-        transform.position += movement * Time.deltaTime * Speed;
-
         float inputAxis = Input.GetAxis("Horizontal");
 
-        if (flipX == true && inputAxis > 0)
+        // Atualiza a velocidade com base no eixo horizontal
+        rig.velocity = new Vector2(inputAxis * Speed, rig.velocity.y);
+
+        // Verifica se é necessário virar o personagem
+        if (inputAxis > 0 && flipX)
         {
             Flip();
         }
-        else if (flipX == false && inputAxis < 0)
+        else if (inputAxis < 0 && !flipX)
         {
             Flip();
         }
