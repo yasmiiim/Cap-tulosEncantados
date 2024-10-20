@@ -8,15 +8,18 @@ using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
-   
+   private Animator animator;
+    private int movendoHash = Animator.StringToHash("Movendo");
+    private int saltandoHash = Animator.StringToHash("Pulando");
+    private int doubleJumpHash = Animator.StringToHash("DoubleJump"); // Adicionado para pulo duplo
     
-       public GameObject balaprojetil;
+    public GameObject balaprojetil;
     public Transform arma;
     private bool tiro;
     public float forcaDoTiro;
     private bool flipX = false;
 
-    // pulo e pulo duplo
+    // Pulo e pulo duplo
     public float jumpForce;
     public bool pulo, isgrounded;
     private bool canDoubleJump; // Verifica se o pulo duplo está disponível
@@ -50,13 +53,17 @@ public class Character : MonoBehaviour
 
     void Awake()
     {
+        animator = GetComponent<Animator>();
         soundFx = GetComponent<AudioSource>();
     }
 
     void Update()
     {
         pulo = Input.GetButtonDown("Jump");
-        
+
+        // Atualiza o estado do pulo no Animator
+        animator.SetBool(saltandoHash, !isgrounded);
+
         // Verifica se o jogador pode pular (pulo simples ou duplo)
         if (pulo)
         {
@@ -69,7 +76,14 @@ public class Character : MonoBehaviour
             {
                 Jump(); // Pulo duplo
                 canDoubleJump = false; // Desabilita após o pulo duplo
+                animator.SetBool(doubleJumpHash, true); // Ativa a animação de pulo duplo
             }
+        }
+
+        // Resetar o estado do double jump se o personagem não estiver mais no ar
+        if (isgrounded)
+        {
+            animator.SetBool(doubleJumpHash, false);
         }
 
         // Movimentos e ações durante o dash
@@ -105,6 +119,9 @@ public class Character : MonoBehaviour
 
         // Atualiza a velocidade com base no eixo horizontal
         rig.velocity = new Vector2(inputAxis * Speed, rig.velocity.y);
+
+        // Define o estado de movimentação no Animator
+        animator.SetBool(movendoHash, inputAxis != 0);
 
         // Verifica se é necessário virar o personagem
         if (inputAxis > 0 && flipX)
