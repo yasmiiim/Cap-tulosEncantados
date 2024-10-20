@@ -9,7 +9,8 @@ public class Plataforma : MonoBehaviour
 
     public bool moveRight = true, moveUp = true;
 
-    // Update is called once per frame
+    public float minYPosition = 0f; // Posição mínima no eixo Y (para evitar encostar no chão)
+
     void Update()
     {
         if (platform1)
@@ -29,17 +30,18 @@ public class Plataforma : MonoBehaviour
             }
             else
             {
-                transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
+                transform.Translate(Vector2.right * -moveSpeed * Time.deltaTime);
             }
         }
-
+        
         if (platform2)
         {
+            // Verifica se a plataforma está acima da posição máxima
             if (transform.position.y > 3)
             {
                 moveUp = false;
             }
-            else if (transform.position.y < -1.64f)
+            else if (transform.position.y < minYPosition) // Altera aqui para usar minYPosition
             {
                 moveUp = true;
             }
@@ -50,27 +52,12 @@ public class Plataforma : MonoBehaviour
             }
             else
             {
-                transform.Translate(Vector2.down * moveSpeed * Time.deltaTime);
+                // Verifica se a plataforma pode se mover para baixo
+                if (transform.position.y > minYPosition)
+                {
+                    transform.Translate(Vector2.down * moveSpeed * Time.deltaTime);
+                }
             }
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        // Verifica se o objeto colidido é o jogador
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            // Fixar o jogador na plataforma durante a colisão
-            collision.transform.SetParent(transform);
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        // Remove o jogador da plataforma quando sair
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            collision.transform.SetParent(null);
         }
     }
 }
