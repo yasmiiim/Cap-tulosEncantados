@@ -16,14 +16,15 @@ public class Grounded : MonoBehaviour
     {
         if (collider.gameObject.layer == 8) 
         {
-            player.isGrounded = true; 
-            player.jumpCount = player.maxJumpCount; 
+            player.isGrounded = true;
+            if (player.isGrounded == true)
+            {
+                player.jumpCount = player.maxJumpCount;
+            }
         }
     }
-
     void OnCollisionExit2D(Collision2D collider)
     {
-        
         if (collider.gameObject.layer == 8) 
         {
             player.isGrounded = false; 
