@@ -15,13 +15,15 @@ public class Character : MonoBehaviour
     private bool tiro;
     public float forcaDoTiro;
     private bool flipX = false;
+    
+    //pulo tentativa
+    public float jumpForce;
+    public bool pulo, isgrounded;
 
     public float Speed;
-    public float Jumpforce;
-    public int maxJumpCount = 2;
+   
 
-    public int jumpCount;
-    public bool isGrounded;
+    
 
     private Rigidbody2D rig;
     private AudioSource soundFx;
@@ -46,7 +48,7 @@ public class Character : MonoBehaviour
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
-        jumpCount = maxJumpCount;
+      
         originalSpeed = Speed; // Armazena a velocidade original no início do jogo
     }
 
@@ -57,11 +59,17 @@ public class Character : MonoBehaviour
 
     void Update()
     {
+        pulo = Input.GetButtonDown("Jump");
+        if (pulo == true && isgrounded == true)
+        {
+            rig.AddForce(new Vector2(0, jumpForce));
+            isgrounded = false;
+        }
         // Mover e pular somente se o player não está dando dash
         if (!isDashing)
         {
             Move();
-            Jump();
+           
         }
 
         // Ativar dash
@@ -72,6 +80,15 @@ public class Character : MonoBehaviour
 
         tiro = Input.GetKeyDown(KeyCode.Z);
         Atirar();
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.CompareTag("chao"))
+        {
+            isgrounded = true;
+        }
     }
 
     void Move()
@@ -93,15 +110,6 @@ public class Character : MonoBehaviour
         }
     }
 
-    void Jump()
-    {
-        if (Input.GetButtonDown("Jump") && jumpCount > 0)
-        {
-            rig.AddForce(new Vector2(0f, Jumpforce), ForceMode2D.Impulse);
-            jumpCount--;
-            AudioObserver.OnPlaySfxEvent("pulo");
-        }
-    }
 
     // Método para atirar com dois tiros
     private void Atirar()
