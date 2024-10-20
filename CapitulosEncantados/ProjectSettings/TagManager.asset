@@ -6,13 +6,13 @@ TagManager:
   tags:
   - bala
   - enemy
-  - Ground
   - Plataforma
   - Pedra
   - obstaculo
   - Checkpoint
   - Pocao
   - Coracao
+  - chao
   layers:
   - Default
   - TransparentFX
@@ -20,9 +20,9 @@ TagManager:
   - 
   - Water
   - UI
-  - Ground
   - 
-  - Ground
+  - 
+  - 
   - 
   - 
   - 

@@ -15,15 +15,13 @@ public class Character : MonoBehaviour
     private bool tiro;
     public float forcaDoTiro;
     private bool flipX = false;
-    
-    //pulo tentativa
+
+    // pulo e pulo duplo
     public float jumpForce;
     public bool pulo, isgrounded;
+    private bool canDoubleJump; // Verifica se o pulo duplo está disponível
 
     public float Speed;
-   
-
-    
 
     private Rigidbody2D rig;
     private AudioSource soundFx;
@@ -34,22 +32,20 @@ public class Character : MonoBehaviour
     private HashSet<Collider2D> collectedColliders = new HashSet<Collider2D>();
 
     // Dash variables
-    public float dashSpeed = 15f;       // Velocidade do dash
-    public float dashDuration = 0.2f;   // Duração do dash em segundos
-    public float dashCooldown = 1f;     // Tempo de recarga do dash
-    private bool isDashing = false;     // Se o player está atualmente dando dash
-    private bool canDash = true;        // Se o player pode dar dash no momento
-
-    private float originalSpeed;        // Para armazenar a velocidade original
+    public float dashSpeed = 15f;
+    public float dashDuration = 0.2f;
+    public float dashCooldown = 1f;
+    private bool isDashing = false;
+    private bool canDash = true;
+    private float originalSpeed;
 
     // Novas variáveis para super velocidade e dois tiros
-    private bool doubleShot = false; // Indica se o jogador tem dois tiros
+    private bool doubleShot = false;
 
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
-      
-        originalSpeed = Speed; // Armazena a velocidade original no início do jogo
+        originalSpeed = Speed;
     }
 
     void Awake()
@@ -60,16 +56,26 @@ public class Character : MonoBehaviour
     void Update()
     {
         pulo = Input.GetButtonDown("Jump");
-        if (pulo == true && isgrounded == true)
+        
+        // Verifica se o jogador pode pular (pulo simples ou duplo)
+        if (pulo)
         {
-            rig.AddForce(new Vector2(0, jumpForce));
-            isgrounded = false;
+            if (isgrounded)
+            {
+                Jump(); // Pulo normal
+                canDoubleJump = true; // Habilita o pulo duplo
+            }
+            else if (canDoubleJump)
+            {
+                Jump(); // Pulo duplo
+                canDoubleJump = false; // Desabilita após o pulo duplo
+            }
         }
-        // Mover e pular somente se o player não está dando dash
+
+        // Movimentos e ações durante o dash
         if (!isDashing)
         {
             Move();
-           
         }
 
         // Ativar dash
@@ -82,12 +88,12 @@ public class Character : MonoBehaviour
         Atirar();
     }
 
-
     private void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.CompareTag("chao"))
         {
             isgrounded = true;
+            canDoubleJump = false; // Reseta o pulo duplo ao tocar o chão
         }
     }
 
@@ -110,8 +116,14 @@ public class Character : MonoBehaviour
         }
     }
 
+    // Método para pular
+    void Jump()
+    {
+        rig.velocity = new Vector2(rig.velocity.x, jumpForce);
+        isgrounded = false;
+        AudioObserver.OnPlaySfxEvent("jump"); // Som de pulo, caso tenha um evento de áudio
+    }
 
-    // Método para atirar com dois tiros
     private void Atirar()
     {
         if (tiro)
@@ -122,11 +134,10 @@ public class Character : MonoBehaviour
             temp.GetComponent<Rigidbody2D>().velocity = new Vector2(forcaDoTiro, 0);
             Destroy(temp.gameObject, 0.5f);
 
-            // Se o jogador tiver dois tiros, disparar um segundo projétil
             if (doubleShot)
             {
                 GameObject temp2 = Instantiate(balaprojetil);
-                temp2.transform.position = arma.position + new Vector3(0, 0.5f, 0); // Ajuste a posição vertical do segundo tiro
+                temp2.transform.position = arma.position + new Vector3(0, 0.5f, 0);
                 temp2.GetComponent<Rigidbody2D>().velocity = new Vector2(forcaDoTiro, 0);
                 Destroy(temp2.gameObject, 0.5f);
             }
@@ -142,33 +153,30 @@ public class Character : MonoBehaviour
         forcaDoTiro *= -1;
     }
 
-    // Função do Dash
     private IEnumerator Dash()
     {
-        canDash = false;   // O player não pode dar dash enquanto estiver recarregando
-        isDashing = true;  // O player está atualmente dando dash
+        canDash = false;
+        isDashing = true;
 
-        float dashDirection = Input.GetAxisRaw("Horizontal"); // Pegando a direção do movimento
-        if (dashDirection == 0) dashDirection = flipX ? -1 : 1; // Se não houver movimento, usar a direção do flip
+        float dashDirection = Input.GetAxisRaw("Horizontal");
+        if (dashDirection == 0) dashDirection = flipX ? -1 : 1;
 
-        Vector2 dashVelocity = new Vector2(dashDirection * dashSpeed, rig.velocity.y); // Velocidade do dash
-        rig.velocity = dashVelocity; // Aplicar a velocidade de dash
+        Vector2 dashVelocity = new Vector2(dashDirection * dashSpeed, rig.velocity.y);
+        rig.velocity = dashVelocity;
 
-        yield return new WaitForSeconds(dashDuration); // Aguardar a duração do dash
+        yield return new WaitForSeconds(dashDuration);
 
-        // Parar o movimento horizontal após o dash
         rig.velocity = new Vector2(0, rig.velocity.y);
 
-        isDashing = false; // Finalizar o dash
+        isDashing = false;
 
-        yield return new WaitForSeconds(dashCooldown); // Aguardar o tempo de recarga
+        yield return new WaitForSeconds(dashCooldown);
 
-        canDash = true; // Permitir que o player possa dar dash novamente
+        canDash = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Verificar se o objeto coletado é uma pedra
         if (collision.gameObject.tag == "Pedra" && !collectedColliders.Contains(collision))
         {
             AudioObserver.OnPlaySfxEvent("coletar");
@@ -182,25 +190,22 @@ public class Character : MonoBehaviour
             collectedColliders.Add(collision);
         }
 
-        // Verificar se o objeto coletado é uma poção
         if (collision.gameObject.tag == "Pocao")
         {
-            // Ativar o superpoder de velocidade e dois tiros
             StartCoroutine(ActivateSuperSpeedAndDoubleShot());
             Destroy(collision.gameObject);
         }
     }
 
-    // Método para ativar super velocidade e dois tiros temporariamente
     private IEnumerator ActivateSuperSpeedAndDoubleShot()
     {
-        Speed *= 1.4f; // Multiplica a velocidade
-        doubleShot = true; // Ativa o modo de dois tiros
+        Speed *= 1.4f;
+        doubleShot = true;
 
-        yield return new WaitForSeconds(3f); // Aguarda 3 segundos
+        yield return new WaitForSeconds(3f);
 
-        Speed /= 2; // Retorna à velocidade original
-        doubleShot = false; // Desativa o modo de dois tiros
+        Speed /= 2;
+        doubleShot = false;
     }
 }
 
