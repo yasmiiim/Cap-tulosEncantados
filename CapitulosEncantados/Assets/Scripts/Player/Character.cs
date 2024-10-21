@@ -12,7 +12,7 @@ public class Character : MonoBehaviour
     private int movendoHash = Animator.StringToHash("Movendo");
     private int saltandoHash = Animator.StringToHash("Pulando");
     private int doubleJumpHash = Animator.StringToHash("DoubleJump"); // Adicionado para pulo duplo
-    
+
     public GameObject balaprojetil;
     public Transform arma;
     private bool tiro;
@@ -61,7 +61,7 @@ public class Character : MonoBehaviour
     {
         pulo = Input.GetButtonDown("Jump");
 
-        // Atualiza o estado do pulo no Animator
+        // Atualiza o estado do pulo no Animator (ativar animação de pulo quando sair do chão)
         animator.SetBool(saltandoHash, !isgrounded);
 
         // Verifica se o jogador pode pular (pulo simples ou duplo)
@@ -71,19 +71,22 @@ public class Character : MonoBehaviour
             {
                 Jump(); // Pulo normal
                 canDoubleJump = true; // Habilita o pulo duplo
+                animator.SetBool(saltandoHash, true); // Ativa a animação de pulo
             }
             else if (canDoubleJump)
             {
                 Jump(); // Pulo duplo
-                canDoubleJump = false; // Desabilita após o pulo duplo
+                canDoubleJump = false; // Desabilita o pulo duplo
                 animator.SetBool(doubleJumpHash, true); // Ativa a animação de pulo duplo
+                animator.SetTrigger(saltandoHash); // Garante que a animação de pulo também seja ativada no pulo duplo
             }
         }
 
-        // Resetar o estado do double jump se o personagem não estiver mais no ar
+        // Reseta o estado do double jump e pulo se o personagem estiver no chão
         if (isgrounded)
         {
-            animator.SetBool(doubleJumpHash, false);
+            animator.SetBool(doubleJumpHash, false); // Desativa o estado de pulo duplo
+            animator.SetBool(saltandoHash, false);   // Reseta a animação de pulo ao estar no chão
         }
 
         // Movimentos e ações durante o dash
