@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class inimPersegue : MonoBehaviour
 {
-     public float distanciaDePerseguicao = 5f;  // Distância em que o inimigo começa a perseguir o jogador
+     public float distanciaDePerseguicao = 3f;  // Distância em que o inimigo começa a perseguir o jogador
     public float velocidade = 2f;              // Velocidade de movimento do inimigo
     public Transform jogador;                  // Referência ao Transform do jogador
     public int vida = 3;                       // Vida do inimigo
