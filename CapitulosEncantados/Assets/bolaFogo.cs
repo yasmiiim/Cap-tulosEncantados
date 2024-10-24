@@ -17,8 +17,16 @@ public class bolaFogo : MonoBehaviour
     {
         // Calcula a nova posição da bola de fogo
         float novaAltura = Mathf.Sin(Time.time * velocidade) * alturaMaxima;
-        
-        // Atualiza a posição da bola de fogo
         transform.position = new Vector3(posicaoInicial.x, posicaoInicial.y + novaAltura, posicaoInicial.z);
+
+        // Verifica se a bola atingiu a altura de 5
+        if (transform.position.y >= posicaoInicial.y + 5f)
+        {
+            transform.localEulerAngles = new Vector3(0, 0, 180); // Vira de ponta-cabeça
+        }
+        else if (transform.position.y <= posicaoInicial.y)
+        {
+            transform.localEulerAngles = new Vector3(0, 0, 0); // Volta ao normal
+        }
     }
 }
