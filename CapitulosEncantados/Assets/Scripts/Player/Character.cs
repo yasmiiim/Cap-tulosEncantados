@@ -142,7 +142,7 @@ public class Character : MonoBehaviour
     {
         rig.velocity = new Vector2(rig.velocity.x, jumpForce);
         isgrounded = false;
-        AudioObserver.OnPlaySfxEvent("jump"); // Som de pulo, caso tenha um evento de áudio
+        AudioObserver.OnPlaySfxEvent("pulo"); // Som de pulo, caso tenha um evento de áudio
     }
 
     private void Atirar()
