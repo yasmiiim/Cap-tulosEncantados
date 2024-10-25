@@ -198,6 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41f96bcb3d345914dbed76f5b72bf33e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particulaExpPref: {fileID: 7019806906146881451, guid: 253b76d7372fbbe43916e9a99116a399, type: 3}
   vidaAtual: 3
   vidaMaxima: 3
   coracao:

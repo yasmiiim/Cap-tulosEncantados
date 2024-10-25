@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Unity.Mathematics;
 using UnityEngine.UI;
 
 public class VidaPlayer : MonoBehaviour
 {
+    public ParticleSystem particulaExpPref;
+    
   private Vector3 respawnPoint;
 
     public int vidaAtual;
@@ -54,12 +57,16 @@ public class VidaPlayer : MonoBehaviour
 
     public void Die()
     {
-        transform.position = respawnPoint;  // Reposiciona o jogador no ponto de respawn
         vidaAtual = vidaMaxima;            // Restaura a vida ao máximo
         HealthLogic();                     // Atualiza a interface de vida (corações)
         isInvulnerable = false;            // Garante que o jogador não fique invulnerável após morrer
         StopAllCoroutines();               // Garante que todas as corrotinas parem
         ResetColor();                      // Garante que a cor seja resetada ao renascer
+
+        ParticleSystem particulaExplosao = Instantiate(this.particulaExpPref, this.transform.position, Quaternion.identity);
+        Destroy(particulaExplosao.gameObject, 0.5f);
+        
+        transform.position = respawnPoint;  // Reposiciona o jogador no ponto de respawn
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
