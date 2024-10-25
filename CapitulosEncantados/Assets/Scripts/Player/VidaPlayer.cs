@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class VidaPlayer : MonoBehaviour
 {
-     public ParticleSystem particulaExpPref;
+      public ParticleSystem particulaExpPref;
 
     private Vector3 respawnPoint;
 
@@ -30,6 +30,9 @@ public class VidaPlayer : MonoBehaviour
 
     private Collider2D playerCollider;
     private Rigidbody2D playerRigidbody;
+
+    // Adiciona uma referência pública para o script caindoplat
+    public caindoplat plataforma;
 
     void Start()
     {
@@ -80,13 +83,18 @@ public class VidaPlayer : MonoBehaviour
 
         ParticleSystem particulaExplosao = Instantiate(this.particulaExpPref, this.transform.position, Quaternion.identity);
 
-        // Espera até que as partículas acabem de emitir
         yield return new WaitWhile(() => particulaExplosao.IsAlive(true));
 
         Destroy(particulaExplosao.gameObject);
 
         // Reposiciona o jogador imediatamente após as partículas desaparecerem
         transform.position = respawnPoint;
+
+        // Reseta a posição da plataforma chamando o método ResetarPlataforma
+        if (plataforma != null)
+        {
+            plataforma.ResetarPlataforma();
+        }
 
         // Reativa imediatamente após o término
         spriteRenderer.enabled = true;
