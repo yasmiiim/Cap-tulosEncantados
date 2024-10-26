@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class caindoplat : MonoBehaviour
 {
-    public float velocidadeDescida = 2f; // Velocidade de descida da plataforma
-    private bool jogadorEmCima = false;  // Verifica se o jogador está em cima da plataforma
-    private Vector3 posicaoInicial;      // Posição inicial da plataforma
+     public float velocidadeDescida = 2f; // Velocidade de descida da plataforma
+    private bool jogadorEmCima = false;   // Verifica se o jogador está em cima da plataforma
+    private Vector3 posicaoInicial;       // Posição inicial da plataforma
     private bool plataformaResetada = false; // Verifica se a plataforma já foi resetada
+    private Vector3 posicaoDestino;       // Posição final da descida
 
     private void Start()
     {
         // Armazena a posição inicial da plataforma
         posicaoInicial = transform.position;
+        posicaoDestino = posicaoInicial + Vector3.down * 15f; // Define o quanto a plataforma deve descer
     }
 
     private void Update()
@@ -20,8 +22,14 @@ public class caindoplat : MonoBehaviour
         // Desce a plataforma apenas se o jogador estiver em cima e se não foi resetada
         if (jogadorEmCima && !plataformaResetada)
         {
-            // Usa Lerp para suavizar a descida
-            transform.position = Vector3.Lerp(transform.position, transform.position + Vector3.down * velocidadeDescida, Time.deltaTime);
+            // Usa Lerp para suavizar a descida até a posição de destino
+            transform.position = Vector3.Lerp(transform.position, posicaoDestino, velocidadeDescida * Time.deltaTime);
+
+            // Verifica se a plataforma chegou próximo o suficiente do destino para parar o movimento
+            if (Vector3.Distance(transform.position, posicaoDestino) < 15f)
+            {
+                plataformaResetada = true; // Marca como resetada para evitar movimentos adicionais
+            }
         }
     }
 
@@ -47,6 +55,6 @@ public class caindoplat : MonoBehaviour
     {
         transform.position = posicaoInicial;
         jogadorEmCima = false;
-        plataformaResetada = true; // Marca a plataforma como resetada, evitando movimentos adicionais até que o jogador toque novamente
+        plataformaResetada = false; // Permite que a plataforma se mova novamente na próxima colisão
     }
 }
