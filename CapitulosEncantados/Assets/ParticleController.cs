@@ -17,6 +17,10 @@ public class ParticleController : MonoBehaviour
    float counter;
 
    bool isOnGround;
+   
+   [SerializeField] private ParticleSystem fallParticle;
+   
+   
 
    private void Update()
    {
@@ -36,6 +40,7 @@ public class ParticleController : MonoBehaviour
    {
       if (collision.CompareTag("chao"))
       {
+         fallParticle.Play();
          isOnGround = true;
       }
    }
