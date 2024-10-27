@@ -12,6 +12,7 @@ public class Character : MonoBehaviour
     private int movendoHash = Animator.StringToHash("Movendo");
     private int saltandoHash = Animator.StringToHash("Pulando");
     private int doubleJumpHash = Animator.StringToHash("DoubleJump"); // Adicionado para pulo duplo
+    private int poderHash = Animator.StringToHash("Poder"); // Adicionado para animação de poder
 
     public GameObject balaprojetil;
     public Transform arma;
@@ -222,11 +223,13 @@ public class Character : MonoBehaviour
     {
         Speed *= 1.4f;
         doubleShot = true;
+        animator.SetBool(poderHash, true); // Ativa a animação de poder
 
         yield return new WaitForSeconds(3f);
 
-        Speed /= 2;
+        Speed /= 1.4f;
         doubleShot = false;
+        animator.SetBool(poderHash, false); // Desativa a animação de poder
     }
 }
 
