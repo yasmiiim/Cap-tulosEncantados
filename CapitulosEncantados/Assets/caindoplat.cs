@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class caindoplat : MonoBehaviour
 {
-       private Rigidbody2D rb;                  // Referência ao Rigidbody2D da plataforma
-    private bool jogadorEmCima = false;      // Verifica se o jogador está em cima da plataforma
+        private Rigidbody2D rb;                  // Referência ao Rigidbody2D da plataforma
+    private bool jogadorEmCima = false;      // Verifica se o jogador está completamente em cima da plataforma
     private Vector3 posicaoInicial;          // Posição inicial da plataforma
     public float velocidadeTerminal = 1f;    // Velocidade máxima de descida
 
@@ -17,6 +17,7 @@ public class caindoplat : MonoBehaviour
         // Obtém o Rigidbody2D e desativa a gravidade inicialmente
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
+        rb.freezeRotation = true;  // Impede a rotação da plataforma
     }
 
     private void Update()
@@ -39,15 +40,15 @@ public class caindoplat : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D colisao)
+    private void OnTriggerEnter2D(Collider2D colisao)
     {
         if (colisao.gameObject.CompareTag("Player"))
         {
-            jogadorEmCima = true; // O jogador está em cima da plataforma
+            jogadorEmCima = true; // O jogador está completamente em cima da plataforma
         }
     }
 
-    private void OnCollisionExit2D(Collision2D colisao)
+    private void OnTriggerExit2D(Collider2D colisao)
     {
         if (colisao.gameObject.CompareTag("Player"))
         {
