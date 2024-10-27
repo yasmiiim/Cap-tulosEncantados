@@ -4,32 +4,38 @@ using UnityEngine;
 
 public class caindoplat : MonoBehaviour
 {
-     public float velocidadeDescida = 2f; // Velocidade de descida da plataforma
-    private bool jogadorEmCima = false;   // Verifica se o jogador está em cima da plataforma
-    private Vector3 posicaoInicial;       // Posição inicial da plataforma
-    private bool plataformaResetada = false; // Verifica se a plataforma já foi resetada
-    private Vector3 posicaoDestino;       // Posição final da descida
+       private Rigidbody2D rb;                  // Referência ao Rigidbody2D da plataforma
+    private bool jogadorEmCima = false;      // Verifica se o jogador está em cima da plataforma
+    private Vector3 posicaoInicial;          // Posição inicial da plataforma
+    public float velocidadeTerminal = 1f;    // Velocidade máxima de descida
 
     private void Start()
     {
         // Armazena a posição inicial da plataforma
         posicaoInicial = transform.position;
-        posicaoDestino = posicaoInicial + Vector3.down * 15f; // Define o quanto a plataforma deve descer
+
+        // Obtém o Rigidbody2D e desativa a gravidade inicialmente
+        rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0;
     }
 
     private void Update()
     {
-        // Desce a plataforma apenas se o jogador estiver em cima e se não foi resetada
-        if (jogadorEmCima && !plataformaResetada)
+        // Define a gravidade conforme o estado do jogador na plataforma
+        if (jogadorEmCima)
         {
-            // Usa Lerp para suavizar a descida até a posição de destino
-            transform.position = Vector3.Lerp(transform.position, posicaoDestino, velocidadeDescida * Time.deltaTime);
+            rb.gravityScale = 1; // Ativa a gravidade quando o jogador está em cima
 
-            // Verifica se a plataforma chegou próximo o suficiente do destino para parar o movimento
-            if (Vector3.Distance(transform.position, posicaoDestino) < 15f)
+            // Limita a velocidade de descida para a velocidade terminal
+            if (rb.velocity.y < -velocidadeTerminal)
             {
-                plataformaResetada = true; // Marca como resetada para evitar movimentos adicionais
+                rb.velocity = new Vector2(rb.velocity.x, -velocidadeTerminal);
             }
+        }
+        else
+        {
+            rb.gravityScale = 0;         // Desativa a gravidade quando o jogador sai
+            rb.velocity = Vector2.zero;  // Zera a velocidade para garantir que pare
         }
     }
 
@@ -38,7 +44,6 @@ public class caindoplat : MonoBehaviour
         if (colisao.gameObject.CompareTag("Player"))
         {
             jogadorEmCima = true; // O jogador está em cima da plataforma
-            plataformaResetada = false; // Permite o movimento de descida novamente
         }
     }
 
@@ -55,6 +60,7 @@ public class caindoplat : MonoBehaviour
     {
         transform.position = posicaoInicial;
         jogadorEmCima = false;
-        plataformaResetada = false; // Permite que a plataforma se mova novamente na próxima colisão
+        rb.gravityScale = 0;         // Desativa a gravidade novamente para resetar a plataforma
+        rb.velocity = Vector2.zero;  // Zera a velocidade para que pare no ponto inicial
     }
 }
