@@ -696,7 +696,7 @@ Transform:
   m_GameObject: {fileID: 1180410187}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.56, y: -4.43, z: 0}
+  m_LocalPosition: {x: -3.96, y: -4.43, z: 0}
   m_LocalScale: {x: 0.49619, y: 0.49619, z: 0.49619}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1005,7 +1005,7 @@ GameObject:
   - component: {fileID: 2059157628}
   - component: {fileID: 2059157627}
   - component: {fileID: 2059157626}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: chaoFASE1
   m_TagString: chao
   m_Icon: {fileID: 0}
@@ -1779,7 +1779,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5377842878157802683, guid: fa39e75cabc4c9d47a4111a06b1a13c2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.06
+      value: -5.28
       objectReference: {fileID: 0}
     - target: {fileID: 5377842878157802683, guid: fa39e75cabc4c9d47a4111a06b1a13c2, type: 3}
       propertyPath: m_LocalPosition.y
