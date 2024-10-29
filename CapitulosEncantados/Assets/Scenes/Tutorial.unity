@@ -9788,7 +9788,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6853620037590967543, guid: 3c6273ec5d0542c4581701ffdea0e4ae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.153289
+      value: -3.8307202
       objectReference: {fileID: 0}
     - target: {fileID: 6853620037590967543, guid: 3c6273ec5d0542c4581701ffdea0e4ae, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9858,7 +9858,7 @@ Transform:
   m_GameObject: {fileID: 1117730253}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.0195, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10307,6 +10307,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 46087410300327663, guid: 6a68c4bdd55371745bb32ba336f92c45, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0367
+      objectReference: {fileID: 0}
     - target: {fileID: 834224390056607894, guid: 6a68c4bdd55371745bb32ba336f92c45, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.13
@@ -10349,7 +10353,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 855555466451088628, guid: 6a68c4bdd55371745bb32ba336f92c45, type: 3}
       propertyPath: m_Size.y
-      value: 0.26264125
+      value: 0.23670357
       objectReference: {fileID: 0}
     - target: {fileID: 855555466451088628, guid: 6a68c4bdd55371745bb32ba336f92c45, type: 3}
       propertyPath: m_Enabled
@@ -10357,7 +10361,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 855555466451088628, guid: 6a68c4bdd55371745bb32ba336f92c45, type: 3}
       propertyPath: m_Offset.y
-      value: -0.0044420958
+      value: 0.008526739
+      objectReference: {fileID: 0}
+    - target: {fileID: 855555466451088628, guid: 6a68c4bdd55371745bb32ba336f92c45, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.42142856
+      objectReference: {fileID: 0}
+    - target: {fileID: 855555466451088628, guid: 6a68c4bdd55371745bb32ba336f92c45, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.36285713
       objectReference: {fileID: 0}
     - target: {fileID: 1078163521141034196, guid: 6a68c4bdd55371745bb32ba336f92c45, type: 3}
       propertyPath: m_IsActive
@@ -10399,6 +10411,10 @@ PrefabInstance:
       propertyPath: coracao.Array.data[2]
       value: 
       objectReference: {fileID: 394354825}
+    - target: {fileID: 4767489455857374419, guid: 6a68c4bdd55371745bb32ba336f92c45, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b491adaa8e6ce7d48842491b2052cc0e, type: 3}
     - target: {fileID: 7016966428774448953, guid: 6a68c4bdd55371745bb32ba336f92c45, type: 3}
       propertyPath: m_Mass
       value: 1
@@ -10636,15 +10652,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3689941278959849746, guid: 9b55f02723b9d684786345531effbba5, type: 3}
       propertyPath: m_BackGroundColor.b
-      value: 0.7050182
+      value: 0.2737637
       objectReference: {fileID: 0}
     - target: {fileID: 3689941278959849746, guid: 9b55f02723b9d684786345531effbba5, type: 3}
       propertyPath: m_BackGroundColor.g
-      value: 0.6164684
+      value: 0.15419187
       objectReference: {fileID: 0}
     - target: {fileID: 3689941278959849746, guid: 9b55f02723b9d684786345531effbba5, type: 3}
       propertyPath: m_BackGroundColor.r
-      value: 0.81886786
+      value: 0.4245283
       objectReference: {fileID: 0}
     - target: {fileID: 7319820713092137621, guid: 9b55f02723b9d684786345531effbba5, type: 3}
       propertyPath: m_Name
@@ -10652,7 +10668,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8372624408052592558, guid: 9b55f02723b9d684786345531effbba5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.153289
+      value: -3.8307202
       objectReference: {fileID: 0}
     - target: {fileID: 8372624408052592558, guid: 9b55f02723b9d684786345531effbba5, type: 3}
       propertyPath: m_LocalPosition.y
