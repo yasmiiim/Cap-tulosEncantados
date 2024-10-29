@@ -8,22 +8,24 @@ using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
-   private Animator animator;
+  private Animator animator;
     private int movendoHash = Animator.StringToHash("Movendo");
     private int saltandoHash = Animator.StringToHash("Pulando");
-    private int doubleJumpHash = Animator.StringToHash("DoubleJump"); // Adicionado para pulo duplo
-    private int poderHash = Animator.StringToHash("Poder"); // Adicionado para animação de poder
+    private int doubleJumpHash = Animator.StringToHash("DoubleJump");
+    private int poderHash = Animator.StringToHash("Poder");
 
     public GameObject balaprojetil;
     public Transform arma;
+    public Transform groundCheck;
     private bool tiro;
     public float forcaDoTiro;
     private bool flipX = false;
 
-    // Pulo e pulo duplo
     public float jumpForce;
     public bool pulo, isgrounded;
-    private bool canDoubleJump; // Verifica se o pulo duplo está disponível
+    private bool canDoubleJump;
+    public float checkRadius = 0.1f;
+    public LayerMask whatIsGround;
 
     public float Speed;
 
@@ -35,7 +37,6 @@ public class Character : MonoBehaviour
 
     private HashSet<Collider2D> collectedColliders = new HashSet<Collider2D>();
 
-    // Dash variables
     public float dashSpeed = 15f;
     public float dashDuration = 0.2f;
     public float dashCooldown = 1f;
@@ -43,7 +44,6 @@ public class Character : MonoBehaviour
     private bool canDash = true;
     private float originalSpeed;
 
-    // Novas variáveis para super velocidade e dois tiros
     private bool doubleShot = false;
 
     void Start()
@@ -61,42 +61,37 @@ public class Character : MonoBehaviour
     void Update()
     {
         pulo = Input.GetButtonDown("Jump");
-
-        // Atualiza o estado do pulo no Animator (ativar animação de pulo quando sair do chão)
+        isgrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
         animator.SetBool(saltandoHash, !isgrounded);
 
-        // Verifica se o jogador pode pular (pulo simples ou duplo)
         if (pulo)
         {
             if (isgrounded)
             {
-                Jump(); // Pulo normal
-                canDoubleJump = true; // Habilita o pulo duplo
-                animator.SetBool(saltandoHash, true); // Ativa a animação de pulo
+                Jump();
+                canDoubleJump = true;
+                animator.SetBool(saltandoHash, true);
             }
             else if (canDoubleJump)
             {
-                Jump(); // Pulo duplo
-                canDoubleJump = false; // Desabilita o pulo duplo
-                animator.SetBool(doubleJumpHash, true); // Ativa a animação de pulo duplo
-                animator.SetTrigger(saltandoHash); // Garante que a animação de pulo também seja ativada no pulo duplo
+                Jump();
+                canDoubleJump = false;
+                animator.SetBool(doubleJumpHash, true);
+                animator.SetTrigger(saltandoHash);
             }
         }
 
-        // Reseta o estado do double jump e pulo se o personagem estiver no chão
         if (isgrounded)
         {
-            animator.SetBool(doubleJumpHash, false); // Desativa o estado de pulo duplo
-            animator.SetBool(saltandoHash, false);   // Reseta a animação de pulo ao estar no chão
+            animator.SetBool(doubleJumpHash, false);
+            animator.SetBool(saltandoHash, false);
         }
 
-        // Movimentos e ações durante o dash
         if (!isDashing)
         {
             Move();
         }
 
-        // Ativar dash
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
             StartCoroutine(Dash());
@@ -106,28 +101,14 @@ public class Character : MonoBehaviour
         Atirar();
     }
 
-    private void OnCollisionEnter2D(Collision2D coll)
-    {
-        if (coll.gameObject.CompareTag("chao"))
-        {
-            isgrounded = true;
-            canDoubleJump = false; // Reseta o pulo duplo ao tocar o chão
-        }
-    }
-
     void Move()
     {
         AudioObserver.OnPlaySfxEvent("walking");
 
         float inputAxis = Input.GetAxis("Horizontal");
-
-        // Atualiza a velocidade com base no eixo horizontal
         rig.velocity = new Vector2(inputAxis * Speed, rig.velocity.y);
-
-        // Define o estado de movimentação no Animator
         animator.SetBool(movendoHash, inputAxis != 0);
 
-        // Verifica se é necessário virar o personagem
         if (inputAxis > 0 && flipX)
         {
             Flip();
@@ -138,12 +119,11 @@ public class Character : MonoBehaviour
         }
     }
 
-    // Método para pular
     void Jump()
     {
         rig.velocity = new Vector2(rig.velocity.x, jumpForce);
         isgrounded = false;
-        AudioObserver.OnPlaySfxEvent("pulo"); // Som de pulo, caso tenha um evento de áudio
+        AudioObserver.OnPlaySfxEvent("pulo");
     }
 
     private void Atirar()
@@ -223,13 +203,21 @@ public class Character : MonoBehaviour
     {
         Speed *= 1.4f;
         doubleShot = true;
-        animator.SetBool(poderHash, true); // Ativa a animação de poder
+        animator.SetBool(poderHash, true);
 
         yield return new WaitForSeconds(3f);
 
         Speed /= 1.4f;
         doubleShot = false;
-        animator.SetBool(poderHash, false); // Desativa a animação de poder
+        animator.SetBool(poderHash, false);
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("chao"))
+        {
+            isgrounded = false;
+        }
     }
 }
 
