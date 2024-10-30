@@ -21,20 +21,30 @@ public class cogumelo : MonoBehaviour
             {
                 if (contact.normal.y < 0)
                 {
-                    other.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * bounce, ForceMode2D.Impulse);
-                    
-                    animator.SetBool("isJumping", true);
+                    Rigidbody2D playerRb = other.gameObject.GetComponent<Rigidbody2D>();
+                    Animator playerAnimator = other.gameObject.GetComponent<Animator>();
 
-                    StartCoroutine(ResetIsJumping());
+                    if (playerAnimator != null)
+                    {
+                        playerAnimator.SetBool("Pulando", true);
+                    }
+
+                    if (playerRb != null)
+                    {
+                        playerRb.velocity = new Vector2(playerRb.velocity.x, bounce);
+                    }
+
+                    StartCoroutine(ResetPulando(playerAnimator));
                     break;
                 }
             }
         }
     }
 
-    private IEnumerator ResetIsJumping()
+    private IEnumerator ResetPulando(Animator playerAnimator)
     {
         yield return new WaitForSeconds(0.1f);
-        animator.SetBool("isJumping", false);
+        playerAnimator.SetBool("Pulando", false);
     }
+
 }
