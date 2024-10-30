@@ -3096,6 +3096,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3517172889285385715, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1515277808, guid: 2cddbe295c89af445bbd945642d36717, type: 3}
     - target: {fileID: 4280150198537314546, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3128,6 +3132,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8415677971147629853, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1515277808, guid: 2cddbe295c89af445bbd945642d36717, type: 3}
     - target: {fileID: 8691872368466953373, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3144,6 +3152,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9116071935364799886, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1515277808, guid: 2cddbe295c89af445bbd945642d36717, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -3275,6 +3287,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4219341653614466855, guid: 6a68c4bdd55371745bb32ba336f92c45, type: 3}
+      propertyPath: cheio
+      value: 
+      objectReference: {fileID: 1515277808, guid: 2cddbe295c89af445bbd945642d36717, type: 3}
+    - target: {fileID: 4219341653614466855, guid: 6a68c4bdd55371745bb32ba336f92c45, type: 3}
+      propertyPath: vazio
+      value: 
+      objectReference: {fileID: -1574173832, guid: 2cddbe295c89af445bbd945642d36717, type: 3}
     - target: {fileID: 4219341653614466855, guid: 6a68c4bdd55371745bb32ba336f92c45, type: 3}
       propertyPath: coracao.Array.data[0]
       value: 
