@@ -4,39 +4,39 @@ using UnityEngine;
 
 public class inimPersegue : MonoBehaviour
 {
-     public float distanciaDePerseguicao = 3f;  // Distância em que o inimigo começa a perseguir o jogador
-    public float velocidade = 2f;              // Velocidade de movimento do inimigo
-    public Transform jogador;                  // Referência ao Transform do jogador
-    public int vida = 3;                       // Vida do inimigo
-    public Color corNormal = Color.white;      // Cor normal do inimigo
-    public Color corDano = Color.red;          // Cor do inimigo ao receber dano
-    public float tempoDano = 0.1f;             // Tempo que o inimigo fica vermelho após levar dano
+   public float distanciaDePerseguicao = 3f;
+    public float velocidade = 2f;
+    public Transform jogador;
+    public int vida = 3;
+    public Color corNormal = Color.white;
+    public Color corDano = Color.red;
+    public float tempoDano = 0.1f;
 
-    private SpriteRenderer spriteRenderer;     // Referência ao SpriteRenderer do inimigo
-    private bool estaPerseguindo = false;      // Verifica se o inimigo está perseguindo
+    private SpriteRenderer spriteRenderer;
+    private bool estaPerseguindo = false;
+    public Animator animator;
 
     void Start()
     {
-        // Obtém o componente SpriteRenderer para mudar a cor do inimigo
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
-        // Calcula a distância horizontal entre o inimigo e o jogador
         float distanciaParaJogador = Vector2.Distance(new Vector2(transform.position.x, 0), new Vector2(jogador.position.x, 0));
 
-        // Verifica se o jogador está dentro da distância de perseguição
         if (distanciaParaJogador < distanciaDePerseguicao)
         {
             estaPerseguindo = true;
+            animator.SetBool("isWalking", true);
         }
         else
         {
             estaPerseguindo = false;
+            animator.SetBool("isWalking", false);
         }
 
-        // Se estiver perseguindo, move o inimigo em direção ao jogador apenas no eixo X (horizontal)
         if (estaPerseguindo)
         {
             Vector2 direcao = new Vector2(jogador.position.x - transform.position.x, 0).normalized;
@@ -44,25 +44,23 @@ public class inimPersegue : MonoBehaviour
                 Mathf.MoveTowards(transform.position.x, jogador.position.x, velocidade * Time.deltaTime),
                 transform.position.y
             );
+
+            spriteRenderer.flipX = jogador.position.x > transform.position.x;
         }
     }
 
-    // Método chamado quando o inimigo colide com um objeto
     private void OnTriggerEnter2D(Collider2D colisao)
     {
-        if (colisao.gameObject.CompareTag("bala"))  // Verifica se o objeto que colidiu tem a tag "Bala"
+        if (colisao.gameObject.CompareTag("bala"))
         {
-            ReceberDano(1);  // Inimigo recebe 1 de dano
-            Destroy(colisao.gameObject);  // Destrói a bala após o impacto
+            ReceberDano(1);
+            Destroy(colisao.gameObject);
         }
     }
 
-    // Função para o inimigo receber dano
     public void ReceberDano(int dano)
     {
         vida -= dano;
-
-        // Aplica o efeito visual de dano (ficar vermelho)
         StartCoroutine(EfeitoVisualDano());
 
         if (vida <= 0)
@@ -71,17 +69,15 @@ public class inimPersegue : MonoBehaviour
         }
     }
 
-    // Função para destruir o inimigo quando a vida for menor ou igual a zero
     void Morrer()
     {
-        Destroy(gameObject);  // Destroi o inimigo
+        Destroy(gameObject);
     }
 
-    // Coroutine para mudar a cor do inimigo quando ele levar dano
     private System.Collections.IEnumerator EfeitoVisualDano()
     {
-        spriteRenderer.color = corDano;  // Muda a cor para vermelho
-        yield return new WaitForSeconds(tempoDano);  // Espera o tempo definido
-        spriteRenderer.color = corNormal;  // Retorna à cor original
+        spriteRenderer.color = corDano;
+        yield return new WaitForSeconds(tempoDano);
+        spriteRenderer.color = corNormal;
     }
 }
