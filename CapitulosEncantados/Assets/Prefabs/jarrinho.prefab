@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5528935990538292390}
   - component: {fileID: 7539982644047724302}
   - component: {fileID: 4503352512565602645}
+  - component: {fileID: 6695784588262821600}
   m_Layer: 0
   m_Name: jarrinho
   m_TagString: enemy
@@ -122,7 +123,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 48, y: 48}
+    oldSize: {x: 40, y: 40}
     newSize: {x: 0.2, y: 0.14}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -150,3 +151,25 @@ MonoBehaviour:
   corNormal: {r: 1, g: 1, b: 1, a: 1}
   corDano: {r: 1, g: 0, b: 0, a: 1}
   tempoDano: 0.1
+  animator: {fileID: 6695784588262821600}
+--- !u!95 &6695784588262821600
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7397367646716809179}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 567b8ca928276434f9cc9fa3d6250fa8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
