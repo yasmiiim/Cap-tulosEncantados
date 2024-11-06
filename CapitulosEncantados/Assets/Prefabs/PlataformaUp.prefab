@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6922491188043485986}
   - component: {fileID: 6678223369064776553}
   - component: {fileID: 1595766053079768736}
-  m_Layer: 8
+  m_Layer: 3
   m_Name: PlataformaUp
   m_TagString: chao
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 631d4719589542b40a98ae45805cddcc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 70d5400df6f9b574198aa027f0ef160d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -136,16 +136,16 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.08070111, y: 0.59449613}
+  m_Offset: {x: -0.019142985, y: 0.3482616}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.48, y: 3.33}
+    oldSize: {x: 6.4, y: 6.4}
     newSize: {x: 7.48, y: 3.33}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.2013102, y: 0.536321}
+  m_Size: {x: 4.0631266, y: 1.02879}
   m_EdgeRadius: 0
