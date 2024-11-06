@@ -8,7 +8,8 @@ using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
-  private Animator animator;
+  // Variáveis e constantes
+    private Animator animator;
     private int movendoHash = Animator.StringToHash("Movendo");
     private int saltandoHash = Animator.StringToHash("Pulando");
     private int doubleJumpHash = Animator.StringToHash("DoubleJump");
@@ -17,6 +18,7 @@ public class Character : MonoBehaviour
     public GameObject balaprojetil;
     public Transform arma;
     public Transform groundCheck;
+    public Transform wallCheck; // Verificação de parede
     private bool tiro;
     public float forcaDoTiro;
     private bool flipX = false;
@@ -26,6 +28,7 @@ public class Character : MonoBehaviour
     private bool canDoubleJump;
     public float checkRadius = 0.1f;
     public LayerMask whatIsGround;
+    public LayerMask whatIsWall; // Define o que é considerado "parede"
 
     public float Speed;
 
@@ -46,6 +49,12 @@ public class Character : MonoBehaviour
 
     private bool doubleShot = false;
 
+    // Novas variáveis para deslizar na parede
+    private bool isTouchingWall;
+    private bool isWallSliding;
+    public float wallSlideSpeed = 2f;
+    private bool canWallJump = false;
+
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
@@ -62,6 +71,7 @@ public class Character : MonoBehaviour
     {
         pulo = Input.GetButtonDown("Jump");
         isgrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+        isTouchingWall = Physics2D.OverlapCircle(wallCheck.position, checkRadius, whatIsWall);
         animator.SetBool(saltandoHash, !isgrounded);
 
         if (pulo)
@@ -72,6 +82,10 @@ public class Character : MonoBehaviour
                 canDoubleJump = true;
                 animator.SetBool(saltandoHash, true);
             }
+            else if (isTouchingWall && !isgrounded)
+            {
+                WallJump();
+            }
             else if (canDoubleJump)
             {
                 Jump();
@@ -79,6 +93,16 @@ public class Character : MonoBehaviour
                 animator.SetBool(doubleJumpHash, true);
                 animator.SetTrigger(saltandoHash);
             }
+        }
+
+        if (isTouchingWall && !isgrounded && rig.velocity.y < 0)
+        {
+            isWallSliding = true;
+            WallSlide();
+        }
+        else
+        {
+            isWallSliding = false;
         }
 
         if (isgrounded)
@@ -124,6 +148,21 @@ public class Character : MonoBehaviour
         rig.velocity = new Vector2(rig.velocity.x, jumpForce);
         isgrounded = false;
         AudioObserver.OnPlaySfxEvent("pulo");
+    }
+
+    private void WallSlide()
+    {
+        rig.velocity = new Vector2(rig.velocity.x, -wallSlideSpeed);
+        canWallJump = true;
+    }
+
+    private void WallJump()
+    {
+        if (canWallJump)
+        {
+            rig.velocity = new Vector2(flipX ? jumpForce : -jumpForce, jumpForce);
+            canWallJump = false;
+        }
     }
 
     private void Atirar()
