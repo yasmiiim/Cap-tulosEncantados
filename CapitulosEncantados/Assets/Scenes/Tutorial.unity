@@ -735,7 +735,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -164.9964, y: 0, z: -121.576416, w: -170.7858}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -16973,6 +16973,14 @@ PrefabInstance:
       propertyPath: tutorialMessage
       value: pule duas vezes e salve seu progresso ao passar pelo checkpoint.
       objectReference: {fileID: 0}
+    - target: {fileID: 8134172808228680320, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
+      propertyPath: m_Size.y
+      value: 2.9060347
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134172808228680320, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.9530176
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21501,6 +21509,14 @@ PrefabInstance:
       propertyPath: tutorialText
       value: 
       objectReference: {fileID: 391264898}
+    - target: {fileID: 8134172808228680320, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
+      propertyPath: m_Size.y
+      value: 2.4520435
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134172808228680320, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.7260223
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
