@@ -11,30 +11,29 @@ public class TutorialTrigger : MonoBehaviour
     public GameObject messageBox;  // Referência à caixa de mensagem
     public Button closeButton;  // Referência ao botão de fechar
 
+    private bool hasShownMessage = false;  // Variável para controlar se a mensagem já foi mostrada
+
     private void Start()
     {
         // Configure o botão para chamar a função CloseTutorial ao ser pressionado
         closeButton.onClick.AddListener(CloseTutorial);
-
-        // Configura o botão para usar um evento de clique que funcione com o tempo pausado
-        closeButton.onClick.AddListener(() => {
-            Time.timeScale = 1;
-            CloseTutorial();
-        });
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))  // Verifique se o jogador entrou no trigger
+        if (other.CompareTag("Player") && !hasShownMessage)  // Verifique se o jogador entrou e a mensagem ainda não foi mostrada
         {
             tutorialText.text = tutorialMessage;
             messageBox.SetActive(true);  // Ative a caixa de mensagem
             Time.timeScale = 0;  // Pause o jogo
+            hasShownMessage = true;  // Marque que a mensagem foi mostrada
         }
     }
 
     public void CloseTutorial()
     {
+        Time.timeScale = 1;  // Retome o jogo antes de fechar a mensagem para evitar problemas de interação
         messageBox.SetActive(false);  // Desative a caixa de mensagem
     }
+
 }
