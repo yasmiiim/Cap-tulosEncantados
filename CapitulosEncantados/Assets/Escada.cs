@@ -6,7 +6,7 @@ using UnityEngine;
 public class Escada : MonoBehaviour
 {
     private float vertical;
-    private float speed = 8f;
+    private float speed = 5f;
     private bool escada;
     private bool escalando;
 
@@ -19,7 +19,7 @@ public class Escada : MonoBehaviour
         {
             escalando = true;
         }
-        else if (!escada)
+        else if (!escada || Mathf.Abs(vertical) == 0f)
         {
             escalando = false;
         }
@@ -30,6 +30,7 @@ public class Escada : MonoBehaviour
         if (col.CompareTag("escada"))
         {
             escada = true;
+            playerRb.velocity = new Vector2(playerRb.velocity.x, 0f);
         }
     }
 
@@ -39,6 +40,7 @@ public class Escada : MonoBehaviour
         {
             escada = false;
             escalando = false;
+            playerRb.velocity = new Vector2(playerRb.velocity.x, 0f);
         }
     }
 
