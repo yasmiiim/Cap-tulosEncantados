@@ -8,8 +8,7 @@ using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
-  // Variáveis e constantes
-    private Animator animator;
+ private Animator animator;
     private int movendoHash = Animator.StringToHash("Movendo");
     private int saltandoHash = Animator.StringToHash("Pulando");
     private int doubleJumpHash = Animator.StringToHash("DoubleJump");
@@ -18,7 +17,7 @@ public class Character : MonoBehaviour
     public GameObject balaprojetil;
     public Transform arma;
     public Transform groundCheck;
-    public Transform wallCheck; // Verificação de parede
+    public Transform wallCheck;
     private bool tiro;
     public float forcaDoTiro;
     private bool flipX = false;
@@ -28,7 +27,7 @@ public class Character : MonoBehaviour
     private bool canDoubleJump;
     public float checkRadius = 0.1f;
     public LayerMask whatIsGround;
-    public LayerMask whatIsWall; // Define o que é considerado "parede"
+    public LayerMask whatIsWall;
 
     public float Speed;
 
@@ -49,7 +48,6 @@ public class Character : MonoBehaviour
 
     private bool doubleShot = false;
 
-    // Novas variáveis para deslizar na parede
     private bool isTouchingWall;
     private bool isWallSliding;
     public float wallSlideSpeed = 2f;
@@ -131,7 +129,36 @@ public class Character : MonoBehaviour
 
         float inputAxis = Input.GetAxis("Horizontal");
         rig.velocity = new Vector2(inputAxis * Speed, rig.velocity.y);
-        animator.SetBool(movendoHash, inputAxis != 0);
+
+        bool isWalking = inputAxis != 0;
+        bool isJumping = !isgrounded || (isTouchingWall && rig.velocity.y < 0);
+
+        // Verifica se o personagem tem poder
+        if (animator.GetBool(poderHash))  // Quando o poder está ativado
+        {
+            if (isJumping)
+            {
+                animator.SetBool("WalkPower", false);  // Desativa animação de andar com poder
+                animator.SetBool("JumpPower", true);   // Ativa animação de pulo com poder
+            }
+            else
+            {
+                animator.SetBool("WalkPower", isWalking);  // Ativa animação de andar com poder
+                animator.SetBool("JumpPower", false);      // Desativa animação de pulo com poder
+            }
+        }
+        else  // Quando o poder não está ativado
+        {
+            animator.SetBool(movendoHash, isWalking);  // Ativa animação de andar normal
+            animator.SetBool(saltandoHash, isJumping);  // Ativa animação de pulo normal
+        }
+
+        // Verifica se o personagem voltou ao chão e está andando com o poder
+        if (isgrounded && !isJumping && animator.GetBool(poderHash)) 
+        {
+            animator.SetBool("WalkPower", isWalking);  // Ativa animação de andar com poder se estiver andando
+            animator.SetBool("JumpPower", false);      // Desativa animação de pulo com poder
+        }
 
         if (inputAxis > 0 && flipX)
         {
