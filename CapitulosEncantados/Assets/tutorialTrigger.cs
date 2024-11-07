@@ -1,13 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;  
-using UnityEngine.UI; 
+using TMPro;  // Necessário para usar TextMeshPro
+using UnityEngine.UI;  // Necessário para usar Image e Button
+
 public class TutorialTrigger : MonoBehaviour
 {
     public string tutorialMessage;  // Mensagem que será exibida
     public TextMeshProUGUI tutorialText;  // Referência ao elemento de texto da UI
-    public GameObject messageBox;  // Referência à caixa de mensagem (imagem)
+    public GameObject messageBox;  // Referência à caixa de mensagem
+    public Button closeButton;  // Referência ao botão de fechar
+
+    private void Start()
+    {
+        // Configure o botão para chamar a função CloseTutorial ao ser pressionado
+        closeButton.onClick.AddListener(CloseTutorial);
+
+        // Configura o botão para usar um evento de clique que funcione com o tempo pausado
+        closeButton.onClick.AddListener(() => {
+            Time.timeScale = 1;
+            CloseTutorial();
+        });
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -15,15 +29,12 @@ public class TutorialTrigger : MonoBehaviour
         {
             tutorialText.text = tutorialMessage;
             messageBox.SetActive(true);  // Ative a caixa de mensagem
+            Time.timeScale = 0;  // Pause o jogo
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    public void CloseTutorial()
     {
-        if (other.CompareTag("Player"))  // Verifique se o jogador saiu do trigger
-        {
-            messageBox.SetActive(false);  // Desative a caixa de mensagem
-        }
+        messageBox.SetActive(false);  // Desative a caixa de mensagem
     }
 }
-
