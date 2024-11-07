@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4289427353678323948}
   - component: {fileID: 1854738969735964544}
   - component: {fileID: 8510906418312354075}
-  - component: {fileID: 1853159003032426735}
   m_Layer: 0
   m_Name: abelha
   m_TagString: enemy
@@ -77,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9626c9187000c0642b02fc97ebd63805, type: 3}
+  m_Sprite: {fileID: 21300000, guid: efcf5bf53656c5b4ab3a7bc3b9a4afca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -124,7 +123,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5, y: 5}
+    oldSize: {x: 4.48, y: 4.48}
     newSize: {x: 5, y: 5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -176,15 +175,3 @@ MonoBehaviour:
   vida: 3
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   colorChangeDuration: 0.2
---- !u!114 &1853159003032426735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4166075123547320085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbfa23f1999cc0d4ea5feacddc6ec6d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

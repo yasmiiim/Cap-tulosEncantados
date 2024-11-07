@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class inimigo : MonoBehaviour
 {
-    public float speed = 5.0f;
+    public float speed = 5.0f; // Velocidade de movimento
     public Rigidbody2D enemyRbp;
     public int vida = 3;
-    private bool faceFlip;
+    private bool faceFlip; // Controle de direção (virado para a direita ou para a esquerda)
 
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
@@ -16,10 +16,12 @@ public class inimigo : MonoBehaviour
     public float colorChangeDuration = 0.2f;
 
     public float changeDirectionInterval = 2.0f; // Tempo em segundos para mudar de direção
+    private Animator animator; // Referência ao Animator
 
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>(); // Pegando o Animator
         if (spriteRenderer != null)
         {
             originalColor = spriteRenderer.color;
@@ -36,12 +38,18 @@ public class inimigo : MonoBehaviour
     {
         // Faz o inimigo se mover continuamente para a esquerda ou direita
         transform.Translate(Vector2.left * speed * Time.deltaTime);
+
+        // Aciona a animação de caminhada quando o inimigo estiver se movendo
+        if (animator != null)
+        {
+            animator.SetBool("isWalking", true); // Assume que a animação de caminhada tem um parâmetro booleano chamado "isWalking"
+        }
     }
 
     // Função que será chamada repetidamente para mudar a direção
     private void ChangeDirection()
     {
-        faceFlip = !faceFlip;
+        faceFlip = !faceFlip; // Inverte a direção
         FlipEnemy();
     }
 
@@ -50,11 +58,11 @@ public class inimigo : MonoBehaviour
         // Se o inimigo estiver de frente, vira de costas, e vice-versa
         if (faceFlip)
         {
-            gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+            gameObject.transform.rotation = Quaternion.Euler(0, 0, 0); // Virado para a direita
         }
         else
         {
-            gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+            gameObject.transform.rotation = Quaternion.Euler(0, 180, 0); // Virado para a esquerda
         }
     }
 
@@ -106,6 +114,11 @@ public class inimigo : MonoBehaviour
 
     private void Die()
     {
+        // Chama a animação de morte (se tiver)
+        if (animator != null)
+        {
+            animator.SetTrigger("Die");
+        }
         Destroy(this.gameObject);
     }
 }
