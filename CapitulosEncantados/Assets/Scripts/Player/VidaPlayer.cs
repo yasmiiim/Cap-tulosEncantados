@@ -7,8 +7,7 @@ using UnityEngine.UI;
 
 public class VidaPlayer : MonoBehaviour
 {
-      public ParticleSystem particulaExpPref;
-
+    public ParticleSystem particulaExpPref;
     private Vector3 respawnPoint;
 
     public int vidaAtual;
@@ -33,6 +32,9 @@ public class VidaPlayer : MonoBehaviour
 
     // Adiciona uma referência pública para o script caindoplat
     public caindoplat plataforma;
+
+    // Adiciona uma referência pública para o script da nuvem
+    public nuvem cloud;
 
     void Start()
     {
@@ -96,7 +98,13 @@ public class VidaPlayer : MonoBehaviour
             plataforma.ResetarPlataforma();
         }
 
-        // Reativa imediatamente após o término
+        // Reseta a nuvem chamando o método ResetCloud, para garantir que ela reapareça
+        if (cloud != null)
+        {
+            cloud.ResetCloud();
+        }
+
+        // Reativa o jogador após o término
         spriteRenderer.enabled = true;
         playerCollider.enabled = true;
         playerRigidbody.simulated = true;
