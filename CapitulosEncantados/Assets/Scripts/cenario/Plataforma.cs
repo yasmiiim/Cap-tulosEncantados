@@ -10,6 +10,7 @@ public class Plataforma : MonoBehaviour
     public bool moveRight = true, moveUp = true;
 
     public float minYPosition = 0f; // Posição mínima no eixo Y (para evitar encostar no chão)
+    public float maxYPosition = 0f; // Posição máxima no eixo Y (pode ser ajustada no Unity)
 
     void Update()
     {
@@ -37,7 +38,7 @@ public class Plataforma : MonoBehaviour
         if (platform2)
         {
             // Verifica se a plataforma está acima da posição máxima
-            if (transform.position.y > 3)
+            if (transform.position.y > maxYPosition)
             {
                 moveUp = false;
             }
