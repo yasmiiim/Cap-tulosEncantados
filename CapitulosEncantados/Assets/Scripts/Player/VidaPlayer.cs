@@ -30,11 +30,10 @@ public class VidaPlayer : MonoBehaviour
     private Collider2D playerCollider;
     private Rigidbody2D playerRigidbody;
 
-    // Adiciona uma referência pública para o script caindoplat
+    // Referências para os scripts das plataformas
     public caindoplat plataforma;
-
-    // Adiciona uma referência pública para o script da nuvem
     public nuvem cloud;
+    public FallingPlatform fallingPlatform; // Adiciona referência para a plataforma que cai
 
     void Start()
     {
@@ -98,10 +97,16 @@ public class VidaPlayer : MonoBehaviour
             plataforma.ResetarPlataforma();
         }
 
-        // Reseta a nuvem chamando o método ResetCloud, para garantir que ela reapareça
+        // Reseta a nuvem chamando o método ResetCloud
         if (cloud != null)
         {
             cloud.ResetCloud();
+        }
+
+        // Reseta a plataforma que cai chamando o método ResetPlatform
+        if (fallingPlatform != null)
+        {
+            fallingPlatform.ResetPlatform();
         }
 
         // Reativa o jogador após o término

@@ -6,14 +6,21 @@ using UnityEngine;
 public class FallingPlatform : MonoBehaviour
 {
     private float fallDelay = 1f;
-
     private float destroyDelay = 2f;
 
     [SerializeField] private Rigidbody2D rb;
+    private Vector3 initialPosition;
+    private bool isFalling = false;
 
-    private void OnCollisionEnter2D(Collision2D collision )
+    private void Start()
     {
-        if (collision.gameObject.CompareTag("Player"))
+        initialPosition = transform.position;
+        rb.bodyType = RigidbodyType2D.Static;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && !isFalling)
         {
             StartCoroutine(Fall());
         }
@@ -21,8 +28,19 @@ public class FallingPlatform : MonoBehaviour
 
     private IEnumerator Fall()
     {
+        isFalling = true;
         yield return new WaitForSeconds(fallDelay);
         rb.bodyType = RigidbodyType2D.Dynamic;
-        Destroy(gameObject, destroyDelay);
+        yield return new WaitForSeconds(destroyDelay);
+        gameObject.SetActive(false);
+    }
+
+    public void ResetPlatform()
+    {
+        StopAllCoroutines();
+        rb.bodyType = RigidbodyType2D.Static;
+        transform.position = initialPosition;
+        isFalling = false;
+        gameObject.SetActive(true);
     }
 }
