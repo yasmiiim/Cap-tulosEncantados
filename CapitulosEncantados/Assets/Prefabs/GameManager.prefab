@@ -621,7 +621,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &510908016000971550
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1705,6 +1705,10 @@ PrefabInstance:
     - target: {fileID: 6096147604190772513, guid: a7075713ff2e2a24e94181a431a0cb01, type: 3}
       propertyPath: m_Name
       value: Tuto
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096147604190772513, guid: a7075713ff2e2a24e94181a431a0cb01, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6412043071739584774, guid: a7075713ff2e2a24e94181a431a0cb01, type: 3}
       propertyPath: m_Pivot.x

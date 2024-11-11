@@ -256,6 +256,7 @@ MonoBehaviour:
   invulnerabilityDuration: 1.5
   blinkInterval: 0.1
   plataforma: {fileID: 0}
+  cloud: {fileID: 0}
 --- !u!95 &8329797271668727149
 Animator:
   serializedVersion: 5
