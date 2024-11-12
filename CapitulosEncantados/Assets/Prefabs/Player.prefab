@@ -256,7 +256,8 @@ MonoBehaviour:
   invulnerabilityDuration: 1.5
   blinkInterval: 0.1
   plataforma: {fileID: 0}
-  cloud: {fileID: 0}
+  cloud: {fileID: 2349224426670546160, guid: 89ff183c00ba4f5489d22275b862003f, type: 3}
+  fallingPlatform: {fileID: 8283211150615312904, guid: f6df90911fd369648980979db5150772, type: 3}
 --- !u!95 &8329797271668727149
 Animator:
   serializedVersion: 5
