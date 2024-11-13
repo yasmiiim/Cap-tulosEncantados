@@ -103,7 +103,8 @@ MonoBehaviour:
   platform2: 1
   moveRight: 0
   moveUp: 1
-  minYPosition: -0.79
+  minYPosition: -2.19
+  maxYPosition: 0
 --- !u!61 &1595766053079768736
 BoxCollider2D:
   m_ObjectHideFlags: 0
