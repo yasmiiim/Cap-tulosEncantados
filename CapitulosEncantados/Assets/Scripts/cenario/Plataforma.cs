@@ -9,18 +9,22 @@ public class Plataforma : MonoBehaviour
 
     public bool moveRight = true, moveUp = true;
 
-    public float minYPosition = 0f; // Posição mínima no eixo Y (para evitar encostar no chão)
-    public float maxYPosition = 0f; // Posição máxima no eixo Y (pode ser ajustada no Unity)
+    public float minYPosition = 0f; // Posição mínima no eixo Y
+    public float maxYPosition = 0f; // Posição máxima no eixo Y
+
+    public float minXPosition = -0f; // Posição mínima no eixo X (definida no Inspetor)
+    public float maxXPosition = 0f; // Posição máxima no eixo X (definida no Inspetor)
 
     void Update()
     {
         if (platform1)
         {
-            if (transform.position.x > -5)
+            // Usa os valores definidos no Inspetor para os limites horizontais
+            if (transform.position.x > maxXPosition)
             {
                 moveRight = false;
             }
-            else if (transform.position.x < -8)
+            else if (transform.position.x < minXPosition)
             {
                 moveRight = true;
             }
@@ -31,18 +35,18 @@ public class Plataforma : MonoBehaviour
             }
             else
             {
-                transform.Translate(Vector2.right * -moveSpeed * Time.deltaTime);
+                transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
             }
         }
-        
+
         if (platform2)
         {
-            // Verifica se a plataforma está acima da posição máxima
+            // Lógica para movimentação vertical (Y)
             if (transform.position.y > maxYPosition)
             {
                 moveUp = false;
             }
-            else if (transform.position.y < minYPosition) // Altera aqui para usar minYPosition
+            else if (transform.position.y < minYPosition)
             {
                 moveUp = true;
             }
@@ -53,11 +57,7 @@ public class Plataforma : MonoBehaviour
             }
             else
             {
-                // Verifica se a plataforma pode se mover para baixo
-                if (transform.position.y > minYPosition)
-                {
-                    transform.Translate(Vector2.down * moveSpeed * Time.deltaTime);
-                }
+                transform.Translate(Vector2.down * moveSpeed * Time.deltaTime);
             }
         }
     }
