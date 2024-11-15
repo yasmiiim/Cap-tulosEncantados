@@ -30,10 +30,11 @@ public class VidaPlayer : MonoBehaviour
     private Collider2D playerCollider;
     private Rigidbody2D playerRigidbody;
 
-    // Referências para os scripts das plataformas
+    // Referências para os scripts das plataformas e objetos
     public caindoplat plataforma;
     public nuvem cloud;
-    public FallingPlatform fallingPlatform; // Adiciona referência para a plataforma que cai
+    public FallingPlatform fallingPlatform;
+    public fallingSpike spike; // Adiciona referência para o espinho
 
     void Start()
     {
@@ -114,7 +115,11 @@ public class VidaPlayer : MonoBehaviour
             fallingPlatform.ResetPlatform();
         }
 
-       
+        // Reseta o espinho chamando o método ResetSpike
+        if (spike != null)
+        {
+            spike.ResetSpike();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
