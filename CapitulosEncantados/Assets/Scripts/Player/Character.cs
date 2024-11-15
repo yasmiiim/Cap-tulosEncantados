@@ -209,14 +209,14 @@ private Animator animator;
             GameObject temp = Instantiate(balaprojetil);
             temp.transform.position = arma.position;
             temp.GetComponent<Rigidbody2D>().velocity = new Vector2(forcaDoTiro, 0);
-            Destroy(temp.gameObject, 0.5f);
+            Destroy(temp.gameObject, 0.2f);
 
             if (doubleShot)
             {
                 GameObject temp2 = Instantiate(balaprojetil);
                 temp2.transform.position = arma.position + new Vector3(0, 0.5f, 0);
                 temp2.GetComponent<Rigidbody2D>().velocity = new Vector2(forcaDoTiro, 0);
-                Destroy(temp2.gameObject, 0.5f);
+                Destroy(temp2.gameObject, 0.2f);
             }
         }
     }
