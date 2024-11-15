@@ -90,6 +90,11 @@ public class VidaPlayer : MonoBehaviour
 
         // Reposiciona o jogador imediatamente após as partículas desaparecerem
         transform.position = respawnPoint;
+        
+        // Reativa o jogador após o término
+        spriteRenderer.enabled = true;
+        playerCollider.enabled = true;
+        playerRigidbody.simulated = true;
 
         // Reseta a posição da plataforma chamando o método ResetarPlataforma
         if (plataforma != null)
@@ -109,10 +114,7 @@ public class VidaPlayer : MonoBehaviour
             fallingPlatform.ResetPlatform();
         }
 
-        // Reativa o jogador após o término
-        spriteRenderer.enabled = true;
-        playerCollider.enabled = true;
-        playerRigidbody.simulated = true;
+       
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
