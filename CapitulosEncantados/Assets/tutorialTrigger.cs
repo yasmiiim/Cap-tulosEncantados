@@ -12,6 +12,7 @@ public class TutorialTrigger : MonoBehaviour
     public Button closeButton;  // Referência ao botão de fechar
 
     private bool hasShownMessage = false;  // Variável para controlar se a mensagem já foi mostrada
+    private bool isTutorialActive = false;  // Controla se o tutorial está ativo no momento
 
     private void Start()
     {
@@ -23,10 +24,26 @@ public class TutorialTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player") && !hasShownMessage)  // Verifique se o jogador entrou e a mensagem ainda não foi mostrada
         {
+            hasShownMessage = true;  // Marque a mensagem como mostrada primeiro
             tutorialText.text = tutorialMessage;
             messageBox.SetActive(true);  // Ative a caixa de mensagem
-            Time.timeScale = 0;  // Pause o jogo
-            hasShownMessage = true;  // Marque que a mensagem foi mostrada
+            StartCoroutine(PauseGame());  // Atraso para pausar o jogo
+        }
+    }
+
+    private IEnumerator PauseGame()
+    {
+        yield return new WaitForEndOfFrame();  // Atraso de um frame para garantir que o input não seja processado
+        Time.timeScale = 0;  // Pause o jogo
+        isTutorialActive = true;  // Indica que o tutorial está ativo
+    }
+
+    private void Update()
+    {
+        // Verifica se o tutorial está ativo e se a tecla de espaço foi pressionada
+        if (isTutorialActive && Input.GetKeyDown(KeyCode.Space))
+        {
+            CloseTutorial();  // Fecha o tutorial ao pressionar espaço
         }
     }
 
@@ -34,6 +51,6 @@ public class TutorialTrigger : MonoBehaviour
     {
         Time.timeScale = 1;  // Retome o jogo antes de fechar a mensagem para evitar problemas de interação
         messageBox.SetActive(false);  // Desative a caixa de mensagem
+        isTutorialActive = false;  // Indica que o tutorial não está mais ativo
     }
-
 }
