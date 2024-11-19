@@ -30,10 +30,7 @@ public class VidaPlayer : MonoBehaviour
     private Collider2D playerCollider;
     private Rigidbody2D playerRigidbody;
 
-    
-    public nuvem cloud;
-    public FallingPlatform fallingPlatform;
-    public fallingSpike spike; // Adiciona referência para o espinho
+    public ResetManager resetManager;
 
     void Start()
     {
@@ -88,30 +85,15 @@ public class VidaPlayer : MonoBehaviour
 
         Destroy(particulaExplosao.gameObject);
 
-        // Reposiciona o jogador imediatamente após as partículas desaparecerem
         transform.position = respawnPoint;
-        
-        // Reativa o jogador após o término
+
         spriteRenderer.enabled = true;
         playerCollider.enabled = true;
         playerRigidbody.simulated = true;
 
-        // Reseta a nuvem chamando o método ResetCloud
-        if (cloud != null)
+        if (resetManager != null)
         {
-            cloud.ResetCloud();
-        }
-
-        // Reseta a plataforma que cai chamando o método ResetPlatform
-        if (fallingPlatform != null)
-        {
-            fallingPlatform.ResetPlatform();
-        }
-
-        // Reseta o espinho chamando o método ResetSpike
-        if (spike != null)
-        {
-            spike.ResetSpike();
+            resetManager.ResetAll();
         }
     }
 
@@ -130,7 +112,6 @@ public class VidaPlayer : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D coli)
     {
-        Debug.Log("Colisão detectada com: " + coli.collider.name); // Adicione isso para depurar
         if (coli.collider.CompareTag("enemy"))
         {
             ReceberDano();
