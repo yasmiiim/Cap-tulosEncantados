@@ -773,6 +773,10 @@ PrefabInstance:
       propertyPath: coracao.Array.data[2]
       value: 
       objectReference: {fileID: 92223341}
+    - target: {fileID: 7600978594834410016, guid: 6a68c4bdd55371745bb32ba336f92c45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7818382739938402973, guid: 6a68c4bdd55371745bb32ba336f92c45, type: 3}
       propertyPath: scoreManager
       value: 
