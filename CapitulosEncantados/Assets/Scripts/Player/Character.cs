@@ -8,13 +8,15 @@ using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
-    private Animator animator;
+     private Animator animator;
     private int movendoHash = Animator.StringToHash("Movendo");
     private int saltandoHash = Animator.StringToHash("Pulando");
     private int doubleJumpHash = Animator.StringToHash("DoubleJump");
     private int poderHash = Animator.StringToHash("Poder");
     private int caindoHash = Animator.StringToHash("isCaindo");
     private int isAttackingHash = Animator.StringToHash("isAttacking");
+    private int caindoPoderHash = Animator.StringToHash("caindoPoder");
+    private int idlePoderHash = Animator.StringToHash("idlePoder");
 
     public GameObject balaprojetil;
     public Transform arma;
@@ -79,10 +81,25 @@ public class Character : MonoBehaviour
         if (!isgrounded && rig.velocity.y < 0)
         {
             animator.SetBool(caindoHash, true);
+
+            if (animator.GetBool(poderHash))
+            {
+                animator.SetBool(caindoPoderHash, true);
+            }
         }
         else
         {
             animator.SetBool(caindoHash, false);
+            animator.SetBool(caindoPoderHash, false);
+        }
+
+        if (isgrounded && !Input.GetButton("Horizontal") && animator.GetBool(poderHash))
+        {
+            animator.SetBool(idlePoderHash, true);
+        }
+        else
+        {
+            animator.SetBool(idlePoderHash, false);
         }
 
         if (pulo)
@@ -308,19 +325,18 @@ public class Character : MonoBehaviour
         doubleShot = true;
         animator.SetBool(poderHash, true);
 
+        if (isgrounded)
+        {
+            animator.SetBool(idlePoderHash, true);
+        }
+
         yield return new WaitForSeconds(3f);
 
         Speed /= 1.4f;
         doubleShot = false;
         animator.SetBool(poderHash, false);
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("chao"))
-        {
-            isgrounded = false;
-        }
+        animator.SetBool(caindoPoderHash, false);
+        animator.SetBool(idlePoderHash, false);
     }
 }
 
