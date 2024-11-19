@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.2942, y: -0.9758, z: 0}
-  m_LocalScale: {x: 0.16140367, y: 0.16140367, z: 0.16140367}
+  m_LocalScale: {x: 0.38851476, y: 0.38851476, z: 0.38851476}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -119,7 +119,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.24226898, y: 0.057113037}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -130,7 +130,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5, y: 5}
+  m_Size: {x: 0.95376575, y: 0.85431623}
   m_EdgeRadius: 0
 --- !u!50 &1854738969735964544
 Rigidbody2D:
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef47bb8e045296c4992a099eaa205bb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beeSpeed: 3
+  beeSpeed: 7
   vida: 3
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   colorChangeDuration: 0.2

@@ -137,6 +137,7 @@ public class VidaPlayer : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D coli)
     {
+        Debug.Log("Colisão detectada com: " + coli.collider.name); // Adicione isso para depurar
         if (coli.collider.CompareTag("enemy"))
         {
             ReceberDano();
