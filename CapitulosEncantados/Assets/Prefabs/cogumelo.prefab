@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounce: 10
+  animator: {fileID: 1712704537127639765}
 --- !u!95 &1712704537127639765
 Animator:
   serializedVersion: 5
