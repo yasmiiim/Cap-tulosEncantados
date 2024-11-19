@@ -30,8 +30,7 @@ public class VidaPlayer : MonoBehaviour
     private Collider2D playerCollider;
     private Rigidbody2D playerRigidbody;
 
-    // Referências para os scripts das plataformas e objetos
-    public caindoplat plataforma;
+    
     public nuvem cloud;
     public FallingPlatform fallingPlatform;
     public fallingSpike spike; // Adiciona referência para o espinho
@@ -96,12 +95,6 @@ public class VidaPlayer : MonoBehaviour
         spriteRenderer.enabled = true;
         playerCollider.enabled = true;
         playerRigidbody.simulated = true;
-
-        // Reseta a posição da plataforma chamando o método ResetarPlataforma
-        if (plataforma != null)
-        {
-            plataforma.ResetarPlataforma();
-        }
 
         // Reseta a nuvem chamando o método ResetCloud
         if (cloud != null)
