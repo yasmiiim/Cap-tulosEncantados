@@ -8,13 +8,13 @@ using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
-     private Animator animator;
+    private Animator animator;
     private int movendoHash = Animator.StringToHash("Movendo");
     private int saltandoHash = Animator.StringToHash("Pulando");
     private int doubleJumpHash = Animator.StringToHash("DoubleJump");
     private int poderHash = Animator.StringToHash("Poder");
     private int caindoHash = Animator.StringToHash("isCaindo");
-    private int isAttackingHash = Animator.StringToHash("isAttacking"); // Novo parâmetro
+    private int isAttackingHash = Animator.StringToHash("isAttacking");
 
     public GameObject balaprojetil;
     public Transform arma;
@@ -55,6 +55,8 @@ public class Character : MonoBehaviour
     public float wallSlideSpeed = 2f;
     private bool canWallJump = false;
 
+    private bool canAttack = true;
+
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
@@ -74,7 +76,6 @@ public class Character : MonoBehaviour
         isTouchingWall = Physics2D.OverlapCircle(wallCheck.position, checkRadius, whatIsWall);
         animator.SetBool(saltandoHash, !isgrounded);
 
-        // Atualiza a animação de queda
         if (!isgrounded && rig.velocity.y < 0)
         {
             animator.SetBool(caindoHash, true);
@@ -131,15 +132,25 @@ public class Character : MonoBehaviour
             StartCoroutine(Dash());
         }
 
-        // Controle de ataque
-        tiro = Input.GetKeyDown(KeyCode.Z);
-        if (tiro)
+        if (Input.GetKeyDown(KeyCode.Z) && canAttack)
         {
             StartCoroutine(Attack());
         }
     }
 
-    void Move()
+    private IEnumerator Attack()
+    {
+        canAttack = false;
+        animator.SetBool(isAttackingHash, true);
+        Atirar();
+
+        yield return new WaitForSeconds(GetAttackAnimationDuration());
+
+        animator.SetBool(isAttackingHash, false);
+        canAttack = true;
+    }
+
+    private void Move()
     {
         AudioObserver.OnPlaySfxEvent("walking");
 
@@ -184,7 +195,7 @@ public class Character : MonoBehaviour
         }
     }
 
-    void Jump()
+    private void Jump()
     {
         rig.velocity = new Vector2(rig.velocity.x, jumpForce);
         isgrounded = false;
@@ -204,17 +215,6 @@ public class Character : MonoBehaviour
             rig.velocity = new Vector2(flipX ? jumpForce : -jumpForce, jumpForce);
             canWallJump = false;
         }
-    }
-
-    private IEnumerator Attack()
-    {
-        animator.SetBool(isAttackingHash, true); // Ativa o estado de ataque
-        Atirar();
-
-        // Duração do ataque
-        yield return new WaitForSeconds(0.5f);
-
-        animator.SetBool(isAttackingHash, false); // Volta ao estado normal
     }
 
     private void Atirar()
@@ -265,6 +265,21 @@ public class Character : MonoBehaviour
         canDash = true;
     }
 
+    private float GetAttackAnimationDuration()
+    {
+        AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
+
+        foreach (AnimationClip clip in clips)
+        {
+            if (clip.name == "ataqueplayer")
+            {
+                return clip.length;
+            }
+        }
+
+        return 0.5f;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Pedra" && !collectedColliders.Contains(collision))
@@ -307,6 +322,5 @@ public class Character : MonoBehaviour
             isgrounded = false;
         }
     }
-
 }
 
