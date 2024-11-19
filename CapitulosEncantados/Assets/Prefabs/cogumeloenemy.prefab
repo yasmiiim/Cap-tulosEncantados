@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4503352512565602645}
   - component: {fileID: 6695784588262821600}
   m_Layer: 0
-  m_Name: jarrinho
+  m_Name: cogumeloenemy
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0f7f37ab3012408489c1d6cb2b8e015a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d26157a3d27694746bfb2e28fe6bf768, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -119,18 +119,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.57669735, y: 3.0867538}
+  m_Offset: {x: -0.57669735, y: 0.79755735}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 40, y: 40}
+    oldSize: {x: 48, y: 48}
     newSize: {x: 0.2, y: 0.14}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 14.033194, y: 35.143402}
+  m_Size: {x: 14.033194, y: 20.70419}
   m_EdgeRadius: 0
 --- !u!114 &4503352512565602645
 MonoBehaviour:
