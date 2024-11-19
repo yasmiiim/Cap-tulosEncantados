@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class fallingSpike : MonoBehaviour
 {
-    public float fallDelay = 1f; // Tempo antes de o espinho cair
+    public float fallDelay = 1f;
     private Rigidbody2D rb;
     private bool playerDetected = false;
     private Vector3 initialPosition;
+    public float destroyDelay = 2f;
+    public LayerMask groundLayer;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        initialPosition = transform.position; // Armazena a posição inicial do espinho
+        initialPosition = transform.position;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -20,33 +22,41 @@ public class fallingSpike : MonoBehaviour
         if (collision.CompareTag("Player") && !playerDetected)
         {
             playerDetected = true;
-            Invoke("DropSpike", fallDelay); // Chama o método após o atraso
+            Invoke("DropSpike", fallDelay);
         }
     }
 
     private void DropSpike()
     {
-        rb.bodyType = RigidbodyType2D.Dynamic; // Faz o espinho cair
+        rb.bodyType = RigidbodyType2D.Dynamic;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            VidaPlayer player = collision.gameObject.GetComponent<VidaPlayer>(); // Busca o script do jogador
+            VidaPlayer player = collision.gameObject.GetComponent<VidaPlayer>();
             if (player != null)
             {
-                player.Die(); // Chama o método de "morte" do jogador
-                Destroy(this.gameObject);
+                player.Die();
             }
+            Destroy(this.gameObject);
+        }
+        else if (((1 << collision.gameObject.layer) & groundLayer) != 0)
+        {
+            Invoke("DestroySpike", destroyDelay);
         }
     }
 
-    // Método para resetar a posição do espinho
     public void ResetSpike()
     {
-        transform.position = initialPosition; // Reposiciona o espinho na posição inicial
-        rb.bodyType = RigidbodyType2D.Kinematic; // Reseta o tipo do Rigidbody para kinematic
-        playerDetected = false; // Reseta o estado de detecção do jogador
+        transform.position = initialPosition;
+        rb.bodyType = RigidbodyType2D.Kinematic;
+        playerDetected = false;
+    }
+
+    private void DestroySpike()
+    {
+        Destroy(this.gameObject);
     }
 }
