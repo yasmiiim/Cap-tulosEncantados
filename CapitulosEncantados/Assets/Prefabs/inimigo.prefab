@@ -129,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   enemyRbp: {fileID: 9171087105558240195}
-  vida: 3
+  vida: 5
   damageColor: {r: 0.9528302, g: 0.15730685, b: 0.1978919, a: 1}
   colorChangeDuration: 0.2
   changeDirectionInterval: 3
