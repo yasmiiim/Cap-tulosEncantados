@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class geradorFogo : MonoBehaviour
 {
-    public GameObject bolaDeFogoPrefab; // Prefab da bola de fogo
-    public float intervalo = 3f;          // Intervalo entre a geração das bolas de fogo
+    public GameObject bolaDeFogoPrefab;
+    public float intervalo = 3f;
 
     private void Start()
     {

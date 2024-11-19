@@ -90,5 +90,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3827cb77143be843817108e2a78db3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bolaDeFogoPrefab: {fileID: 0}
+  bolaDeFogoPrefab: {fileID: 6530370905127202209, guid: fa39e75cabc4c9d47a4111a06b1a13c2, type: 3}
   intervalo: 4
