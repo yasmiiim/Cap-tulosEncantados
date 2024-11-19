@@ -762,10 +762,6 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4219341653614466855, guid: 6a68c4bdd55371745bb32ba336f92c45, type: 3}
-      propertyPath: spike
-      value: 
-      objectReference: {fileID: 804662126720792259, guid: 583c453ae362a9e4183100777a226e25, type: 3}
-    - target: {fileID: 4219341653614466855, guid: 6a68c4bdd55371745bb32ba336f92c45, type: 3}
       propertyPath: coracao.Array.data[0]
       value: 
       objectReference: {fileID: 27846467}
