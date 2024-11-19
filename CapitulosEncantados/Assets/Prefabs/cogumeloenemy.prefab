@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d26157a3d27694746bfb2e28fe6bf768, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 005306d94b0312b49b01b17aeab37ded, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distanciaDePerseguicao: 3
   velocidade: 2
-  jogador: {fileID: 834224390056607894, guid: 6a68c4bdd55371745bb32ba336f92c45, type: 3}
+  jogador: {fileID: 0}
   vida: 5
   corNormal: {r: 1, g: 1, b: 1, a: 1}
   corDano: {r: 1, g: 0, b: 0, a: 1}

@@ -917,6 +917,14 @@ PrefabInstance:
       propertyPath: coracao.Array.data[2]
       value: 
       objectReference: {fileID: 92223341}
+    - target: {fileID: 4767489455857374419, guid: 6a68c4bdd55371745bb32ba336f92c45, type: 3}
+      propertyPath: m_Size.x
+      value: 0.42142856
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767489455857374419, guid: 6a68c4bdd55371745bb32ba336f92c45, type: 3}
+      propertyPath: m_Size.y
+      value: 0.36285713
+      objectReference: {fileID: 0}
     - target: {fileID: 7600978594834410016, guid: 6a68c4bdd55371745bb32ba336f92c45, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -6017,7 +6025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1514081112369140581, guid: 79155526eea40704bb8da4fd3c7601b4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.016621
+      value: -11.84
       objectReference: {fileID: 0}
     - target: {fileID: 1514081112369140581, guid: 79155526eea40704bb8da4fd3c7601b4, type: 3}
       propertyPath: m_LocalPosition.z
