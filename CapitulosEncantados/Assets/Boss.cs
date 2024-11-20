@@ -48,7 +48,21 @@ public class Boss : MonoBehaviour
             animator.SetBool("isAttacking", false); // Para de atacar quando fora da distância
         }
 
-        spriteRenderer.flipX = player.position.x > transform.position.x; // Virar o sprite na direção do jogador
+        // Verificar a direção do jogador
+        bool isPlayerOnRight = player.position.x > transform.position.x;
+        
+        // Virar o Boss e o firePoint (invertendo o flipX e a posição do firePoint)
+        spriteRenderer.flipX = isPlayerOnRight;
+
+        // Ajustar a posição do firePoint para seguir a rotação do Boss
+        if (isPlayerOnRight)
+        {
+            firePoint.localPosition = new Vector3(Mathf.Abs(firePoint.localPosition.x), firePoint.localPosition.y, firePoint.localPosition.z);
+        }
+        else
+        {
+            firePoint.localPosition = new Vector3(-Mathf.Abs(firePoint.localPosition.x), firePoint.localPosition.y, firePoint.localPosition.z);
+        }
     }
 
     private void AttackPlayer()
@@ -56,7 +70,7 @@ public class Boss : MonoBehaviour
         if (Time.time - lastAttackTime < attackCooldown) return;
 
         animator.SetBool("isAttacking", true); // Define o estado de ataque
-        Invoke(nameof(ShootProjectile), 0.4f); // Dispara após 1 segundo
+        Invoke(nameof(ShootProjectile), 0.4f); // Dispara após 0.4 segundos
         lastAttackTime = Time.time;
     }
 
@@ -72,7 +86,7 @@ public class Boss : MonoBehaviour
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            rb.velocity = direction * 5f;
+            rb.velocity = direction * 5f; // Define a velocidade do projétil
         }
     }
 }
