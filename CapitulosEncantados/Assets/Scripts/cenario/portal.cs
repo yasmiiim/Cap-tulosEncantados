@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class portal : MonoBehaviour
 {
-    public string sceneToLoad; 
+    public string sceneToLoad;
     public bool hasStone; // Variável para verificar se o jogador tem a Pedra
+    public MensagemPedra mensagemManager; // Referência ao script do gerenciador de mensagem
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -18,7 +19,7 @@ public class portal : MonoBehaviour
             else
             {
                 Debug.Log("Você precisa da Pedra para avançar!");
-                // Aqui você pode adicionar um feedback visual ou sonoro para avisar o jogador
+                mensagemManager.MostrarMensagem(); // Mostra a mensagem de texto
             }
         }
     }

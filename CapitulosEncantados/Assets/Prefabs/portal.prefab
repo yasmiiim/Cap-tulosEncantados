@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 17.93, y: 3.04, z: 0}
-  m_LocalScale: {x: 0.43431, y: 0.43431, z: 0.43431}
+  m_LocalScale: {x: -0.449728, y: 0.43431, z: 0.43431}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -118,9 +118,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.18721837, y: -0.29723766}
+  m_Offset: {x: 0.0023742497, y: -0.09912067}
   serializedVersion: 2
-  m_Radius: 1.2775484
+  m_Radius: 1.406315
 --- !u!114 &6823581626580055789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,3 +134,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: fase1
+  hasStone: 0
+  mensagemManager: {fileID: 0}
