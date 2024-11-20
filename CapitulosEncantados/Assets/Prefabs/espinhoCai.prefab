@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallDelay: 0.5
-  destroyDelay: 2
+  destroyDelay: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
