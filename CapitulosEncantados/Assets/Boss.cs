@@ -14,6 +14,8 @@ public class Boss : MonoBehaviour
         // Obtém os componentes necessários
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
     }
 
     private void Update()
