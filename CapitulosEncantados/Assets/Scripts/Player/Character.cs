@@ -14,7 +14,9 @@ public class Character : MonoBehaviour
     private int doubleJumpHash = Animator.StringToHash("DoubleJump");
     private int poderHash = Animator.StringToHash("Poder");
     private int caindoHash = Animator.StringToHash("isCaindo");
+    private int isSubindoHash = Animator.StringToHash("isSubindo");
     private int isAttackingHash = Animator.StringToHash("isAttacking");
+    private int isAttackingPoderHash = Animator.StringToHash("isAttackingPoder");
     private int caindoPoderHash = Animator.StringToHash("caindoPoder");
     private int idlePoderHash = Animator.StringToHash("idlePoder");
 
@@ -159,13 +161,26 @@ public class Character : MonoBehaviour
     private IEnumerator Attack()
     {
         canAttack = false;
-        animator.SetBool(isAttackingHash, true);
-        Atirar();
 
+        // Verifica se está no estado de poder e ativa a animação correspondente
+        if (animator.GetBool(poderHash))
+        {
+            animator.SetBool(isAttackingPoderHash, true); // Ativa animação de ataque com poder
+        }
+        else
+        {
+            animator.SetBool(isAttackingHash, true); // Ativa animação de ataque normal
+        }
+
+        Atirar(); // Executa o ataque
+
+        // Espera até que a duração da animação termine
         yield return new WaitForSeconds(GetAttackAnimationDuration());
 
+        // Reseta os estados de ataque
         animator.SetBool(isAttackingHash, false);
-        canAttack = true;
+        animator.SetBool(isAttackingPoderHash, false);
+        canAttack = true; // Permite atacar novamente
     }
 
     private void Move()
