@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    public Transform player; // Referência ao jogador
-    public float moveSpeed = 2f; // Velocidade de movimento do boss
-    private SpriteRenderer spriteRenderer; // Componente de renderização do sprite
-    private Animator animator; // Componente de animação
+    public Transform player;
+    public float moveSpeed = 2f;
+    public float attackDistance = 3f;
+    public float attackCooldown = 1f;
+    private float lastAttackTime;
+
+    private SpriteRenderer spriteRenderer;
+    private Animator animator;
+
+    public GameObject projectilePrefab;
+    public Transform firePoint;
 
     private void Start()
     {
-        // Obtém os componentes necessários
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         
@@ -27,23 +33,40 @@ public class Boss : MonoBehaviour
     {
         if (player == null) return;
 
-        // Calcula a direção para o jogador
         Vector2 direction = (player.position - transform.position).normalized;
+        float distance = Vector2.Distance(transform.position, player.position);
 
-        // Move o boss na direção do jogador
-        transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
-
-        // Atualiza a animação
-        animator.SetBool("isWalking", true);
-
-        // Corrige o flipX baseado na posição do jogador
-        if (direction.x > 0)
+        if (distance <= attackDistance)
         {
-            spriteRenderer.flipX = true; // Vira para a direita
+            AttackPlayer();
+            animator.SetBool("isWalking", false);
         }
-        else if (direction.x < 0)
+        else
         {
-            spriteRenderer.flipX = false; // Vira para a esquerda
+            transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
+            animator.SetBool("isWalking", true);
+            animator.SetBool("isAttacking", false); // Para de atacar quando fora da distância
         }
+
+        spriteRenderer.flipX = direction.x > 0;
+    }
+
+    private void AttackPlayer()
+    {
+        if (Time.time - lastAttackTime < attackCooldown) return;
+
+        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+
+        Vector2 direction = (player.position - firePoint.position).normalized;
+
+        Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.velocity = direction * 5f;
+        }
+
+        lastAttackTime = Time.time;
+
+        animator.SetBool("isAttacking", true); // Define o estado de ataque
     }
 }
