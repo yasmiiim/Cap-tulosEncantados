@@ -55,18 +55,26 @@ public class Boss : MonoBehaviour
     {
         if (Time.time - lastAttackTime < attackCooldown) return;
 
+        animator.SetBool("isAttacking", true); // Define o estado de ataque
+        Invoke(nameof(ShootProjectile), 0.5f); // Dispara após 1 segundo
+        lastAttackTime = Time.time;
+    }
+
+    private void ShootProjectile()
+    {
+        if (!animator.GetBool("isAttacking")) return; // Verifica se ainda está atacando
+
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
 
         Vector2 direction = (player.position - firePoint.position).normalized;
+
+        // Ajustar direção do projétil com base na orientação do sprite
+        direction.x = spriteRenderer.flipX ? -Mathf.Abs(direction.x) : Mathf.Abs(direction.x);
 
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
             rb.velocity = direction * 5f;
         }
-
-        lastAttackTime = Time.time;
-
-        animator.SetBool("isAttacking", true); // Define o estado de ataque
     }
 }
