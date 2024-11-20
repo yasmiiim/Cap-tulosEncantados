@@ -146,6 +146,9 @@ MonoBehaviour:
   sfxSource: {fileID: 2291151406746941776}
   clipPulo: {fileID: 8300000, guid: 383dbf087ef578a45a024ed150f3abda, type: 3}
   clipColetar: {fileID: 0}
+  clipAttack: {fileID: 0}
+  clipWalk: {fileID: 0}
+  clipCheckpoint: {fileID: 8300000, guid: d0c96b812fedee148b41b41241f0892a, type: 3}
 --- !u!82 &2291151406746941776
 AudioSource:
   m_ObjectHideFlags: 0
