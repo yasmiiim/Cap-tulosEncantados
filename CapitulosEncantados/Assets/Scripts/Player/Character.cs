@@ -59,6 +59,7 @@ public class Character : MonoBehaviour
 
     private bool canAttack = true;
 
+    public portal portalScript;
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
@@ -303,6 +304,7 @@ public class Character : MonoBehaviour
         {
             AudioObserver.OnPlaySfxEvent("coletar");
             Destroy(collision.gameObject);
+            portalScript.hasStone = true; 
 
             if (scoreManager != null)
             {
