@@ -24,6 +24,8 @@ public class cogumelo : MonoBehaviour
                 {
                     Rigidbody2D playerRb = other.gameObject.GetComponent<Rigidbody2D>();
                     Animator playerAnimator = other.gameObject.GetComponent<Animator>();
+                    
+                    AudioObserver.OnPlaySfxEvent("pulo");
 
                     // Ativa o parâmetro isJumping no Animator do cogumelo
                     if (animator != null)
