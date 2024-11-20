@@ -48,7 +48,7 @@ public class Boss : MonoBehaviour
             animator.SetBool("isAttacking", false); // Para de atacar quando fora da distância
         }
 
-        spriteRenderer.flipX = direction.x > 0;
+        spriteRenderer.flipX = player.position.x > transform.position.x; // Virar o sprite na direção do jogador
     }
 
     private void AttackPlayer()
@@ -56,7 +56,7 @@ public class Boss : MonoBehaviour
         if (Time.time - lastAttackTime < attackCooldown) return;
 
         animator.SetBool("isAttacking", true); // Define o estado de ataque
-        Invoke(nameof(ShootProjectile), 0.5f); // Dispara após 1 segundo
+        Invoke(nameof(ShootProjectile), 0.4f); // Dispara após 1 segundo
         lastAttackTime = Time.time;
     }
 
@@ -66,10 +66,8 @@ public class Boss : MonoBehaviour
 
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
 
-        Vector2 direction = (player.position - firePoint.position).normalized;
-
-        // Ajustar direção do projétil com base na orientação do sprite
-        direction.x = spriteRenderer.flipX ? -Mathf.Abs(direction.x) : Mathf.Abs(direction.x);
+        // Calcula a direção com base apenas na posição relativa do jogador
+        Vector2 direction = (player.position.x > transform.position.x) ? Vector2.right : Vector2.left;
 
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         if (rb != null)
