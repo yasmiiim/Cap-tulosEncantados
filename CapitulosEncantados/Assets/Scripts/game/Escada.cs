@@ -23,14 +23,14 @@ public class Escada : MonoBehaviour
         {
             escalando = true;
         }
-        else if (!escada || Mathf.Abs(vertical) == 0f)
+        else
         {
             escalando = false;
         }
 
         if (playerAnimator != null)
         {
-            playerAnimator.SetBool(isSubindoHash, escalando);
+            playerAnimator.SetBool(isSubindoHash, escada && escalando);
         }
     }
 
@@ -40,11 +40,7 @@ public class Escada : MonoBehaviour
         {
             escada = true;
             playerRb.velocity = new Vector2(playerRb.velocity.x, 0f);
-
-            if (playerAnimator != null)
-            {
-                playerAnimator.SetBool(isSubindoHash, true);
-            }
+            playerRb.gravityScale = 0f;
         }
     }
 
@@ -55,6 +51,7 @@ public class Escada : MonoBehaviour
             escada = false;
             escalando = false;
             playerRb.velocity = new Vector2(playerRb.velocity.x, 0f);
+            playerRb.gravityScale = 2f;
 
             if (playerAnimator != null)
             {
@@ -65,14 +62,9 @@ public class Escada : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (escalando)
+        if (escada && escalando)
         {
-            playerRb.gravityScale = 0f;
             playerRb.velocity = new Vector2(playerRb.velocity.x, vertical * speed);
-        }
-        else
-        {
-            playerRb.gravityScale = 2f;
         }
     }
 }
