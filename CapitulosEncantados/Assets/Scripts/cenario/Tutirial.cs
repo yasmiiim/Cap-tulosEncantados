@@ -13,6 +13,7 @@ public class Tutirial : MonoBehaviour
     public Text dialogueText;
     
     public Text nameRaposa;
+    public Text titleSkip;
     public Image imageRaposa;
     public Sprite spriteRaposa;
 
@@ -30,7 +31,7 @@ public class Tutirial : MonoBehaviour
         {
             if (!startDialogue)
             {
-                FindObjectOfType<Character>().Speed = 0f; // Desativar a animação do personagem aqui, se necessário
+                FindObjectOfType<Character>().Speed = 0f;
                 StartDialogue();
             }
             else if (dialogueText.text == dialogueObj[dialogueIndex])
@@ -53,13 +54,14 @@ public class Tutirial : MonoBehaviour
             dialoguepanel.SetActive(false);
             startDialogue = false;
             dialogueIndex = 0;
-            FindObjectOfType<Character>().Speed = 5f; // Restaura a velocidade do personagem
+            FindObjectOfType<Character>().Speed = 5f;
         }
     }
 
     void StartDialogue()
     {
         nameRaposa.text = "Sage";
+        titleSkip.text = "Aperte E para avançar";
         imageRaposa.sprite = spriteRaposa;
         startDialogue = true;
         dialogueIndex = 0;
@@ -69,7 +71,7 @@ public class Tutirial : MonoBehaviour
 
     IEnumerator ShowDialogue()
     {
-        dialogueText.text = ""; // Limpa o texto atual antes de mostrar o próximo diálogo
+        dialogueText.text = "";
 
         foreach (char letter in dialogueObj[dialogueIndex])
         {
