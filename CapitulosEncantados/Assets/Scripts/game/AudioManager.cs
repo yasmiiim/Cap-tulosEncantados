@@ -9,7 +9,8 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource musicSource, sfxSource;
 
-    public AudioClip clipPulo, clipColetar, clipAttack, clipWalk;
+    public AudioClip clipPulo, clipColetar, clipAttack, clipWalk, clipCheckpoint; // Novo clip adicionado.
+
     private void Awake()
     {
         if (instance == null)
@@ -17,7 +18,6 @@ public class AudioManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-
         else
         {
             Destroy(gameObject);
@@ -54,8 +54,11 @@ public class AudioManager : MonoBehaviour
             case "walking":
                 sfxSource.PlayOneShot(clipWalk);
                 break;
+            case "checkpoint": // Caso para o som do checkpoint.
+                sfxSource.PlayOneShot(clipCheckpoint);
+                break;
             default:
-                Debug.LogError($"efeito sonoro {nomeDoClip} n encontrado");
+                Debug.LogError($"Efeito sonoro {nomeDoClip} não encontrado");
                 break;
         }
     }
@@ -69,5 +72,4 @@ public class AudioManager : MonoBehaviour
     {
         musicSource.Stop();
     }
-
 }

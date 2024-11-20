@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class VidaPlayer : MonoBehaviour
 {
-    public ParticleSystem particulaExpPref;
+   public ParticleSystem particulaExpPref;
     private Vector3 respawnPoint;
 
     public int vidaAtual;
@@ -31,6 +31,9 @@ public class VidaPlayer : MonoBehaviour
     private Rigidbody2D playerRigidbody;
 
     public ResetManager resetManager;
+
+    // Lista para armazenar checkpoints já ativados.
+    private HashSet<Collider2D> activatedCheckpoints = new HashSet<Collider2D>();
 
     void Start()
     {
@@ -99,8 +102,12 @@ public class VidaPlayer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Checkpoint")
+        if (collision.tag == "Checkpoint" && !activatedCheckpoints.Contains(collision))
         {
+            // Toca o som e marca o checkpoint como ativado.
+            AudioObserver.OnPlaySfxEvent("checkpoint");
+            activatedCheckpoints.Add(collision);
+
             respawnPoint = transform.position;
         }
         else if (collision.tag == "Coracao")
