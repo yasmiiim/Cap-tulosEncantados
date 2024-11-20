@@ -11,10 +11,14 @@ public class Escada : MonoBehaviour
     private bool escalando;
 
     public Rigidbody2D playerRb;
+    public Animator playerAnimator;
+
+    private int isSubindoHash = Animator.StringToHash("isSubindo");
 
     void Update()
     {
         vertical = Input.GetAxis("Vertical");
+
         if (escada && Mathf.Abs(vertical) > 0f)
         {
             escalando = true;
@@ -22,6 +26,11 @@ public class Escada : MonoBehaviour
         else if (!escada || Mathf.Abs(vertical) == 0f)
         {
             escalando = false;
+        }
+
+        if (playerAnimator != null)
+        {
+            playerAnimator.SetBool(isSubindoHash, escalando);
         }
     }
 
@@ -31,6 +40,11 @@ public class Escada : MonoBehaviour
         {
             escada = true;
             playerRb.velocity = new Vector2(playerRb.velocity.x, 0f);
+
+            if (playerAnimator != null)
+            {
+                playerAnimator.SetBool(isSubindoHash, true);
+            }
         }
     }
 
@@ -41,6 +55,11 @@ public class Escada : MonoBehaviour
             escada = false;
             escalando = false;
             playerRb.velocity = new Vector2(playerRb.velocity.x, 0f);
+
+            if (playerAnimator != null)
+            {
+                playerAnimator.SetBool(isSubindoHash, false);
+            }
         }
     }
 
