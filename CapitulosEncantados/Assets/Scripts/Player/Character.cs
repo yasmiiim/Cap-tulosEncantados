@@ -182,10 +182,17 @@ public class Character : MonoBehaviour
     
     private void HandleFootsteps()
     {
+        // Verifica se a animação de movimento está ativa antes de calcular a distância percorrida
+        if (!animator.GetBool(movendoHash)) 
+        {
+            distanceTravelled = 0f; // Reseta a distância acumulada se não está andando
+            return;
+        }
+
         // Calcula a distância percorrida desde o último frame
         Vector2 currentPosition = transform.position;
         float frameDistance = Vector2.Distance(currentPosition, lastPosition);
-    
+
         if (frameDistance > 0 && isgrounded) // Apenas conta quando está no chão e em movimento
         {
             distanceTravelled += frameDistance;
