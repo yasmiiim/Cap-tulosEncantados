@@ -19,6 +19,7 @@ public class Character : MonoBehaviour
     private int isAttackingPoderHash = Animator.StringToHash("isAttackingPoder");
     private int caindoPoderHash = Animator.StringToHash("caindoPoder");
     private int idlePoderHash = Animator.StringToHash("idlePoder");
+    private int isSlidingHash = Animator.StringToHash("isSliding");
 
     public GameObject balaprojetil;
     public Transform arma;
@@ -92,7 +93,7 @@ public class Character : MonoBehaviour
         isTouchingWall = Physics2D.OverlapCircle(wallCheck.position, checkRadius, whatIsWall);
         animator.SetBool(saltandoHash, !isgrounded);
 
-        if (!isgrounded && rig.velocity.y < 0)
+        if (!isgrounded && rig.velocity.y < 0 && !isWallSliding)
         {
             animator.SetBool(caindoHash, true);
 
@@ -127,6 +128,7 @@ public class Character : MonoBehaviour
             else if (isTouchingWall && !isgrounded)
             {
                 WallJump();
+                animator.SetBool(saltandoHash, true);
             }
             else if (canDoubleJump)
             {
@@ -141,10 +143,14 @@ public class Character : MonoBehaviour
         {
             isWallSliding = true;
             WallSlide();
+            animator.SetBool(isSlidingHash, true); // Ativa a animação de deslizar
+            animator.SetBool(caindoHash, false);  // Garante que "caindo" seja desativado
+          
         }
         else
         {
             isWallSliding = false;
+            animator.SetBool(isSlidingHash, false);
         }
 
         if (isgrounded)
@@ -278,6 +284,7 @@ public class Character : MonoBehaviour
         {
             rig.velocity = new Vector2(flipX ? jumpForce : -jumpForce, jumpForce);
             canWallJump = false;
+            animator.SetBool(isSlidingHash, false);
         }
     }
 
