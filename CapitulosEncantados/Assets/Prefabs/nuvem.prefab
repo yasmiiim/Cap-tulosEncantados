@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 186770600393206322}
   - component: {fileID: 6967491575251578698}
   - component: {fileID: 2349224426670546160}
+  - component: {fileID: 5258458562092708162}
   m_Layer: 3
   m_Name: nuvem
   m_TagString: chao
@@ -145,3 +146,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   disappearDelay: 0.5
   fadeDuration: 1
+--- !u!95 &5258458562092708162
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4263146568007185324}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 389cd9715d058bc4995980258166492e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

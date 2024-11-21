@@ -4,35 +4,38 @@ using UnityEngine;
 
 public class nuvem : MonoBehaviour
 {
-    public float disappearDelay = 0.5f; // Tempo até a nuvem começar a desaparecer
-    public float fadeDuration = 1f; // Tempo para a nuvem desaparecer completamente
+    public float disappearDelay = 0.5f;
+    public float fadeDuration = 1f;
 
     private bool playerOnCloud = false;
     private SpriteRenderer spriteRenderer;
     private Color initialColor;
+    private Animator animator;
 
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         initialColor = spriteRenderer.color;
+        animator = GetComponent<Animator>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Verifica se o jogador colidiu com a nuvem
         if (collision.gameObject.tag == "Player" && !playerOnCloud)
         {
             playerOnCloud = true;
+            if (animator != null)
+            {
+                animator.SetBool("isBlinding", true);
+            }
             StartCoroutine(DisappearAfterDelay());
         }
     }
 
     private IEnumerator DisappearAfterDelay()
     {
-        // Aguarda o tempo especificado antes de começar a desaparecer
         yield return new WaitForSeconds(disappearDelay);
 
-        // Desaparecer gradualmente
         float elapsedTime = 0f;
 
         while (elapsedTime < fadeDuration)
@@ -43,24 +46,28 @@ public class nuvem : MonoBehaviour
             yield return null;
         }
 
-        // Desativa a nuvem após desaparecer completamente
         gameObject.SetActive(false);
     }
 
-    // Método para reiniciar a nuvem
     public void ResetCloud()
     {
-        // Reativa a nuvem e restaura a opacidade
         gameObject.SetActive(true);
         spriteRenderer.color = initialColor;
         playerOnCloud = false;
+        if (animator != null)
+        {
+            animator.SetBool("isBlinding", false);
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        // Não cancela o desaparecimento caso o jogador saia da nuvem
         if (collision.gameObject.tag == "Player")
         {
+            if (animator != null)
+            {
+                animator.SetBool("isBlinding", false);
+            }
             playerOnCloud = false;
         }
     }
