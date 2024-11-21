@@ -292,7 +292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRb: {fileID: 7016966428774448953}
-  playerAnimator: {fileID: 0}
+  playerAnimator: {fileID: 8329797271668727149}
   escadaTopo: {fileID: 0}
   escadaBase: {fileID: 0}
 --- !u!1 &2661899979546757641
