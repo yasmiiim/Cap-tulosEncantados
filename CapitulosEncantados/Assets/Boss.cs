@@ -145,4 +145,25 @@ public class Boss : MonoBehaviour
             Destroy(col.gameObject);
         }
     }
+    
+    private void OnEnable()
+    {
+        VidaPlayer.OnPlayerDeath += HandlePlayerDeath;
+    }
+
+    private void OnDisable()
+    {
+        VidaPlayer.OnPlayerDeath -= HandlePlayerDeath;
+    }
+
+    private void HandlePlayerDeath()
+    {
+        RestoreHealth(); // Restaura a vida do Boss quando o jogador morrer
+    }
+    
+    private void RestoreHealth()
+    {
+        currentHealth = maxHealth; // Restaura a vida ao máximo
+        UpdateHealthBar();         // Atualiza a barra de vida
+    }
 }

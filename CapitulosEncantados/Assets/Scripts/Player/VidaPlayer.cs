@@ -65,6 +65,8 @@ public class VidaPlayer : MonoBehaviour
 
     public void Die()
     {
+        OnPlayerDeath?.Invoke();
+        
         vidaAtual = vidaMaxima;
         HealthLogic();
         isInvulnerable = false;
