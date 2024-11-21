@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class VidaPlayer : MonoBehaviour
 {
-   public ParticleSystem particulaExpPref;
+    public ParticleSystem particulaExpPref;
     private Vector3 respawnPoint;
 
     public int vidaAtual;
@@ -32,7 +32,6 @@ public class VidaPlayer : MonoBehaviour
 
     public ResetManager resetManager;
 
-    // Lista para armazenar checkpoints já ativados.
     private HashSet<Collider2D> activatedCheckpoints = new HashSet<Collider2D>();
 
     void Start()
@@ -41,7 +40,6 @@ public class VidaPlayer : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerCollider = GetComponent<Collider2D>();
         playerRigidbody = GetComponent<Rigidbody2D>();
-
         if (spriteRenderer != null)
         {
             originalColor = spriteRenderer.color;
@@ -104,7 +102,6 @@ public class VidaPlayer : MonoBehaviour
     {
         if (collision.tag == "Checkpoint" && !activatedCheckpoints.Contains(collision))
         {
-            // Toca o som e marca o checkpoint como ativado.
             AudioObserver.OnPlaySfxEvent("checkpoint");
             activatedCheckpoints.Add(collision);
 
@@ -113,6 +110,11 @@ public class VidaPlayer : MonoBehaviour
         else if (collision.tag == "Coracao")
         {
             ColetarCoracao();
+            Destroy(collision.gameObject);
+        }
+        else if (collision.tag == "BossProjectile")
+        {
+            ReceberDano();
             Destroy(collision.gameObject);
         }
     }

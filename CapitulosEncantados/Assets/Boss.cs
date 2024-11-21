@@ -112,7 +112,7 @@ public class Boss : MonoBehaviour
     private IEnumerator DamageFlash()
     {
         Color originalColor = spriteRenderer.color;
-        spriteRenderer.color = Color.redS; // Fica branco
+        spriteRenderer.color = Color.red; // Fica branco
         yield return new WaitForSeconds(damageFlashDuration);
         spriteRenderer.color = originalColor; // Volta à cor original
     }
