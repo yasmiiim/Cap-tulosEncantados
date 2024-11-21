@@ -16,12 +16,16 @@ public class Boss : MonoBehaviour
     public GameObject projectilePrefab;
     public Transform firePoint;
 
+    // Sistema de vida
+    public int maxHealth = 50;
+    private int currentHealth;
+    public float damageFlashDuration = 0.1f; // Duração do flash branco ao levar dano
+
     private void Start()
     {
+        currentHealth = maxHealth; // Configura a vida inicial
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-        
-        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
     }
 
     private void Update()
@@ -50,7 +54,7 @@ public class Boss : MonoBehaviour
 
         // Verificar a direção do jogador
         bool isPlayerOnRight = player.position.x > transform.position.x;
-        
+
         // Virar o Boss e o firePoint (invertendo o flipX e a posição do firePoint)
         spriteRenderer.flipX = isPlayerOnRight;
 
@@ -87,6 +91,41 @@ public class Boss : MonoBehaviour
         if (rb != null)
         {
             rb.velocity = direction * 5f; // Define a velocidade do projétil
+        }
+    }
+
+    private void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+
+        // Indica que o Boss foi atingido com um flash branco
+        StartCoroutine(DamageFlash());
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    private IEnumerator DamageFlash()
+    {
+        Color originalColor = spriteRenderer.color;
+        spriteRenderer.color = Color.white; // Fica branco
+        yield return new WaitForSeconds(damageFlashDuration);
+        spriteRenderer.color = originalColor; // Volta à cor original
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject); // Destroi o Boss
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("bala"))
+        {
+            TakeDamage(1);
+            Destroy(col.gameObject);
         }
     }
 }
