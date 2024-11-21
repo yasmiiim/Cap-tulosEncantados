@@ -45,6 +45,15 @@ public class Character : MonoBehaviour
 
     private HashSet<Collider2D> collectedColliders = new HashSet<Collider2D>();
 
+    
+    
+    //novo 
+    private float stepDistance = 1f; // Distância para cada passo (ajuste conforme necessário)
+    private float distanceTravelled = 0f; // Acumula a distância percorrida
+    private Vector2 lastPosition; // Última posição registrada do personagem
+    
+    
+    
     public float dashSpeed = 15f;
     public float dashDuration = 0.2f;
     public float dashCooldown = 1f;
@@ -66,6 +75,8 @@ public class Character : MonoBehaviour
     {
         rig = GetComponent<Rigidbody2D>();
         originalSpeed = Speed;
+        
+        lastPosition = transform.position;
     }
 
     void Awake()
@@ -145,6 +156,7 @@ public class Character : MonoBehaviour
         if (!isDashing)
         {
             Move();
+            HandleFootsteps();
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
@@ -156,6 +168,26 @@ public class Character : MonoBehaviour
         {
             StartCoroutine(Attack());
         }
+    }
+    
+    private void HandleFootsteps()
+    {
+        // Calcula a distância percorrida desde o último frame
+        Vector2 currentPosition = transform.position;
+        float frameDistance = Vector2.Distance(currentPosition, lastPosition);
+    
+        if (frameDistance > 0 && isgrounded) // Apenas conta quando está no chão e em movimento
+        {
+            distanceTravelled += frameDistance;
+
+            if (distanceTravelled >= stepDistance)
+            {
+                AudioObserver.OnPlaySfxEvent("walking"); // Toca o som do passo
+                distanceTravelled = 0f; // Reseta a distância acumulada
+            }
+        }
+
+        lastPosition = currentPosition; // Atualiza a última posição
     }
 
     private IEnumerator Attack()
@@ -185,7 +217,6 @@ public class Character : MonoBehaviour
 
     private void Move()
     {
-        AudioObserver.OnPlaySfxEvent("walking");
 
         float inputAxis = Input.GetAxis("Horizontal");
         rig.velocity = new Vector2(inputAxis * Speed, rig.velocity.y);
