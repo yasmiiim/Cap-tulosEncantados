@@ -26,6 +26,8 @@ public class Boss : MonoBehaviour
         currentHealth = maxHealth; // Configura a vida inicial
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
     }
 
     private void Update()
