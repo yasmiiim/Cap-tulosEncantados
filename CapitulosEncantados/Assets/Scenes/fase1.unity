@@ -12153,6 +12153,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Placa 2 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8483332487372917344, guid: b19df3a98a3875d47b36ee1a04d7b6de, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8598354865300155604, guid: b19df3a98a3875d47b36ee1a04d7b6de, type: 3}
       propertyPath: m_LocalPosition.x
       value: 143.05766
@@ -13831,6 +13835,10 @@ PrefabInstance:
     - target: {fileID: 894341151850477445, guid: b19df3a98a3875d47b36ee1a04d7b6de, type: 3}
       propertyPath: m_Name
       value: Placa 2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8483332487372917344, guid: b19df3a98a3875d47b36ee1a04d7b6de, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8598354865300155604, guid: b19df3a98a3875d47b36ee1a04d7b6de, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16101,6 +16109,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Placa 2 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8483332487372917344, guid: b19df3a98a3875d47b36ee1a04d7b6de, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8598354865300155604, guid: b19df3a98a3875d47b36ee1a04d7b6de, type: 3}
       propertyPath: m_LocalPosition.x
       value: -24.15308
@@ -17385,6 +17397,10 @@ PrefabInstance:
     - target: {fileID: 894341151850477445, guid: b19df3a98a3875d47b36ee1a04d7b6de, type: 3}
       propertyPath: m_Name
       value: Placa 2 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8483332487372917344, guid: b19df3a98a3875d47b36ee1a04d7b6de, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8598354865300155604, guid: b19df3a98a3875d47b36ee1a04d7b6de, type: 3}
       propertyPath: m_LocalPosition.x
@@ -69230,6 +69246,10 @@ PrefabInstance:
     - target: {fileID: 894341151850477445, guid: b19df3a98a3875d47b36ee1a04d7b6de, type: 3}
       propertyPath: m_Name
       value: Placa 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8483332487372917344, guid: b19df3a98a3875d47b36ee1a04d7b6de, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8598354865300155604, guid: b19df3a98a3875d47b36ee1a04d7b6de, type: 3}
       propertyPath: m_LocalPosition.x
