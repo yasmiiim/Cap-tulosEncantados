@@ -146,6 +146,10 @@ public class Character : MonoBehaviour
             animator.SetBool(isSlidingHash, true); // Ativa a animação de deslizar
             animator.SetBool(caindoHash, false);  // Garante que "caindo" seja desativado
           
+            if ((transform.localScale.x > 0 && !flipX) || (transform.localScale.x < 0 && flipX))
+            {
+                Flip(); // Gira o sprite para olhar corretamente para a parede
+            }
         }
         else
         {
