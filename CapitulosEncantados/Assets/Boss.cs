@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Boss : MonoBehaviour
 {
@@ -15,9 +16,11 @@ public class Boss : MonoBehaviour
 
     public GameObject projectilePrefab;
     public Transform firePoint;
+    
+    public Image healthBar;
 
     // Sistema de vida
-    public int maxHealth = 50;
+    public int maxHealth = 30;
     private int currentHealth;
     public float damageFlashDuration = 0.1f; // Duração do flash branco ao levar dano
 
@@ -106,6 +109,18 @@ public class Boss : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
+        }
+        else
+        {
+            UpdateHealthBar();
+        }
+    }
+    
+    private void UpdateHealthBar()
+    {
+        if (healthBar != null)
+        {
+            healthBar.fillAmount = (float)currentHealth / maxHealth;
         }
     }
 
