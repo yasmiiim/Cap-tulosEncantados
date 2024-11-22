@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef47bb8e045296c4992a099eaa205bb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beeSpeed: 7
+  beeSpeed: 3
   vida: 3
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   colorChangeDuration: 0.2
