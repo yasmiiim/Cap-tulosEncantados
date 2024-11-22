@@ -420,11 +420,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1159757805353817098, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 69.75
+      value: 81.72
       objectReference: {fileID: 0}
     - target: {fileID: 1159757805353817098, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.59
+      value: 7.56
       objectReference: {fileID: 0}
     - target: {fileID: 1159757805353817098, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -476,7 +476,15 @@ PrefabInstance:
       objectReference: {fileID: 391264898}
     - target: {fileID: 6528564689740277795, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
       propertyPath: tutorialMessage
-      value: "essa planta ir\xE1 te seguir! mate-a"
+      value: "Esse cogumelo ir\xE1 te seguir, elimine-o."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134172808228680320, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
+      propertyPath: m_Size.y
+      value: 1.644836
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134172808228680320, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.32241797
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -616,7 +624,15 @@ PrefabInstance:
       objectReference: {fileID: 391264898}
     - target: {fileID: 6528564689740277795, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
       propertyPath: tutorialMessage
-      value: pule de uma parede para a outra.
+      value: Pule de uma parede para a outra.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134172808228680320, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
+      propertyPath: m_Size.y
+      value: 1.4061832
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134172808228680320, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.20309162
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -990,85 +1006,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &394935659
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 394935660}
-  - component: {fileID: 394935662}
-  - component: {fileID: 394935661}
-  m_Layer: 5
-  m_Name: Skip
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &394935660
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 394935659}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7472862, y: 0.7472862, z: 0.7472862}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 603981401}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -495, y: 447}
-  m_SizeDelta: {x: 539.1559, y: 93.7855}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &394935661
+--- !u!114 &394935661 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 2979160271310684022, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
+  m_PrefabInstance: {fileID: 1220647279}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 394935659}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 2bc8a317a15bf514998d44bc18962c64, type: 3}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 8
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 
---- !u!222 &394935662
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 394935659}
-  m_CullTransparentMesh: 1
 --- !u!1001 &406569070
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1260,7 +1208,15 @@ PrefabInstance:
       objectReference: {fileID: 391264898}
     - target: {fileID: 6528564689740277795, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
       propertyPath: tutorialMessage
-      value: "Salte na plataforma em movimento, ela te levar\xE1 para cima."
+      value: "A placa com exclama\xE7\xE3o indica uma plataforma que se move."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134172808228680320, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
+      propertyPath: m_Size.y
+      value: 1.8958207
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134172808228680320, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.4479105
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1506,7 +1462,7 @@ PrefabInstance:
       objectReference: {fileID: 391264898}
     - target: {fileID: 6528564689740277795, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
       propertyPath: tutorialMessage
-      value: use o cogumelo para pular mais alto;
+      value: Use o cogumelo para pular mais alto;
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17007,11 +16963,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3857535852764621358, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
   m_PrefabInstance: {fileID: 1220647279}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &603981401 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4174065729667544585, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
-  m_PrefabInstance: {fileID: 1220647279}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &622835677
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17020,18 +16971,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4285754653614990306, guid: f6df90911fd369648980979db5150772, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.42105067
-      objectReference: {fileID: 0}
-    - target: {fileID: 4285754653614990306, guid: f6df90911fd369648980979db5150772, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.42105067
-      objectReference: {fileID: 0}
-    - target: {fileID: 4285754653614990306, guid: f6df90911fd369648980979db5150772, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.42105067
-      objectReference: {fileID: 0}
     - target: {fileID: 4285754653614990306, guid: f6df90911fd369648980979db5150772, type: 3}
       propertyPath: m_LocalPosition.x
       value: 52.098255
@@ -17158,7 +17097,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1159757805353817098, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 55.489998
+      value: 56.62
       objectReference: {fileID: 0}
     - target: {fileID: 1159757805353817098, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -17214,7 +17153,15 @@ PrefabInstance:
       objectReference: {fileID: 391264898}
     - target: {fileID: 6528564689740277795, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
       propertyPath: tutorialMessage
-      value: cuidado com o inimigo! aperte Z para atirar.
+      value: Ali na frente tem um inimigo. Aperte "Z" para atirar.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134172808228680320, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
+      propertyPath: m_Size.y
+      value: 1.581286
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134172808228680320, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.29064298
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18916,13 +18863,17 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1406674214}
+    - target: {fileID: 1619290612254904410, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -224
+      objectReference: {fileID: 0}
+    - target: {fileID: 1619290612254904410, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 61
+      objectReference: {fileID: 0}
     - target: {fileID: 2991327852388161355, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
       propertyPath: m_Name
       value: GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 2991327852388161355, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3311277003160707212, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18964,108 +18915,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3857535852764621358, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4121125941991917146, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 911ac43c961808943b57e11752da634d, type: 3}
-    - target: {fileID: 4280150198537314546, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4280150198537314546, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4280150198537314546, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4280150198537314546, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4717757962660579526, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4717757962660579526, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4717757962660579526, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4717757962660579526, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5170748110996005463, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 166
-      objectReference: {fileID: 0}
-    - target: {fileID: 5201214458172614088, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 376f3edf73e584243af81427f294101b, type: 3}
-    - target: {fileID: 6277985456212673434, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 14.920541
-      objectReference: {fileID: 0}
-    - target: {fileID: 6277985456212673434, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 14.920541
-      objectReference: {fileID: 0}
-    - target: {fileID: 6277985456212673434, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 14.920541
-      objectReference: {fileID: 0}
-    - target: {fileID: 6277985456212673434, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -218
-      objectReference: {fileID: 0}
-    - target: {fileID: 6277985456212673434, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -345
-      objectReference: {fileID: 0}
-    - target: {fileID: 7530446602889324506, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8691872368466953373, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8691872368466953373, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8691872368466953373, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8691872368466953373, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8884448308896982397, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 2bc8a317a15bf514998d44bc18962c64, type: 3}
-    - target: {fileID: 8884448308896982397, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
-      propertyPath: m_FontData.m_FontStyle
-      value: 0
+    - target: {fileID: 9036189934223926053, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 65
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 4174065729667544585, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 394935660}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
 --- !u!1001 &1230041877
@@ -19134,7 +18990,7 @@ PrefabInstance:
       objectReference: {fileID: 391264898}
     - target: {fileID: 6528564689740277795, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
       propertyPath: tutorialMessage
-      value: pule duas vezes e salve seu progresso ao passar pelo checkpoint.
+      value: Pule duas vezes e salve seu progresso ao passar pelo checkpoint.
       objectReference: {fileID: 0}
     - target: {fileID: 8134172808228680320, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
       propertyPath: m_Size.y
@@ -19215,8 +19071,7 @@ PrefabInstance:
       objectReference: {fileID: 391264898}
     - target: {fileID: 6528564689740277795, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
       propertyPath: tutorialMessage
-      value: "Pule pera pegar a po\xE7\xE3o m\xE1gia. Ela vai te deixar r\xE1pido
-        comonunca!"
+      value: "Pegue a po\xE7\xE3o m\xE1gica, ela te dar\xE1 velocidade."
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20062,79 +19917,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cea972b24e59e6641a50e1c72f00be9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &1598119735
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 829326505429432161, guid: 508eaaa1541c59449aaff38cea49c73e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1661311952704958399, guid: 508eaaa1541c59449aaff38cea49c73e, type: 3}
-      propertyPath: m_Name
-      value: "Placa exclama\xE7\xE3o"
-      objectReference: {fileID: 0}
-    - target: {fileID: 4012583235031321171, guid: 508eaaa1541c59449aaff38cea49c73e, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.47978085
-      objectReference: {fileID: 0}
-    - target: {fileID: 4012583235031321171, guid: 508eaaa1541c59449aaff38cea49c73e, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.47978085
-      objectReference: {fileID: 0}
-    - target: {fileID: 4012583235031321171, guid: 508eaaa1541c59449aaff38cea49c73e, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.47978085
-      objectReference: {fileID: 0}
-    - target: {fileID: 4012583235031321171, guid: 508eaaa1541c59449aaff38cea49c73e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 49.50937
-      objectReference: {fileID: 0}
-    - target: {fileID: 4012583235031321171, guid: 508eaaa1541c59449aaff38cea49c73e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.72045
-      objectReference: {fileID: 0}
-    - target: {fileID: 4012583235031321171, guid: 508eaaa1541c59449aaff38cea49c73e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4012583235031321171, guid: 508eaaa1541c59449aaff38cea49c73e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4012583235031321171, guid: 508eaaa1541c59449aaff38cea49c73e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4012583235031321171, guid: 508eaaa1541c59449aaff38cea49c73e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4012583235031321171, guid: 508eaaa1541c59449aaff38cea49c73e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4012583235031321171, guid: 508eaaa1541c59449aaff38cea49c73e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4012583235031321171, guid: 508eaaa1541c59449aaff38cea49c73e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4012583235031321171, guid: 508eaaa1541c59449aaff38cea49c73e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 508eaaa1541c59449aaff38cea49c73e, type: 3}
 --- !u!4 &1598169965 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 834224390056607894, guid: 6a68c4bdd55371745bb32ba336f92c45, type: 3}
@@ -25767,7 +25549,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1159757805353817098, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 107.659996
+      value: 106.75
       objectReference: {fileID: 0}
     - target: {fileID: 1159757805353817098, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -25823,8 +25605,15 @@ PrefabInstance:
       objectReference: {fileID: 391264898}
     - target: {fileID: 6528564689740277795, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
       propertyPath: tutorialMessage
-      value: "isso \xE9 uma pedra magica. voce precisa achar ela em cada fase para
-        passar pelo portal."
+      value: "isso \xE9 uma pedra magica. Ela \xE9 necessaria para atravessar o portal."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134172808228680320, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
+      propertyPath: m_Size.y
+      value: 2.0095377
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134172808228680320, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.50476885
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25897,7 +25686,15 @@ PrefabInstance:
       objectReference: {fileID: 391264898}
     - target: {fileID: 6528564689740277795, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
       propertyPath: tutorialMessage
-      value: "cuidado com essa plataforma, ela desmorona ap\xF3s voc\xEA subir."
+      value: Cuidado com a plataforma de pedra, ela cai.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134172808228680320, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
+      propertyPath: m_Size.y
+      value: 2.0545673
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134172808228680320, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.52728367
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25975,8 +25772,7 @@ PrefabInstance:
       objectReference: {fileID: 391264898}
     - target: {fileID: 6528564689740277795, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
       propertyPath: tutorialMessage
-      value: "salte na nuvem para pegar a po\xE7\xE3o de vida. E cuidado, a nuvem
-        ir\xE1 sumir"
+      value: "salte na nuvem para chegar no outro lado. Ela ir\xE1 sumir."
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26334,13 +26130,94 @@ PrefabInstance:
       objectReference: {fileID: 391264898}
     - target: {fileID: 6528564689740277795, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
       propertyPath: tutorialMessage
-      value: "l\xE1 embaixo tem espinhos, salte para a \xE1rea segura usando a plataforma."
+      value: "L\xE1 embaixo tem espinhos, salte para a \xE1rea segura usando a plataforma."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134172808228680320, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
+      propertyPath: m_Size.y
+      value: 1.8562657
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134172808228680320, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.5021593
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
+--- !u!1001 &1864914362
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 829326505429432161, guid: 508eaaa1541c59449aaff38cea49c73e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1661311952704958399, guid: 508eaaa1541c59449aaff38cea49c73e, type: 3}
+      propertyPath: m_Name
+      value: "Placa exclama\xE7\xE3o (1)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012583235031321171, guid: 508eaaa1541c59449aaff38cea49c73e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.43857035
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012583235031321171, guid: 508eaaa1541c59449aaff38cea49c73e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.43857035
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012583235031321171, guid: 508eaaa1541c59449aaff38cea49c73e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.43857035
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012583235031321171, guid: 508eaaa1541c59449aaff38cea49c73e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 28.416025
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012583235031321171, guid: 508eaaa1541c59449aaff38cea49c73e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012583235031321171, guid: 508eaaa1541c59449aaff38cea49c73e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012583235031321171, guid: 508eaaa1541c59449aaff38cea49c73e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012583235031321171, guid: 508eaaa1541c59449aaff38cea49c73e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012583235031321171, guid: 508eaaa1541c59449aaff38cea49c73e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012583235031321171, guid: 508eaaa1541c59449aaff38cea49c73e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012583235031321171, guid: 508eaaa1541c59449aaff38cea49c73e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012583235031321171, guid: 508eaaa1541c59449aaff38cea49c73e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012583235031321171, guid: 508eaaa1541c59449aaff38cea49c73e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 508eaaa1541c59449aaff38cea49c73e, type: 3}
 --- !u!1001 &1866100123
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26710,7 +26587,15 @@ PrefabInstance:
       objectReference: {fileID: 391264898}
     - target: {fileID: 6528564689740277795, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
       propertyPath: tutorialMessage
-      value: pressione W para sunir a escada.
+      value: pressione W para subir a escada.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134172808228680320, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
+      propertyPath: m_Size.y
+      value: 1.9216815
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134172808228680320, guid: 3370f389f31d3354ba211b615e53d2d3, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.5348672
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28215,5 +28100,5 @@ SceneRoots:
   - {fileID: 1272072832}
   - {fileID: 1432192322}
   - {fileID: 411203024}
-  - {fileID: 1598119735}
   - {fileID: 1072970941}
+  - {fileID: 1864914362}
