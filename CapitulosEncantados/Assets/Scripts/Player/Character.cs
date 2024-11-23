@@ -49,9 +49,9 @@ public class Character : MonoBehaviour
     
     
     //novo 
-    private float stepDistance = 1f; // Distância para cada passo (ajuste conforme necessário)
-    private float distanceTravelled = 0f; // Acumula a distância percorrida
-    private Vector2 lastPosition; // Última posição registrada do personagem
+    private float stepDistance = 1f;
+    private float distanceTravelled = 0f; 
+    private Vector2 lastPosition; 
     
     
     
