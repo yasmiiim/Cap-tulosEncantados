@@ -48,12 +48,10 @@ public class Character : MonoBehaviour
 
     
     
-    //novo 
+    
     private float stepDistance = 1f;
     private float distanceTravelled = 0f; 
     private Vector2 lastPosition; 
-    
-    
     
     public float dashSpeed = 15f;
     public float dashDuration = 0.2f;
@@ -79,13 +77,11 @@ public class Character : MonoBehaviour
         
         lastPosition = transform.position;
     }
-
     void Awake()
     {
         animator = GetComponent<Animator>();
         soundFx = GetComponent<AudioSource>();
     }
-
     void Update()
     {
         pulo = Input.GetButtonDown("Jump");
