@@ -111,6 +111,7 @@ public class VidaPlayer : MonoBehaviour
         }
         else if (collision.tag == "Coracao")
         {
+            AudioObserver.OnPlaySfxEvent("coletar");
             ColetarCoracao();
             Destroy(collision.gameObject);
         }

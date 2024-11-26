@@ -376,6 +376,7 @@ public class Character : MonoBehaviour
 
         if (collision.gameObject.tag == "Pocao")
         {
+            AudioObserver.OnPlaySfxEvent("coletar");
             StartCoroutine(ActivateSuperSpeedAndDoubleShot());
             Destroy(collision.gameObject);
         }

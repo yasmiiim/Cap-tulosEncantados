@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beeSpeed: 3
-  vida: 3
+  vida: 1
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   colorChangeDuration: 0.2
 --- !u!95 &553750068192636921
