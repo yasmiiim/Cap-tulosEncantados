@@ -95,6 +95,8 @@ public class VidaPlayer : MonoBehaviour
         playerCollider.enabled = true;
         playerRigidbody.simulated = true;
 
+        StartCoroutine(InvulnerabilityPeriod()); // Invulnerável após respawn
+
         if (resetManager != null)
         {
             resetManager.ResetAll();
@@ -200,6 +202,11 @@ public class VidaPlayer : MonoBehaviour
 
         isInvulnerable = false;
         ResetColor();
+    }
+    
+    public bool IsInvulnerable()
+    {
+        return isInvulnerable;
     }
 
     private void ResetColor()

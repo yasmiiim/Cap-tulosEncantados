@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class Boss : MonoBehaviour
 {
@@ -32,8 +31,10 @@ public class Boss : MonoBehaviour
     private int damageCounter = 0;
 
     private Coroutine damageFlashCoroutine;
+    
+    public GameObject stonePrefab;
 
-    public string victorySceneName = "vitoria";
+    
 
     private void Start()
     {
@@ -167,7 +168,17 @@ public class Boss : MonoBehaviour
 
     private void Die()
     {
-        SceneManager.LoadScene(victorySceneName);
+        DropStone(); // Solta a pedra ao morrer
+        Destroy(gameObject); // Remove o Boss da cena
+    }
+
+    private void DropStone()
+    {
+        if (stonePrefab != null)
+        {
+            Vector3 dropPosition = transform.position;
+            Instantiate(stonePrefab, dropPosition, Quaternion.identity);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D col)

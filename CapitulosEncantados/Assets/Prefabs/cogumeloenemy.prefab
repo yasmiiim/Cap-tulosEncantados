@@ -146,7 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distanciaDePerseguicao: 3
   velocidade: 1
-  jogador: {fileID: 0}
+  jogador: {fileID: 834224390056607894, guid: 6a68c4bdd55371745bb32ba336f92c45, type: 3}
   vida: 4
   corNormal: {r: 1, g: 1, b: 1, a: 1}
   corDano: {r: 1, g: 0, b: 0, a: 1}
