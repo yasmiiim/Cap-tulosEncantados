@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class Boss : MonoBehaviour
 {
     public Transform player;
-    public float moveSpeed = 2f;
+    public float moveSpeed = 1f;
     public float attackDistance = 3f;
-    public float attackCooldown = 1f;
+    public float attackCooldown = 3f;
     private float lastAttackTime;
 
     private SpriteRenderer spriteRenderer;
@@ -19,18 +19,20 @@ public class Boss : MonoBehaviour
     
     public Image healthBar;
 
-    // Sistema de vida
-    public int maxHealth = 30;
+    public int maxHealth = 20;
     private int currentHealth;
-    public float damageFlashDuration = 0.1f; // Duração do flash branco ao levar dano
+    public float damageFlashDuration = 0.1f;
+
+    private Vector3 initialPosition; // Armazena a posição inicial do Boss.
 
     private void Start()
     {
-        currentHealth = maxHealth; // Configura a vida inicial
+        currentHealth = maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-        
         Physics2D.IgnoreCollision(GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
+        
+        initialPosition = transform.position; // Salva a posição inicial.
     }
 
     private void Update()
@@ -54,16 +56,12 @@ public class Boss : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
             animator.SetBool("isWalking", true);
-            animator.SetBool("isAttacking", false); // Para de atacar quando fora da distância
+            animator.SetBool("isAttacking", false);
         }
 
-        // Verificar a direção do jogador
         bool isPlayerOnRight = player.position.x > transform.position.x;
-
-        // Virar o Boss e o firePoint (invertendo o flipX e a posição do firePoint)
         spriteRenderer.flipX = isPlayerOnRight;
 
-        // Ajustar a posição do firePoint para seguir a rotação do Boss
         if (isPlayerOnRight)
         {
             firePoint.localPosition = new Vector3(Mathf.Abs(firePoint.localPosition.x), firePoint.localPosition.y, firePoint.localPosition.z);
@@ -78,32 +76,30 @@ public class Boss : MonoBehaviour
     {
         if (Time.time - lastAttackTime < attackCooldown) return;
 
-        animator.SetBool("isAttacking", true); // Define o estado de ataque
-        Invoke(nameof(ShootProjectile), 0.4f); // Dispara após 0.4 segundos
+        animator.SetBool("isAttacking", true);
+        Invoke(nameof(ShootProjectile), 0.4f);
         lastAttackTime = Time.time;
     }
 
     private void ShootProjectile()
     {
-        if (!animator.GetBool("isAttacking")) return; // Verifica se ainda está atacando
+        if (!animator.GetBool("isAttacking")) return;
 
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
-
-        // Calcula a direção com base apenas na posição relativa do jogador
         Vector2 direction = (player.position.x > transform.position.x) ? Vector2.right : Vector2.left;
 
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            rb.velocity = direction * 5f; // Define a velocidade do projétil
+            rb.velocity = direction * 5f;
         }
+
+        animator.SetBool("isAttacking", false);
     }
 
     private void TakeDamage(int damage)
     {
         currentHealth -= damage;
-
-        // Indica que o Boss foi atingido com um flash branco
         StartCoroutine(DamageFlash());
 
         if (currentHealth <= 0)
@@ -127,14 +123,14 @@ public class Boss : MonoBehaviour
     private IEnumerator DamageFlash()
     {
         Color originalColor = spriteRenderer.color;
-        spriteRenderer.color = Color.red; // Fica branco
+        spriteRenderer.color = Color.red;
         yield return new WaitForSeconds(damageFlashDuration);
-        spriteRenderer.color = originalColor; // Volta à cor original
+        spriteRenderer.color = originalColor;
     }
 
     private void Die()
     {
-        Destroy(gameObject); // Destroi o Boss
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -158,12 +154,20 @@ public class Boss : MonoBehaviour
 
     private void HandlePlayerDeath()
     {
-        RestoreHealth(); // Restaura a vida do Boss quando o jogador morrer
+        RestoreHealth();
+        ResetPosition(); // Volta para a posição inicial.
     }
     
     private void RestoreHealth()
     {
-        currentHealth = maxHealth; // Restaura a vida ao máximo
-        UpdateHealthBar();         // Atualiza a barra de vida
+        currentHealth = maxHealth;
+        UpdateHealthBar();
+    }
+
+    private void ResetPosition()
+    {
+        transform.position = initialPosition; // Move o Boss para a posição inicial.
+        animator.SetBool("isWalking", false); // Garante que as animações sejam resetadas.
+        animator.SetBool("isAttacking", false);
     }
 }

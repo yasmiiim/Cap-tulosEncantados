@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine.UI;
 
 public class VidaPlayer : MonoBehaviour
@@ -120,6 +121,10 @@ public class VidaPlayer : MonoBehaviour
             ReceberDano();
             Destroy(collision.gameObject);
         }
+        else if (collision.tag == "fogo")
+        {
+            Die();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D coli)
@@ -133,6 +138,7 @@ public class VidaPlayer : MonoBehaviour
             Die();
         }
     }
+    
 
     void Update()
     {

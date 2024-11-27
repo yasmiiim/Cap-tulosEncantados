@@ -15,6 +15,7 @@ TagManager:
   - chao
   - escada
   - BossProjectile
+  - fogo
   layers:
   - Default
   - TransparentFX
