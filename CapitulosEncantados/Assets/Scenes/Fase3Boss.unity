@@ -8563,7 +8563,8 @@ MonoBehaviour:
   maxHealth: 20
   damageFlashDuration: 0.1
   healthPotionPrefab: {fileID: 8648726373810057394, guid: 5bd1c8d577548d346883ce01526a841a, type: 3}
-  speedPotionPrefab: {fileID: 2912537963545822060, guid: ae731cdf6fb883e41951840027019af4, type: 3}
+  speedPotionPrefab: {fileID: 0}
+  victorySceneName: vitoria
 --- !u!1 &1678531098
 GameObject:
   m_ObjectHideFlags: 0

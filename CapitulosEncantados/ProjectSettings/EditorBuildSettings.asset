@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Fase2.unity
     guid: a26a2c9a558b93946990df350620b07a
+  - enabled: 1
+    path: Assets/Scenes/vitoria.unity
+    guid: 56f940291bb5f6341838e9c62db53386
   m_configObjects: {}

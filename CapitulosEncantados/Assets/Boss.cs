@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Boss : MonoBehaviour
 {
@@ -29,6 +30,10 @@ public class Boss : MonoBehaviour
     public GameObject speedPotionPrefab;
 
     private int damageCounter = 0;
+
+    private Coroutine damageFlashCoroutine;
+
+    public string victorySceneName = "vitoria";
 
     private void Start()
     {
@@ -116,7 +121,12 @@ public class Boss : MonoBehaviour
             DropPotion(speedPotionPrefab);
         }
 
-        StartCoroutine(DamageFlash());
+        if (damageFlashCoroutine != null)
+        {
+            StopCoroutine(damageFlashCoroutine);
+        }
+
+        damageFlashCoroutine = StartCoroutine(DamageFlashRoutine());
 
         if (currentHealth <= 0)
         {
@@ -132,13 +142,8 @@ public class Boss : MonoBehaviour
     {
         if (potionPrefab != null)
         {
-            // Determina a direção baseada no flip do sprite
-            float directionOffset = spriteRenderer.flipX ? 1f : -1f; 
-
-            // Calcula a posição na frente do inimigo
+            float directionOffset = spriteRenderer.flipX ? 1f : -1f;
             Vector3 dropPosition = transform.position + new Vector3(directionOffset, 0f, 0f);
-
-            // Instancia o item na posição calculada
             Instantiate(potionPrefab, dropPosition, Quaternion.identity);
         }
     }
@@ -151,17 +156,18 @@ public class Boss : MonoBehaviour
         }
     }
 
-    private IEnumerator DamageFlash()
+    private IEnumerator DamageFlashRoutine()
     {
         Color originalColor = spriteRenderer.color;
         spriteRenderer.color = Color.red;
         yield return new WaitForSeconds(damageFlashDuration);
         spriteRenderer.color = originalColor;
+        damageFlashCoroutine = null;
     }
 
     private void Die()
     {
-        Destroy(gameObject);
+        SceneManager.LoadScene(victorySceneName);
     }
 
     private void OnTriggerEnter2D(Collider2D col)
