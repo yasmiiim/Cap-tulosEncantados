@@ -8562,6 +8562,8 @@ MonoBehaviour:
   healthBar: {fileID: 1678531099}
   maxHealth: 20
   damageFlashDuration: 0.1
+  healthPotionPrefab: {fileID: 8648726373810057394, guid: 5bd1c8d577548d346883ce01526a841a, type: 3}
+  speedPotionPrefab: {fileID: 2912537963545822060, guid: ae731cdf6fb883e41951840027019af4, type: 3}
 --- !u!1 &1678531098
 GameObject:
   m_ObjectHideFlags: 0
@@ -8759,11 +8761,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1297732706694693302, guid: 464f737164d36ec44b17074ca96e0544, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.72
+      value: -3.48
       objectReference: {fileID: 0}
     - target: {fileID: 1297732706694693302, guid: 464f737164d36ec44b17074ca96e0544, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.8847568
+      value: -3.81
       objectReference: {fileID: 0}
     - target: {fileID: 1297732706694693302, guid: 464f737164d36ec44b17074ca96e0544, type: 3}
       propertyPath: m_LocalPosition.z

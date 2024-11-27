@@ -16,14 +16,19 @@ public class Boss : MonoBehaviour
 
     public GameObject projectilePrefab;
     public Transform firePoint;
-    
+
     public Image healthBar;
 
     public int maxHealth = 20;
     private int currentHealth;
     public float damageFlashDuration = 0.1f;
 
-    private Vector3 initialPosition; // Armazena a posição inicial do Boss.
+    private Vector3 initialPosition;
+
+    public GameObject healthPotionPrefab;
+    public GameObject speedPotionPrefab;
+
+    private int damageCounter = 0;
 
     private void Start()
     {
@@ -31,8 +36,7 @@ public class Boss : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         Physics2D.IgnoreCollision(GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
-        
-        initialPosition = transform.position; // Salva a posição inicial.
+        initialPosition = transform.position;
     }
 
     private void Update()
@@ -100,6 +104,18 @@ public class Boss : MonoBehaviour
     private void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        damageCounter += damage;
+
+        if (damageCounter >= 5 && damageCounter % 5 == 0)
+        {
+            DropPotion(healthPotionPrefab);
+        }
+
+        if (damageCounter >= 7 && damageCounter % 7 == 0)
+        {
+            DropPotion(speedPotionPrefab);
+        }
+
         StartCoroutine(DamageFlash());
 
         if (currentHealth <= 0)
@@ -111,7 +127,22 @@ public class Boss : MonoBehaviour
             UpdateHealthBar();
         }
     }
-    
+
+    private void DropPotion(GameObject potionPrefab)
+    {
+        if (potionPrefab != null)
+        {
+            // Determina a direção baseada no flip do sprite
+            float directionOffset = spriteRenderer.flipX ? 1f : -1f; 
+
+            // Calcula a posição na frente do inimigo
+            Vector3 dropPosition = transform.position + new Vector3(directionOffset, 0f, 0f);
+
+            // Instancia o item na posição calculada
+            Instantiate(potionPrefab, dropPosition, Quaternion.identity);
+        }
+    }
+
     private void UpdateHealthBar()
     {
         if (healthBar != null)
@@ -141,7 +172,7 @@ public class Boss : MonoBehaviour
             Destroy(col.gameObject);
         }
     }
-    
+
     private void OnEnable()
     {
         VidaPlayer.OnPlayerDeath += HandlePlayerDeath;
@@ -155,9 +186,9 @@ public class Boss : MonoBehaviour
     private void HandlePlayerDeath()
     {
         RestoreHealth();
-        ResetPosition(); // Volta para a posição inicial.
+        ResetPosition();
     }
-    
+
     private void RestoreHealth()
     {
         currentHealth = maxHealth;
@@ -166,8 +197,8 @@ public class Boss : MonoBehaviour
 
     private void ResetPosition()
     {
-        transform.position = initialPosition; // Move o Boss para a posição inicial.
-        animator.SetBool("isWalking", false); // Garante que as animações sejam resetadas.
+        transform.position = initialPosition;
+        animator.SetBool("isWalking", false);
         animator.SetBool("isAttacking", false);
     }
 }
