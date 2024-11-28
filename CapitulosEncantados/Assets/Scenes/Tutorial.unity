@@ -18964,6 +18964,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3857535852764621358, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4280150198537314546, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -28004,6 +28008,35 @@ PrefabInstance:
       propertyPath: dialoguepanel
       value: 
       objectReference: {fileID: 603981400}
+    - target: {fileID: 4772516079162985527, guid: 797768bdd5902ff4c8e99cd02ef6ccdf, type: 3}
+      propertyPath: dialogueObj.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4772516079162985527, guid: 797768bdd5902ff4c8e99cd02ef6ccdf, type: 3}
+      propertyPath: dialogueObj.Array.data[0]
+      value: "Ol\xE1, Chloe! Eu sou a Sage, sua guia neste mundo encantado. Estou
+        aqui para te ajudar a escapar daqui!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4772516079162985527, guid: 797768bdd5902ff4c8e99cd02ef6ccdf, type: 3}
+      propertyPath: dialogueObj.Array.data[1]
+      value: "Para sair deste lugar m\xE1gico, voc\xEA precisar\xE1 encontrar tr\xEAs
+        pedras especiais. Elas est\xE3o espalhadas por este mundo, e cada uma guarda
+        um poder \xFAnico!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4772516079162985527, guid: 797768bdd5902ff4c8e99cd02ef6ccdf, type: 3}
+      propertyPath: dialogueObj.Array.data[2]
+      value: "A \xFAltima pedra est\xE1 com a poderosa Valkyria, uma guardi\xE3 implac\xE1vel.
+        Para recuper\xE1-la, voc\xEA precisar\xE1 enfrent\xE1-la em uma batalha."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4772516079162985527, guid: 797768bdd5902ff4c8e99cd02ef6ccdf, type: 3}
+      propertyPath: dialogueObj.Array.data[3]
+      value: "Prepare-se, Chloe! Esta ser\xE1 sua maior prova. Confie em suas habilidades
+        e n\xE3o desista. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 4772516079162985527, guid: 797768bdd5902ff4c8e99cd02ef6ccdf, type: 3}
+      propertyPath: dialogueObj.Array.data[4]
+      value: "Siga em frente que irei te dizer o que voc\xEA deve fazer. Boa sorte!"
+      objectReference: {fileID: 0}
     - target: {fileID: 6060911923425604703, guid: 797768bdd5902ff4c8e99cd02ef6ccdf, type: 3}
       propertyPath: m_Name
       value: Sage

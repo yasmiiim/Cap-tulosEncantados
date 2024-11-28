@@ -175,6 +175,7 @@ public class Boss : MonoBehaviour
         }
         DropStone(); // Solta a pedra ao morrer
         Destroy(gameObject); // Remove o Boss da cena
+        SceneManager.LoadScene("vitoria");
     }
 
     private void DropStone()
