@@ -133,6 +133,7 @@ MonoBehaviour:
   damageColor: {r: 0.9528302, g: 0.15730685, b: 0.1978919, a: 1}
   colorChangeDuration: 0.2
   changeDirectionInterval: 3
+  deathParticlesPrefab: {fileID: 689726083408213392, guid: c857e9a94f2d381448f77e14c85f5ad8, type: 3}
 --- !u!61 &4628950677721818394
 BoxCollider2D:
   m_ObjectHideFlags: 0

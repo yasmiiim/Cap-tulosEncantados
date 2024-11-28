@@ -18,6 +18,8 @@ public class inimigo : MonoBehaviour
     public float changeDirectionInterval = 2.0f; 
     private Animator animator; 
 
+    public GameObject deathParticlesPrefab; // Prefab do sistema de partículas
+
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -114,6 +116,14 @@ public class inimigo : MonoBehaviour
         {
             animator.SetTrigger("Die");
         }
+
+        // Instancia partículas no local do inimigo
+        if (deathParticlesPrefab != null)
+        {
+            Instantiate(deathParticlesPrefab, transform.position, Quaternion.identity);
+        }
+
+        // Destroi o inimigo
         Destroy(this.gameObject);
     }
 }
