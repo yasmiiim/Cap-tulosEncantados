@@ -18920,6 +18920,66 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1406674214}
+    - target: {fileID: 532368431340973488, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 757.1417
+      objectReference: {fileID: 0}
+    - target: {fileID: 532368431340973488, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 143.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 532368431340973488, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 25.335804
+      objectReference: {fileID: 0}
+    - target: {fileID: 532368431340973488, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -35.152
+      objectReference: {fileID: 0}
+    - target: {fileID: 1318034369923250886, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1318034369923250886, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 259964a6ca159b042803db952776fd9d, type: 3}
+    - target: {fileID: 1318034369923250886, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1318034369923250886, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1318034369923250886, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624215311787657310, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 373.0675
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624215311787657310, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 52.9446
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624215311787657310, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -471.49084
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624215311787657310, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 457
+      objectReference: {fileID: 0}
+    - target: {fileID: 2979160271310684022, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2979160271310684022, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 259964a6ca159b042803db952776fd9d, type: 3}
     - target: {fileID: 2991327852388161355, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -18966,7 +19026,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3857535852764621358, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174065729667544585, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.0707
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174065729667544585, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.0707
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174065729667544585, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.0707
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174065729667544585, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 4280150198537314546, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
       propertyPath: m_AnchorMax.y
@@ -19004,6 +19080,10 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 02bb6c116f27847418c818a80e135aea, type: 3}
+    - target: {fileID: 7530446602889324506, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8691872368466953373, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -19020,6 +19100,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8884448308896982397, guid: 54fb7cb7701d60545a1e2aac8c4639a5, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 259964a6ca159b042803db952776fd9d, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28010,32 +28094,36 @@ PrefabInstance:
       objectReference: {fileID: 603981400}
     - target: {fileID: 4772516079162985527, guid: 797768bdd5902ff4c8e99cd02ef6ccdf, type: 3}
       propertyPath: dialogueObj.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4772516079162985527, guid: 797768bdd5902ff4c8e99cd02ef6ccdf, type: 3}
       propertyPath: dialogueObj.Array.data[0]
       value: "Ol\xE1, Chloe! Eu sou a Sage, sua guia neste mundo encantado. Estou
-        aqui para te ajudar a escapar daqui!"
+        aqui para te ajudar a voltar para casa!"
       objectReference: {fileID: 0}
     - target: {fileID: 4772516079162985527, guid: 797768bdd5902ff4c8e99cd02ef6ccdf, type: 3}
       propertyPath: dialogueObj.Array.data[1]
-      value: "Para sair deste lugar m\xE1gico, voc\xEA precisar\xE1 encontrar tr\xEAs
-        pedras especiais. Elas est\xE3o espalhadas por este mundo, e cada uma guarda
-        um poder \xFAnico!"
+      value: "Para sair deste lugar, voc\xEA precisar\xE1 encontrar tr\xEAs pedras
+        que est\xE3o espalhadas por este mundo."
       objectReference: {fileID: 0}
     - target: {fileID: 4772516079162985527, guid: 797768bdd5902ff4c8e99cd02ef6ccdf, type: 3}
       propertyPath: dialogueObj.Array.data[2]
-      value: "A \xFAltima pedra est\xE1 com a poderosa Valkyria, uma guardi\xE3 implac\xE1vel.
-        Para recuper\xE1-la, voc\xEA precisar\xE1 enfrent\xE1-la em uma batalha."
+      value: "A \xFAltima pedra est\xE1 com a poderosa Valkyria, a guardi\xE3 do
+        fogo de Lunara. "
       objectReference: {fileID: 0}
     - target: {fileID: 4772516079162985527, guid: 797768bdd5902ff4c8e99cd02ef6ccdf, type: 3}
       propertyPath: dialogueObj.Array.data[3]
+      value: "Para conseguir a \xFAltima pedra, voc\xEA ter\xE1 que derrot\xE1-la
+        em uma batalha final."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4772516079162985527, guid: 797768bdd5902ff4c8e99cd02ef6ccdf, type: 3}
+      propertyPath: dialogueObj.Array.data[4]
       value: "Prepare-se, Chloe! Esta ser\xE1 sua maior prova. Confie em suas habilidades
         e n\xE3o desista. "
       objectReference: {fileID: 0}
     - target: {fileID: 4772516079162985527, guid: 797768bdd5902ff4c8e99cd02ef6ccdf, type: 3}
-      propertyPath: dialogueObj.Array.data[4]
-      value: "Siga em frente que irei te dizer o que voc\xEA deve fazer. Boa sorte!"
+      propertyPath: dialogueObj.Array.data[5]
+      value: Siga em frente que irei te dizer o que fazer. Boa sorte!
       objectReference: {fileID: 0}
     - target: {fileID: 6060911923425604703, guid: 797768bdd5902ff4c8e99cd02ef6ccdf, type: 3}
       propertyPath: m_Name
