@@ -127,6 +127,10 @@ public class VidaPlayer : MonoBehaviour
         {
             Die();
         }
+        else if (collision.tag == "abelha")
+        {
+            ReceberDano();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D coli)

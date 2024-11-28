@@ -16,6 +16,7 @@ TagManager:
   - escada
   - BossProjectile
   - fogo
+  - abelha
   layers:
   - Default
   - TransparentFX
