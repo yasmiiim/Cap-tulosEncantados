@@ -70,6 +70,14 @@ public class Character : MonoBehaviour
     private bool canAttack = true;
 
     public portal portalScript;
+    
+    
+    private int lastWallJumpDirection = 0; // -1 para esquerda, 1 para direita, 0 para nenhum
+    private float wallJumpCooldown = 0.2f; // Tempo de espera após um wall jump
+    private bool canWallJumpAgain = true; // Controle para impedir spams rápidos
+    
+    
+    
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
@@ -155,6 +163,7 @@ public class Character : MonoBehaviour
 
         if (isgrounded)
         {
+            lastWallJumpDirection = 0;
             animator.SetBool(doubleJumpHash, false);
             animator.SetBool(saltandoHash, false);
         }
@@ -287,12 +296,25 @@ public class Character : MonoBehaviour
 
     private void WallJump()
     {
-        if (canWallJump)
+        int wallDirection = flipX ? -1 : 1; // Define o lado atual da parede (-1 para esquerda, 1 para direita)
+
+        // Verifica se é permitido saltar na parede atual
+        if (canWallJump && canWallJumpAgain && wallDirection != lastWallJumpDirection)
         {
-            rig.velocity = new Vector2(flipX ? jumpForce : -jumpForce, jumpForce);
+            rig.velocity = new Vector2(wallDirection * jumpForce, jumpForce); // Aplica força no salto
             canWallJump = false;
-            animator.SetBool(isSlidingHash, false);
+            lastWallJumpDirection = wallDirection; // Atualiza o lado da parede do último salto
+            animator.SetBool(isSlidingHash, false); // Remove a animação de deslizar
+
+            StartCoroutine(WallJumpCooldown()); // Inicia o cooldown
         }
+    }
+    
+    private IEnumerator WallJumpCooldown()
+    {
+        canWallJumpAgain = false; // Desativa temporariamente a capacidade de pular na parede
+        yield return new WaitForSeconds(wallJumpCooldown); // Espera o tempo do cooldown
+        canWallJumpAgain = true; // Permite pular novamente
     }
 
     private void Atirar()
