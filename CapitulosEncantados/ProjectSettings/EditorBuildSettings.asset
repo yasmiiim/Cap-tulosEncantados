@@ -13,10 +13,16 @@ EditorBuildSettings:
     guid: e46406ddcb790a84999060f49ca300f2
   - enabled: 1
     path: Assets/Scenes/fase1.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    guid: bcb57c01cad86af45a9e52d39387b19f
   - enabled: 1
     path: Assets/Scenes/Fase2.unity
     guid: a26a2c9a558b93946990df350620b07a
+  - enabled: 1
+    path: Assets/Scenes/fase3.unity
+    guid: d7f285fc553db4d4c97673e92159f90f
+  - enabled: 1
+    path: Assets/Scenes/Fase3Boss.unity
+    guid: d54fcbfc6208c0e43aaf31397c29884c
   - enabled: 1
     path: Assets/Scenes/vitoria.unity
     guid: 56f940291bb5f6341838e9c62db53386
