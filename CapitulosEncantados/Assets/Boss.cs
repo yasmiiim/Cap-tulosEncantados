@@ -35,7 +35,7 @@ public class Boss : MonoBehaviour
     
     public GameObject stonePrefab;
 
-    
+    public GameObject deathParticlesPrefab;
 
     private void Start()
     {
@@ -169,6 +169,10 @@ public class Boss : MonoBehaviour
 
     private void Die()
     {
+        if (deathParticlesPrefab != null)
+        {
+            Instantiate(deathParticlesPrefab, transform.position, Quaternion.identity);
+        }
         DropStone(); // Solta a pedra ao morrer
         Destroy(gameObject); // Remove o Boss da cena
     }
