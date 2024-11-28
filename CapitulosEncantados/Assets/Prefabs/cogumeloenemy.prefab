@@ -152,6 +152,7 @@ MonoBehaviour:
   corDano: {r: 1, g: 0, b: 0, a: 1}
   tempoDano: 0.1
   animator: {fileID: 6695784588262821600}
+  deathParticlesPrefab: {fileID: 3046283505984848652, guid: 66955865c5378144ab0fca3817f12ce1, type: 3}
 --- !u!95 &6695784588262821600
 Animator:
   serializedVersion: 5

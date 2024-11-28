@@ -15,6 +15,8 @@ public class inimPersegue : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private bool estaPerseguindo = false;
     public Animator animator;
+    
+    public GameObject deathParticlesPrefab;
 
     void Start()
     {
@@ -71,6 +73,11 @@ public class inimPersegue : MonoBehaviour
 
     void Morrer()
     {
+        if (deathParticlesPrefab != null)
+        {
+            Instantiate(deathParticlesPrefab, transform.position, Quaternion.identity);
+        }
+
         Destroy(gameObject);
     }
 
