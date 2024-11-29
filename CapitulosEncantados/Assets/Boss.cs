@@ -9,7 +9,7 @@ public class Boss : MonoBehaviour
     public Transform player;
     public float moveSpeed = 1f;
     public float attackDistance = 3f;
-    public float attackCooldown = 3f;
+    public float attackCooldown = 1.5f;
     private float lastAttackTime;
 
     private SpriteRenderer spriteRenderer;
@@ -102,7 +102,7 @@ public class Boss : MonoBehaviour
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            rb.velocity = direction * 5f;
+            rb.velocity = direction * 3f;
         }
 
         animator.SetBool("isAttacking", false);
