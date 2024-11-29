@@ -118,12 +118,12 @@ public class Boss : MonoBehaviour
         currentHealth -= damage;
         damageCounter += damage;
 
-        if (damageCounter >= 5 && damageCounter % 5 == 0)
+        if (damageCounter >= 7 && damageCounter % 7 == 0)
         {
             DropPotion(healthPotionPrefab);
         }
 
-        if (damageCounter >= 7 && damageCounter % 7 == 0)
+        if (damageCounter >= 9 && damageCounter % 9 == 0)
         {
             DropPotion(speedPotionPrefab);
         }
@@ -236,7 +236,8 @@ public class Boss : MonoBehaviour
 
     private void HandlePlayerDeath()
     {
-        StartCoroutine(TransicaoCena("gameover")); // Faz a transição para a cena de game over
+        RestoreHealth();
+        ResetPosition();
     }
 
     private IEnumerator TransicaoCena(string sceneName)
