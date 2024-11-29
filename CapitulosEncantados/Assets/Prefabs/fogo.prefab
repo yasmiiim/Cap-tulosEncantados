@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 5
-  alturaMaxima: 3
+  alturaMaxima: 10
   alturaMinima: -7
   spriteSubindo: {fileID: 21300000, guid: e0e4eab8ab4c14b498939e4253c2e559, type: 3}
   spriteDescendo: {fileID: 21300000, guid: 14db8b342a48aca4e8191277feb1b8e2, type: 3}
