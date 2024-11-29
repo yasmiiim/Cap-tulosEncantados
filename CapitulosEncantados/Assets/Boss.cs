@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Boss : MonoBehaviour
 {
-    public Transform player;
+      public Transform player;
     public float moveSpeed = 1f;
     public float attackDistance = 3f;
     public float attackCooldown = 1.5f;
@@ -32,10 +32,13 @@ public class Boss : MonoBehaviour
     private int damageCounter = 0;
 
     private Coroutine damageFlashCoroutine;
-    
+
     public GameObject stonePrefab;
 
     public GameObject deathParticlesPrefab;
+
+    public Animator fadeAnimator; // Animator do fade
+    private bool isTransitioning = false; // Para evitar múltiplas ativações
 
     private void Start()
     {
@@ -171,11 +174,34 @@ public class Boss : MonoBehaviour
     {
         if (deathParticlesPrefab != null)
         {
-            Instantiate(deathParticlesPrefab, transform.position, Quaternion.identity);
+            GameObject deathParticles =  Instantiate(deathParticlesPrefab, transform.position, Quaternion.identity);
+            Destroy(deathParticles, 2f);
         }
+        
+        spriteRenderer.enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+        animator.enabled = false;
+        
         DropStone(); // Solta a pedra ao morrer
-        Destroy(gameObject); // Remove o Boss da cena
+        StartCoroutine(HandleDeath());
+    }
+    
+    private IEnumerator HandleDeath()
+    {
+        
+        if (fadeAnimator != null)
+        {
+            fadeAnimator.SetTrigger("End");
+        }
+
+        // Aguarda o tempo do fade-out
+        float fadeOutDuration = GetAnimationDuration("levelend");
+        yield return new WaitForSeconds(fadeOutDuration);
+
+        // Carrega a cena de vitória
         SceneManager.LoadScene("vitoria");
+        
+        
     }
 
     private void DropStone()
@@ -208,11 +234,42 @@ public class Boss : MonoBehaviour
 
     private void HandlePlayerDeath()
     {
-       // RestoreHealth();
-       // ResetPosition();
-       SceneManager.LoadScene("gameover");
+        StartCoroutine(TransicaoCena("gameover")); // Faz a transição para a cena de game over
     }
 
+    private IEnumerator TransicaoCena(string sceneName)
+    {
+        if (isTransitioning) yield break;
+
+        isTransitioning = true;
+
+        if (fadeAnimator != null)
+        {
+            fadeAnimator.SetTrigger("End");
+        }
+
+        float fadeOutDuration = GetAnimationDuration("levelend"); // Nome do clipe de fade out no Animator
+        yield return new WaitForSeconds(fadeOutDuration);
+
+        SceneManager.LoadScene(sceneName);
+    }
+
+    private float GetAnimationDuration(string animationName)
+    {
+        if (fadeAnimator == null) return 0f;
+
+        AnimationClip[] clips = fadeAnimator.runtimeAnimatorController.animationClips;
+        foreach (AnimationClip clip in clips)
+        {
+            if (clip.name == animationName)
+            {
+                return clip.length;
+            }
+        }
+
+        return 0f; // Retorna 0 caso não encontre a animação
+    }
+//
     private void RestoreHealth()
     {
         currentHealth = maxHealth;
