@@ -67,6 +67,7 @@ public class VidaPlayer : MonoBehaviour
     public void Die()
     {
         OnPlayerDeath?.Invoke();
+        ResetarInimigos();
         
         vidaAtual = vidaMaxima;
         HealthLogic();
@@ -75,6 +76,16 @@ public class VidaPlayer : MonoBehaviour
         ResetColor();
 
         StartCoroutine(RespawnAfterParticles());
+    }
+    
+    private void ResetarInimigos()
+    {
+        // Busca todos os objetos com o script inimPersegue
+        inimPersegue[] inimigos = FindObjectsOfType<inimPersegue>();
+        foreach (var inimigo in inimigos)
+        {
+            inimigo.Resetar(); // Chama o método Resetar no inimigo
+        }
     }
 
     private IEnumerator RespawnAfterParticles()
