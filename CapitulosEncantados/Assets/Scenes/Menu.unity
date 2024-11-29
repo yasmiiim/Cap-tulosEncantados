@@ -1758,7 +1758,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 28.6, y: 8.3}
+  m_AnchoredPosition: {x: 27.5, y: 9.3}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1294436382
@@ -2069,7 +2069,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0a290d1ea5ab12e4ea7e94daa22f4055, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a441913e7352a714a8e979b6af6cfd62, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3163,7 +3163,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -13.4, y: -10.8}
+  m_AnchoredPosition: {x: -15, y: -10.8}
   m_SizeDelta: {x: 59.19379, y: 45.97697}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1837143983
@@ -3186,10 +3186,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Andar para a direita: "D"/seta direita
+  m_text: 'Andar para a direita: "D"/seta para direita
 
-    Andar para a esquerda: "A"/seta
-    esquerda
+    Andar para a esquerda:
+    "A"/seta para esquerda
 
     Pausar o jogo: "Esc"
 
