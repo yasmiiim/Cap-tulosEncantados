@@ -100,12 +100,14 @@ public class Boss : MonoBehaviour
         if (!animator.GetBool("isAttacking")) return;
 
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
-        Vector2 direction = (player.position.x > transform.position.x) ? Vector2.right : Vector2.left;
+
+        // Calcula a direção em relação ao jogador
+        Vector2 direction = (player.position - firePoint.position).normalized;
 
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            rb.velocity = direction * 3f;
+            rb.velocity = direction * 3f; // Ajuste a velocidade aqui
         }
 
         animator.SetBool("isAttacking", false);
