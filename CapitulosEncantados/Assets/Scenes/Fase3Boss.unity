@@ -11805,7 +11805,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4181364944099769113, guid: 694786de641953447a51709303855db9, type: 3}
   firePoint: {fileID: 287023938}
   healthBar: {fileID: 1678531099}
-  maxHealth: 2
+  maxHealth: 20
   damageFlashDuration: 0.1
   healthPotionPrefab: {fileID: 8648726373810057394, guid: 5bd1c8d577548d346883ce01526a841a, type: 3}
   speedPotionPrefab: {fileID: 0}
