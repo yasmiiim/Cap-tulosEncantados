@@ -54,7 +54,7 @@ public class Tutirial : MonoBehaviour
             dialoguepanel.SetActive(false);
             startDialogue = false;
             dialogueIndex = 0;
-            FindObjectOfType<Character>().Speed = 10f;
+            FindObjectOfType<Character>().Speed = 5f;
         }
     }
 
