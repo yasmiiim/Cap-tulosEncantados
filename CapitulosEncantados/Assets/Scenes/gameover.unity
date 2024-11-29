@@ -634,6 +634,7 @@ GameObject:
   - component: {fileID: 753484656}
   - component: {fileID: 753484655}
   - component: {fileID: 753484654}
+  - component: {fileID: 753484657}
   m_Layer: 5
   m_Name: jogar novamente
   m_TagString: Untagged
@@ -755,6 +756,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 753484652}
   m_CullTransparentMesh: 1
+--- !u!95 &753484657
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753484652}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f3f9fbdf87ec72c40b0d0d836ece4392, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &810367064
 GameObject:
   m_ObjectHideFlags: 0
@@ -934,6 +956,7 @@ GameObject:
   - component: {fileID: 1008235156}
   - component: {fileID: 1008235155}
   - component: {fileID: 1008235154}
+  - component: {fileID: 1008235157}
   m_Layer: 5
   m_Name: menu inicial
   m_TagString: Untagged
@@ -1055,6 +1078,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1008235152}
   m_CullTransparentMesh: 1
+--- !u!95 &1008235157
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008235152}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 65849fdcfbaaa094e8582859a422fff1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1118647503
 GameObject:
   m_ObjectHideFlags: 0
