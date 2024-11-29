@@ -273,8 +273,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Ap\xF3s Chloe encostar no livro, a luz come\xE7a a se espalhar, e de repente,
-    a menina \xE9 transportada para dentro do livro."
+  m_text: A luz rapidamente se espalhou, envolvendo tudo ao redor, e Chloe foi transportada
+    para dentro do livro.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b82d3aec5af9ac74799f3eb9209efb98, type: 2}
   m_sharedMaterial: {fileID: 8007764296790300425, guid: b82d3aec5af9ac74799f3eb9209efb98, type: 2}
@@ -337,7 +337,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -307.3527, y: -8.727762, z: -200.85176, w: 0}
+  m_margin: {x: -307.3527, y: -8.727762, z: -209.96635, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -360,7 +360,7 @@ RectTransform:
   m_GameObject: {fileID: 114374526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.91515, y: 0.91515, z: 0.91515}
+  m_LocalScale: {x: 0.8763202, y: 0.8763202, z: 0.8763202}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1914004659}
@@ -520,8 +520,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Chegando l\xE1, a garota se depara com um livro diferente com uma luz
-    em volta dele."
+  m_text: "Entre os livros, um em especial brilhava intensamente. Curiosa, ela decidiu
+    toc\xE1-lo."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b82d3aec5af9ac74799f3eb9209efb98, type: 2}
   m_sharedMaterial: {fileID: 8007764296790300425, guid: b82d3aec5af9ac74799f3eb9209efb98, type: 2}
@@ -584,7 +584,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -200.09691, y: 0, z: -180.82538, w: 0}
+  m_margin: {x: -200.09691, y: 0, z: -258.0354, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -607,14 +607,14 @@ RectTransform:
   m_GameObject: {fileID: 388255201}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.94343, y: 0.94343, z: 0.94343}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1914004659}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 21, y: 161}
+  m_AnchoredPosition: {x: 21, y: 154}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &462077931
@@ -1333,14 +1333,14 @@ RectTransform:
   m_GameObject: {fileID: 1989438834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.92222, y: 0.92222, z: 0.92222}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1914004659}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 50, y: 152}
+  m_AnchoredPosition: {x: 50, y: 145}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1989438836
@@ -1473,7 +1473,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Certo dia Chlove resolveu ir at\xE9 a biblioteca de seu pai."
+  m_text: "Chloe estava na biblioteca de seu pai quando algo incomum chamou sua aten\xE7\xE3o."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b82d3aec5af9ac74799f3eb9209efb98, type: 2}
   m_sharedMaterial: {fileID: 8007764296790300425, guid: b82d3aec5af9ac74799f3eb9209efb98, type: 2}
@@ -1536,7 +1536,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -193.27557, y: 0, z: -129.74336, w: 0}
+  m_margin: {x: -222.14496, y: -14.434694, z: -210.40208, w: 4.330427}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
